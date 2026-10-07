@@ -47,7 +47,8 @@ static const uint8_t PIN_P1_LPWM = 32;  // L_PWM1
 static const uint8_t PIN_P1_REN  = 26;  // R_EN1
 static const uint8_t PIN_P1_LEN  = 13;  // L_EN1
 // Pump 2 -> U3
-static const uint8_t PIN_P2_RPWM = 19;  // R_PWM2
+static const uint8_t PIN_P2_RPWM = 19;  // R_PWM2 - trace missing on the PCB (organiser notice);
+                                        // P-02 is driven from L_PWM2 instead, see P2_REVERSE
 static const uint8_t PIN_P2_LPWM = 18;  // L_PWM2
 static const uint8_t PIN_P2_REN  = 17;  // R_EN2
 static const uint8_t PIN_P2_LEN  = 16;  // L_EN2
@@ -77,7 +78,8 @@ static const uint8_t FLUSH_DUTY_P3 = 100;
 // Diaphragm pumps usually pump the same direction either way, but a pump with
 // an internal diode only runs with the right polarity.
 static const bool P1_REVERSE = false;
-static const bool P2_REVERSE = false;
+static const bool P2_REVERSE = true;   // must stay true: R_PWM2 has no trace, so PWM goes out on L_PWM2.
+                                       // Swap P-02's two motor wires on the IBT_2 output if it runs backwards.
 static const bool P3_REVERSE = false;
 
 // Sequence timing (seconds). CASE1 and BV02 can be changed at runtime.
