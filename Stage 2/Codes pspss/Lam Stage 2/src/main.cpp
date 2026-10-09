@@ -82,6 +82,12 @@ static const bool P2_REVERSE = true; // must stay true: R_PWM2 has no trace, so 
                                      // Swap P-02's two motor wires on the IBT_2 output if it runs backwards.
 static const bool P3_REVERSE = false;
 
+// Alternative P-02 wiring: jumper the IBT_2's RPWM pin (pin 1) to its VCC pin
+// (pin 7, +5 V) instead of GND, then set this true. M+ is then held at +12 V
+// and the PWM on L_PWM2 pulls M- low, so the code inverts P-02's duty
+// (motor voltage = 12 V x duty). Pump red wire -> M+, green -> M-.
+static const bool P2_RPWM_TIED_HIGH = false;
+
 // Sequence timing (seconds). CASE1 and BV02 can be changed at runtime.
 static uint32_t CASE1_DURATION_S = 300;       // how long Case 1 runs before flushing
 static uint32_t BV02_WINDOW_S = 20;           // time to open BV-02 before P-03 starts
@@ -149,7 +155,10 @@ static inline uint8_t idlePin(const Pump &p) { return p.reverse ? p.rpwm : p.lpw
 static void pwmWrite(Pump &p, float pct)
 {
   uint32_t maxDuty = (1u << PWM_BITS) - 1;
-  uint32_t duty = (uint32_t)(constrain(pct, 0.0f, 100.0f) * maxDuty / 100.0f + 0.5f);
+  pct = constrain(pct, 0.0f, 100.0f);
+  if (P2_RPWM_TIED_HIGH && &p == &pumps[1])
+    pct = 100.0f - pct; // L_PWM2 low is what drives the motor in this wiring
+  uint32_t duty = (uint32_t)(pct * maxDuty / 100.0f + 0.5f);
 #if ESP_ARDUINO_VERSION_MAJOR >= 3
   ledcWrite(pwmPin(p), duty);
 #else
