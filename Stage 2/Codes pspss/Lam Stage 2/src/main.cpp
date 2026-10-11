@@ -68,7 +68,7 @@ static const uint8_t PIN_STATUS_LED = 2; // blue LED on the NodeMCU-32S module
 // ============================================================================
 // Duty cycles (%)
 static const uint8_t CASE1_DUTY_P1 = 50;  // problem statement: P-01 at 50 %
-static const uint8_t CASE1_DUTY_P2 = 50;  // problem statement: P-02 at 100 %
+static const uint8_t CASE1_DUTY_P2 = 100; // problem statement: P-02 at 100 %
 static const uint8_t FLUSH_DUTY_P1 = 100; // P-03 feeds P-01 in series; matched so
 static const uint8_t FLUSH_DUTY_P2 = 100; // the tee is not over-pressurised
 static const uint8_t FLUSH_DUTY_P3 = 100;
@@ -112,8 +112,8 @@ static const uint32_t BUTTON_DEBOUNCE_MS = 50;
 
 // FT-01 (YF-S401). Datasheet: F[Hz] = 98 * Q[L/min] (5880 pulses per litre).
 // Q = CAL_A * f + CAL_B. Replace with your fitted values (or use "fit save").
-static const float DEFAULT_CAL_A = 1.0f / 98.0f;
-static const float DEFAULT_CAL_B = 0.0f;
+static const float DEFAULT_CAL_A = 0.009213f; // fitted, 5 trials, 2026-10-11
+static const float DEFAULT_CAL_B = -0.0672f;
 static const uint32_t FLOW_GLITCH_US = 300; // 6 L/min is ~590 Hz (1.7 ms period)
 
 // Motor PWM: BTS7960 accepts up to 25 kHz; 20 kHz is above hearing.
