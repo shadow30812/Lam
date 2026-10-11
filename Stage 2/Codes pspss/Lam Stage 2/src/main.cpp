@@ -11,12 +11,11 @@
  *   CASE 2  After CASE1_DURATION_S the controller closes SOV-01, stops P-01 and
  *           gives the operator BV02_WINDOW_S seconds to open BV-02 by hand
  *           (board LED blinks fast, countdown on serial). Then P-03, P-01 and
- *           P-02 all run until the flush tank is exhausted, detected by FT-01
- *           flow staying below FLUSH_EMPTY_LPM for FLUSH_EMPTY_HOLD_S.
- *           Then everything switches OFF.
- *   Case 1 -> Case 2 -> OFF runs in one go from a single button press.
- *   Pressing the button at any time is an immediate STOP (all pumps off,
- *   SOV-01 closed).
+ *           P-02 all run until the ON/OFF button is pressed (no automatic stop).
+ *   Button: IDLE -> CASE 1 -> (press) -> CASE 2 -> (press) -> STOP.
+ *   A press moves on at once, whatever time is left. Case 1 still moves to
+ *   Case 2 by itself after CASE1_DURATION_S if nobody presses. Type "stop"
+ *   in the serial monitor for an immediate stop from any state.
  *
  * Data acquisition
  *   Serial 115200 baud. Every LOG_MS a CSV line starting with "D," is printed:
@@ -69,7 +68,7 @@ static const uint8_t PIN_STATUS_LED = 2; // blue LED on the NodeMCU-32S module
 // ============================================================================
 // Duty cycles (%)
 static const uint8_t CASE1_DUTY_P1 = 50;  // problem statement: P-01 at 50 %
-static const uint8_t CASE1_DUTY_P2 = 100; // problem statement: P-02 at 100 %
+static const uint8_t CASE1_DUTY_P2 = 50;  // problem statement: P-02 at 100 %
 static const uint8_t FLUSH_DUTY_P1 = 100; // P-03 feeds P-01 in series; matched so
 static const uint8_t FLUSH_DUTY_P2 = 100; // the tee is not over-pressurised
 static const uint8_t FLUSH_DUTY_P3 = 100;
@@ -86,15 +85,21 @@ static const bool P3_REVERSE = false;
 // (pin 7, +5 V) instead of GND, then set this true. M+ is then held at +12 V
 // and the PWM on L_PWM2 pulls M- low, so the code inverts P-02's duty
 // (motor voltage = 12 V x duty). Pump red wire -> M+, green -> M-.
-static const bool P2_RPWM_TIED_HIGH = false;
+static const bool P2_RPWM_TIED_HIGH = true;
+
+// P-02 speed through its ENABLE pins. Use this while the L_PWM2 signal does
+// not reach the IBT_2 (P-02 ran at full speed at any duty, 2026-10-11).
+// Wiring: IBT_2 RPWM (pin 1) jumpered to VCC (pin 7, 5 V), LPWM left as is.
+// L_EN2 (GPIO16) is held HIGH while P-02 runs and R_EN2 (GPIO17) carries the
+// PWM: R_EN high = M+ at 12 V, R_EN low = M+ off, so the pump sees 12 V x duty.
+// The enable inputs switch slower than the PWM inputs, hence the lower frequency
+// (audible whine is normal). Pump red wire -> M+, green -> M-.
+static const bool P2_SPEED_ON_ENABLE = true;
+static const uint32_t EN_PWM_FREQ_HZ = 1000;
 
 // Sequence timing (seconds). CASE1 and BV02 can be changed at runtime.
-static uint32_t CASE1_DURATION_S = 300;       // how long Case 1 runs before flushing
-static uint32_t BV02_WINDOW_S = 20;           // time to open BV-02 before P-03 starts
-static const uint32_t FLUSH_MIN_S = 20;       // ignore low flow while lines prime
-static const uint32_t FLUSH_MAX_S = 600;      // safety stop if empty never detected
-static const float FLUSH_EMPTY_LPM = 0.15f;   // "no flow" threshold
-static const uint32_t FLUSH_EMPTY_HOLD_S = 5; // must stay below threshold this long
+static uint32_t CASE1_DURATION_S = 60; // how long Case 1 runs before flushing
+static uint32_t BV02_WINDOW_S = 5;     // time to open BV-02 before P-03 starts
 
 // Float switch: level reads LOW when the float closes the contact to GND.
 // If your float is mounted so the contact OPENS when the sump is full, set HIGH.
@@ -151,16 +156,19 @@ enum
 
 static inline uint8_t pwmPin(const Pump &p) { return p.reverse ? p.lpwm : p.rpwm; }
 static inline uint8_t idlePin(const Pump &p) { return p.reverse ? p.rpwm : p.lpwm; }
+static inline bool speedOnEnable(const Pump &p) { return P2_SPEED_ON_ENABLE && &p == &pumps[P2]; }
+// Pin that carries the speed PWM: R_EN for P-02 in enable mode, else R_PWM/L_PWM.
+static inline uint8_t ledcPin(const Pump &p) { return speedOnEnable(p) ? p.ren : pwmPin(p); }
 
 static void pwmWrite(Pump &p, float pct)
 {
   uint32_t maxDuty = (1u << PWM_BITS) - 1;
   pct = constrain(pct, 0.0f, 100.0f);
-  if (P2_RPWM_TIED_HIGH && &p == &pumps[1])
+  if (P2_RPWM_TIED_HIGH && &p == &pumps[1] && !speedOnEnable(p))
     pct = 100.0f - pct; // L_PWM2 low is what drives the motor in this wiring
   uint32_t duty = (uint32_t)(pct * maxDuty / 100.0f + 0.5f);
 #if ESP_ARDUINO_VERSION_MAJOR >= 3
-  ledcWrite(pwmPin(p), duty);
+  ledcWrite(ledcPin(p), duty);
 #else
   ledcWrite(p.channel, duty);
 #endif
@@ -172,13 +180,25 @@ static void pumpInit(Pump &p)
   pinMode(p.len, OUTPUT);
   digitalWrite(p.ren, LOW);
   digitalWrite(p.len, LOW);
-  pinMode(idlePin(p), OUTPUT);
-  digitalWrite(idlePin(p), LOW); // the other half-bridge stays on its low side
+  if (speedOnEnable(p))
+  {
+    // Both PWM inputs are plain LOW outputs; the speed PWM goes out on R_EN.
+    pinMode(p.rpwm, OUTPUT);
+    digitalWrite(p.rpwm, LOW);
+    pinMode(p.lpwm, OUTPUT);
+    digitalWrite(p.lpwm, LOW);
+  }
+  else
+  {
+    pinMode(idlePin(p), OUTPUT);
+    digitalWrite(idlePin(p), LOW); // the other half-bridge stays on its low side
+  }
+  uint32_t freq = speedOnEnable(p) ? EN_PWM_FREQ_HZ : PWM_FREQ_HZ;
 #if ESP_ARDUINO_VERSION_MAJOR >= 3
-  ledcAttach(pwmPin(p), PWM_FREQ_HZ, PWM_BITS);
+  ledcAttach(ledcPin(p), freq, PWM_BITS);
 #else
-  ledcSetup(p.channel, PWM_FREQ_HZ, PWM_BITS);
-  ledcAttachPin(pwmPin(p), p.channel);
+  ledcSetup(p.channel, freq, PWM_BITS);
+  ledcAttachPin(ledcPin(p), p.channel);
 #endif
   pwmWrite(p, 0);
 }
@@ -191,7 +211,8 @@ static void allPumpsOffNow()
   {
     p.target = p.actual = 0;
     pwmWrite(p, 0);
-    digitalWrite(p.ren, LOW);
+    if (!speedOnEnable(p))
+      digitalWrite(p.ren, LOW); // in enable mode R_EN is the PWM pin, set by pwmWrite
     digitalWrite(p.len, LOW);
   }
 }
@@ -218,7 +239,8 @@ static void pumpsUpdate()
       p.actual = p.target;
     }
     bool en = p.actual > 0;
-    digitalWrite(p.ren, en);
+    if (!speedOnEnable(p))
+      digitalWrite(p.ren, en);
     digitalWrite(p.len, en);
     pwmWrite(p, p.actual);
   }
@@ -239,10 +261,16 @@ static void setSolenoid(bool open)
 // ============================================================================
 static volatile uint32_t isrPulses = 0;
 static volatile uint32_t isrLastUs = 0;
+static volatile uint32_t isrRawEdges = 0; // every falling edge, before the glitch filter
+
+// "fsraw 1": diagnostic readout of the FT-01 pin itself
+static bool fsRaw = false;
+static uint32_t fsHighSamples = 0, fsLowSamples = 0, fsLastRaw = 0;
 
 static void IRAM_ATTR onFlowPulse()
 {
   uint32_t now = micros();
+  isrRawEdges++;
   if (now - isrLastUs >= FLOW_GLITCH_US)
   {
     isrPulses++;
@@ -343,7 +371,6 @@ static uint32_t stateSince = 0;
 
 static bool p1HeldByFloat = false; // P-01 (and P-03 in flush) stopped by sump high
 static uint32_t floatClearSince = 0;
-static uint32_t lowFlowSince = 0;
 static bool holdFlowCase1 = false; // "hold 1": PI keeps P-02 at TARGET_FLOW_LPM in Case 1
 
 // Flow PI on P-02 (test mode "flow <L/min>", or Case 1 with "hold 1")
@@ -395,11 +422,10 @@ static void enterState(State s)
     break;
   case FLUSH:
     p1HeldByFloat = false;
-    lowFlowSince = 0;
     pumpSet(P3, FLUSH_DUTY_P3);
     pumpSet(P1, FLUSH_DUTY_P1);
     pumpSet(P2, FLUSH_DUTY_P2);
-    Serial.println("# CASE 2: flushing, all three pumps ON");
+    Serial.println("# CASE 2: flushing, all three pumps ON. Press ON/OFF to stop.");
     break;
   case TEST:
     allPumpsOffNow();
@@ -472,29 +498,7 @@ static void runStateMachine()
     break;
   }
   case FLUSH:
-    handleFloat(FLUSH_DUTY_P1, FLUSH_DUTY_P3);
-    if (secondsInState() >= FLUSH_MIN_S)
-    {
-      if (flowLpm < FLUSH_EMPTY_LPM)
-      {
-        if (lowFlowSince == 0)
-          lowFlowSince = millis();
-        if (millis() - lowFlowSince >= FLUSH_EMPTY_HOLD_S * 1000UL)
-        {
-          Serial.println("# Flush tank empty (no flow at FT-01): shutting down");
-          enterState(DONE);
-        }
-      }
-      else
-      {
-        lowFlowSince = 0;
-      }
-    }
-    if (state == FLUSH && secondsInState() >= FLUSH_MAX_S)
-    {
-      Serial.println("# Flush timeout: shutting down");
-      enterState(DONE);
-    }
+    handleFloat(FLUSH_DUTY_P1, FLUSH_DUTY_P3); // runs until the button is pressed
     break;
   default:
     break;
@@ -615,6 +619,7 @@ static void printHelp()
       "#  start | stop | next        run sequence / stop all / skip to next phase\n"
       "#  status                     show state, flow, calibration\n"
       "#  c1time <s> | bvtime <s>    Case 1 duration / BV-02 window\n"
+      "#  fsraw 1|0                  FT-01 diagnostic: pin level and raw edge count\n"
       "#  hold 0|1                   Case 1: P-02 at 100% (0) or PI to 3 L/min (1)\n"
       "#  log <ms>                   logging period\n"
       "#  reset                      zero the totaliser\n"
@@ -669,6 +674,12 @@ static void handleCommand(String line)
     CASE1_DURATION_S = arg.toInt();
   else if (cmd == "bvtime")
     BV02_WINDOW_S = arg.toInt();
+  else if (cmd == "fsraw")
+  {
+    fsRaw = arg.toInt() != 0;
+    Serial.println(fsRaw ? "# FT-01 raw pin readout ON (one '# FS' line per log line)"
+                         : "# FT-01 raw pin readout OFF");
+  }
   else if (cmd == "hold")
   {
     holdFlowCase1 = arg.toInt() != 0;
@@ -840,7 +851,7 @@ void setup()
 
   Serial.println("# Lam Stage 2 flow skid controller");
   Serial.printf("# FT-01 calibration: Q = %.6f * f + %.4f\n", calA, calB);
-  Serial.println("# Press ON/OFF to start Case 1 -> Case 2 -> OFF. Type 'help' for commands.");
+  Serial.println("# ON/OFF: start Case 1, press for Case 2, press again to stop. Type 'help' for commands.");
   Serial.println("H,t_ms,state,pulses,f_Hz,Q_Lmin,Q_mLs,total_L,float_high,p1,p2,p3,sov");
 
   lastSampleMs = millis();
@@ -854,13 +865,26 @@ void loop()
 
   if (buttonPressedEvent())
   {
+    Serial.println("# Button pressed");
     if (state == IDLE || state == DONE)
       enterState(CASE1);
+    else if (state == CASE1)
+      enterState(FLUSH_PREP); // Case 1 -> Case 2 now, whatever time is left
+    else if (state == FLUSH_PREP || state == FLUSH)
+      enterState(DONE); // Case 2 -> stop
     else
-      enterState(IDLE); // any press while running = stop everything
+      enterState(IDLE); // TEST: leave test mode
   }
 
   updateFloat();
+
+  if (fsRaw)
+  {
+    if (digitalRead(PIN_FLOW))
+      fsHighSamples++;
+    else
+      fsLowSamples++;
+  }
 
   uint32_t now = millis();
   if (now - lastSampleMs >= LOG_MS)
@@ -882,6 +906,20 @@ void loop()
                   (unsigned long)now, STATE_NAMES[state], (unsigned long)pulsesTotal, freqHz,
                   flowLpm, flowLpm * 1000.0f / 60.0f, totalL, floatHigh, pumps[0].actual,
                   pumps[1].actual, pumps[2].actual, sovOpen);
+    if (fsRaw)
+    {
+      noInterrupts();
+      uint32_t raw = isrRawEdges;
+      interrupts();
+      uint32_t samples = fsHighSamples + fsLowSamples;
+      Serial.printf("# FS pin=%d high=%lu%% raw_edges=+%lu (total %lu) counted=%lu\n",
+                    digitalRead(PIN_FLOW),
+                    (unsigned long)(samples ? 100UL * fsHighSamples / samples : 0),
+                    (unsigned long)(raw - fsLastRaw), (unsigned long)raw,
+                    (unsigned long)readPulses());
+      fsLastRaw = raw;
+      fsHighSamples = fsLowSamples = 0;
+    }
   }
 
   runStateMachine();

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stage 2 Video Script</title>
+<style>
+:root { --ink:#1B2631; --navy:#0E2F44; --blue:#1E88B6; --amber:#E8962E; --tint:#EAF2F6; --grey:#6B7C8A; --bg:#FFFFFF; --mark:#FFE9A8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink:#E4ECF1; --navy:#CFE3EE; --tint:#16313F; --grey:#9DB0BD; --bg:#0B1A24; --mark:#6B5410; } }
+:root[data-theme="dark"] { --ink:#E4ECF1; --navy:#CFE3EE; --tint:#16313F; --grey:#9DB0BD; --bg:#0B1A24; --mark:#6B5410; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Calibri, Carlito, "Segoe UI", Arial, sans-serif; }
+main { max-width:860px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:32px; line-height:1.2; color:var(--navy); margin:0 0 6px; }
+h2 { font-size:22px; color:var(--navy); margin:0; }
+h3 { break-after:avoid; page-break-after:avoid; font-size:18px; color:var(--navy); margin:28px 0 8px; }
+.sub { color:var(--grey); margin:0 0 20px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--tint); vertical-align:top; }
+th { color:var(--grey); font-weight:600; }
+.tablewrap { overflow-x:auto; }
+.badge { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; border:2px solid var(--blue); font-weight:700; color:var(--navy); font-size:13px; }
+.badge.big { width:56px; height:56px; font-size:18px; flex:none; }
+.part { margin-top:40px; break-before:page; }
+.parthead { display:flex; gap:14px; align-items:center; margin-bottom:12px; }
+.meta { color:var(--grey); margin:2px 0 0; font-size:14px; }
+.cue { font-weight:700; color:var(--blue); margin:22px 0 6px; font-size:15px; text-transform:uppercase; letter-spacing:.03em; }
+.do { font-style:italic; color:var(--grey); background:var(--tint); border-radius:8px; padding:8px 12px; margin:8px 0; font-size:14.5px; }
+.do::before { content:"Action: "; font-weight:700; font-style:normal; }
+.say { font-size:18px; line-height:1.7; margin:8px 0; }
+mark { background:var(--mark); color:inherit; padding:0 3px; border-radius:3px; }
+ul { padding-left:20px; } li { margin:4px 0; }
+@media print { body { font-size:13px; } .say { font-size:15px; } main { padding:0; } .part { margin-top:0; } }
+</style></head><body><main>
+<h1>Stage 2 video: slides and speeches</h1>
+<p class="sub">Lam Research Challenge 3.0 · Stage 2 Hardware Hustle · 10 minutes · four speakers. Slide numbers refer to Stage2_Video_Presentation.pptx in the same folder.</p>
+
+<h3>Running order</h3>
+<div class="tablewrap"><table><tr><th></th><th>Discipline</th><th>Time</th><th>Slides</th><th>Covers</th><th>Words</th></tr>
+<tr><td><span class='badge'>M</span></td><td>Mechanical</td><td>0:00 – 3:00</td><td>1 to 5</td><td>Problem, P&amp;ID, components and flow direction, mechanical build</td><td>418</td></tr><tr><td><span class='badge'>E1</span></td><td>Electrical</td><td>3:00 – 4:50</td><td>6 and 7</td><td>Power, PCB, drivers, sensors, and the faults we found</td><td>253</td></tr><tr><td><span class='badge'>E2</span></td><td>Electrical</td><td>4:50 – 7:20</td><td>8 to 10</td><td>State machine, flow measurement, Case 1 live demo</td><td>329</td></tr><tr><td><span class='badge'>E3</span></td><td>Electrical</td><td>7:20 – 10:00</td><td>11 to 14</td><td>Case 2 live demo, calibration, flow results, close</td><td>343</td></tr></table></div>
+
+<h3>What Question 1 asks the video to show, and where it is</h3>
+<ul>
+<li><b>Photograph of the completed setup with each component identified:</b> slide 4, M's live walk-round.</li>
+<li><b>Direction of flow explained verbally:</b> M on slides 3 and 4 (Case 1); E3 on slide 11 (Case 2).</li>
+<li><b>Case 1 demonstrated, including the sudden sump charge:</b> E2, slide 10.</li>
+<li><b>Flow vs time in mL/s, L/min screenshots and total litres returned:</b> E2, slide 10.</li>
+<li><b>Case 2 demonstrated, then stopped once the flush tank is empty:</b> E3, slide 11, with a button press.</li>
+<li><b>Final P&amp;ID block diagram:</b> slides 3 and 11.</li>
+</ul>
+
+<h3>Before you film</h3>
+<ul>
+<li>The button now steps the sequence (firmware of 11 Oct): first press starts Case 1, second press starts Case 2, third press stops everything. E2 presses to hand over to the flush and E3 presses once the flush tank is empty. Case 2 never stops on its own.</li><li>Case 1 still moves to Case 2 by itself after 150 s, so E2 should press before then. After that press, P-03 waits 15 s before it starts; E3's lines cover the pause. Optional: type <code>bvtime 0</code> before filming to skip it, and then E3 goes straight to the flush lines.</li><li>During Case 1 the button no longer acts as an emergency stop. Keep the serial monitor open: typing <code>stop</code> stops everything from any state.</li><li>The flush runs about as long as the 4.2 L takes to empty; speed that footage up in editing.</li>
+<li>TK-01 at about 5 L, flush tank full, BV-03, BV-01 and BV-02 all open, FT-01 mounted vertically with the flow going up.</li>
+<li>Check that the flush tank level does not drop during Case 1 with BV-02 open. E3 says so on camera. If it does drop, P-01 is pulling water through the idle P-03: close BV-02 for Case 1 and tell us, so E3's lines can go back to opening it by hand.</li><li>Start <code>tools/flow_logger.py</code> so the live trend is on the laptop screen during both demos.</li>
+<li>Keep a jug of about 1 L ready next to the sump for the sudden charge.</li>
+<li>Film the demo in one continuous take with two cameras if you can (rig wide shot plus laptop screen), then lay the speeches over it.</li>
+<li>Every <mark>highlighted</mark> item below is a number to replace with your own measured value before recording. Don't read out a number you haven't measured.</li>
+</ul>
+
+<h3>Numbers to fill in</h3>
+<div class="tablewrap"><table><tr><th>Value</th><th>Where it is used</th></tr>
+<tr><td>Team name</td><td>M, slide 1 and the deck title slide</td></tr><tr><td>Measured tube inner diameter</td><td>M, slide 5</td></tr><tr><td>Maximum flow the loop reaches (bench says about 2 to 2.5 L/min)</td><td>M slide 5, E3 slide 12, deck slides 5 and 12</td></tr><tr><td>Steady Case 1 flow in L/min and mL/s</td><td>E2, slide 10</td></tr><tr><td>Total litres returned during Case 1</td><td>E2, slide 10</td></tr><tr><td>Flush total in litres</td><td>E3, slide 11</td></tr><tr><td>Q2.3 trial table and Q2.2 a, b, R², max and average error</td><td>E3, slide 12</td></tr><tr><td>Screenshots: finished skid photo, Case 1 flow vs time, Q2.1 valve graph</td><td>deck slides 4, 10, 13</td></tr></table></div>
+
+<section class='part' id='M'><div class='parthead'><span class='badge big'>M</span><div><h2>M · Mechanical</h2><p class='meta'>0:00 to 3:00 · slides 1 to 5 · about 418 words, 2:59 of speaking at 140 words per minute, the rest is demo footage</p></div></div>
+<p class='cue'>Slide 1 · Title</p>
+<p class='do'>All four on camera in front of the skid. M speaks.</p>
+<p class='say'>Hello, we are team <mark>team name</mark>. I&#x27;m M, from Mechanical, and with me are E1, E2 and E3 from Electrical. In the next ten minutes we&#x27;ll show you our automated liquid-flow skid: how it is plumbed, wired and controlled, and both operating cases running live.</p>
+<p class='cue'>Slide 2 · Set a flow, measure it, protect it, flush it</p>
+<p class='say'>In a semiconductor fab, process fluids must arrive at a defined flow, or the chemistry on the wafer is wrong. Our skid does that job on a tabletop. Case 1 circulates process fluid from a ten-litre tank through a sump and back, measures and totalises the return flow, and protects the sump when extra fluid is suddenly dumped in. Case 2 isolates the process tank, flushes the lines from a 4.2-litre flush tank with all three pumps running, and is switched off with the button once the flush water runs out.</p>
+<p class='cue'>Slide 3 · Case 1 P&amp;ID</p>
+<p class='say'>This is our Case 1 P&amp;ID in ISA symbols. The blue line is the active path, and the arrows give its direction. From the process tank, TK-01, water flows through the maintenance valve BV-03, the solenoid valve SOV-01 and the tee, into transfer pump P-01 at fifty percent, and up into the sump, TK-02. Return pump P-02, at full duty, draws from the bottom of the sump and pushes the water through the throttle valve BV-01 and the flow transmitter FT-01, back into TK-01.</p>
+<p class='cue'>Slide 4 · Every component, in flow order</p>
+<p class='do'>Cut to the camera on the real skid. M points at each part as it is named. Keep the slide as a corner overlay if your editor allows.</p>
+<p class='say'>Here it is on the real skid. This is the process tank, TK-01. Water leaves at the bottom, through BV-03, which stays open, through the solenoid valve, into the tee, and up into P-01. P-01 fills the sump here, and this float switch, LSH-01, detects high level. From the bottom of the sump the water goes into P-02, through BV-01, up through FT-01, and back into the top of TK-01. Idle in Case 1 is the flush branch: the flush tank TK-03, ball valve BV-02, which stays open, and flush pump P-03, which joins at the same tee.</p>
+<p class='cue'>Slide 5 · Built for the tube we actually have</p>
+<p class='say'>One mechanical detail changed our numbers. The paper gives an eight-millimetre pipe, but the kit tube is eight millimetres outside and five inside, and we measured <mark>5</mark>. At three litres per minute that is 2.55 metres per second instead of about one, with roughly nine times the friction, which is why our loop gives about <mark>2 to 2.5</mark> litres per minute, not the pump&#x27;s rated 6.1. Every tank port is a brass bulkhead with washers on both sides, every thread is Teflon-taped, we leak-tested before any electronics came near, and we never close BV-01 while P-02 runs. Over to E1.</p>
+</section><section class='part' id='E1'><div class='parthead'><span class='badge big'>E1</span><div><h2>E1 · Electrical</h2><p class='meta'>3:00 to 4:50 · slides 6 and 7 · about 253 words, 1:48 of speaking at 140 words per minute, the rest is demo footage</p></div></div>
+<p class='cue'>Slide 6 · One 12 V supply, one ESP32, three drivers</p>
+<p class='do'>Camera on the PCB and drivers, then back to the slide.</p>
+<p class='say'>Thanks, M. Everything runs from a twelve-volt, 350-watt SMPS feeding the custom PCB. In Case 2, three pumps and the solenoid draw about eleven amps, well inside the supply&#x27;s 29-amp rating. The ESP32 on the PCB is the controller. Each pump has its own BTS7960 H-bridge driver on headers U2, U3 and U4, taking PWM and enable signals from the ESP32 and power from outputs P1, P2 and P3. The solenoid valve is switched through a D4184 MOSFET module with a flyback diode across the coil. Three signals come back: the float switch on GPIO 35, the button on GPIO 34, and the flow sensor&#x27;s pulses on GPIO 14.</p>
+<p class='cue'>Slide 7 · Three faults, one symptom</p>
+<p class='say'>Three faults taught us the most, and they all looked the same: nothing moved. First, pump 2&#x27;s driver gave zero volts. Its R-PWM trace is missing on the PCB, as the organisers confirmed, so we drive it from the L-PWM channel, tie the unused input high, and invert it in firmware. Second, FT-01 read exactly zero. A raw-edge counter showed the ESP32 never saw a pulse, because the sensor&#x27;s red and black leads were swapped. Red to V, black to G, yellow to S fixed it. It also under-read when mounted flat, because it wasn&#x27;t running full, so it now sits vertically with the flow going up. Third, the start button was ignored, though shorting its terminals worked, so we rewired it across the diagonal legs. Same symptom, three root causes, which is why fault diagnosis needs more than one signal. Over to E2.</p>
+</section><section class='part' id='E2'><div class='parthead'><span class='badge big'>E2</span><div><h2>E2 · Electrical</h2><p class='meta'>4:50 to 7:20 · slides 8 to 10 · about 329 words, 2:21 of speaking at 140 words per minute, the rest is demo footage</p></div></div>
+<p class='cue'>Slide 8 · The button steps through every case</p>
+<p class='say'>Thanks, E1. Our firmware is a state machine. In IDLE everything is off and the solenoid is closed, so a reset or power cut always lands in a safe state. One press of the button enters Case 1: the solenoid opens, P-01 ramps to fifty percent and P-02 to a hundred, with a soft start. If the float reports high level for 300 milliseconds, P-01 stops while P-02 keeps draining, and P-01 restarts only after the float has been clear for three seconds, so a sloshing surface can&#x27;t make it chatter. The same button then steps the sequence on, whatever time is left: the second press starts the flush, and the third stops everything. If nobody presses, Case 1 still hands over by itself after 150 seconds.</p>
+<p class='cue'>Slide 9 · From pulses to litres</p>
+<p class='say'>FT-01 is a turbine sensor with a Hall-effect pickup. Every pulse fires an interrupt, and pulses closer than 300 microseconds are rejected as noise. Every half second we compute frequency as pulses over time, convert it with our calibration, Q equals a f plus b, and add it up into the total litres returned. Our Python logger plots it live in litres per minute and millilitres per second.</p>
+<p class='cue'>Slide 10 · Case 1 live</p>
+<p class='do'>Cut to the rig with the laptop trend visible. Press the button again before Case 1 reaches 150 s, or it moves on by itself.</p>
+<p class='say'>Let&#x27;s run it. I press the button.</p>
+<p class='do'>Press the ON/OFF button. Pause two seconds.</p>
+<p class='say'>You can hear the solenoid open. P-01 runs at half speed and P-02 at full. We trimmed BV-01 beforehand so the sump level holds steady; otherwise P-02 would out-pump P-01 and run the sump dry. The flow settles at about <mark>__</mark> litres per minute, which is <mark>__</mark> millilitres per second, and the total is climbing. Now, a sudden external charge.</p>
+<p class='do'>Pour about 1 L of water quickly into the sump.</p>
+<p class='say'>The float rises, and P-01 stops. P-02 keeps running, and the return flow barely changes, because P-02 and BV-01 set it, not the transfer pump. As the sump drains, the float drops, and three seconds later P-01 restarts. On the trend you can see the event, and the total so far is <mark>__</mark> litres. I press the button again to move to Case 2. Over to E3.</p>
+</section><section class='part' id='E3'><div class='parthead'><span class='badge big'>E3</span><div><h2>E3 · Electrical</h2><p class='meta'>7:20 to 10:00 · slides 11 to 14 · about 343 words, 2:27 of speaking at 140 words per minute, the rest is demo footage</p></div></div>
+<p class='cue'>Slide 11 · Case 2 live</p>
+<p class='do'>Camera stays on the rig. E3 stands next to the flush tank and BV-02.</p>
+<p class='say'>Thanks, E2. That press closed SOV-01 to isolate the process tank, and P-01 has paused. The controller now holds for fifteen seconds before it starts the flush pump. The flush valve, BV-02, has been open since setup, so nobody needs to touch the skid. With P-03 switched off, its internal check valves hold the flush water back, which is why the flush tank level stayed put through all of Case 1.</p>
+<p class='do'>Point at BV-02 to show it is already open, and at the flush tank level. Wait for P-03 to start.</p>
+<p class='say'>Now P-03 starts on its own, and all three pumps run together. Flush water goes from TK-03 through P-03 into the tee, through P-01 into the sump, and P-02 pushes it through FT-01 into TK-01.</p>
+<p class='do'>Let the flush run. Speed the footage up in editing if it runs long, then return to normal speed for the stop.</p>
+<p class='say'>As the flush tank empties, the pumps start moving air, the sump drains and the flow at FT-01 falls toward zero. That tells us the flush supply is gone, so I press the button once more, and every pump switches off with the solenoid left closed.</p>
+<p class='do'>Press the button once the flush tank is empty. Pause two seconds on the silent rig.</p>
+<p class='say'>And the skid is safely off. The flush total reads <mark>__</mark> litres, against the 4.2 we put in.</p>
+<p class='cue'>Slide 12 · We calibrated FT-01 instead of trusting it</p>
+<p class='say'>To trust these numbers, we calibrated FT-01 ourselves: five timed trials, collecting the return flow and counting pulses. The least-squares fit gives Q equals <mark>a</mark> f plus <mark>b</mark>, with R-squared <mark>__</mark>, maximum error <mark>__</mark> percent and average error <mark>__</mark> percent. In our five-millimetre tube, theory gives 0.85, 2.55 and 5.09 metres per second at one, three and six litres per minute, all turbulent. Our loop tops out near <mark>2 to 2.5</mark> litres per minute, so six is out of reach with this tubing, valve and sensor in the line.</p>
+<p class='cue'>Slide 13 · A ball valve is a coarse throttle</p>
+<p class='say'>Stepping BV-01 through 25, 50, 75 and 100 percent showed a quick-opening curve: most of the flow arrives in the first half of the turn, and near full open the pump and tubing set the flow, not the valve.</p>
+<p class='cue'>Slide 14 · Close</p>
+<p class='do'>All four back on camera.</p>
+<p class='say'>To sum up: our skid transfers, measures and totalises process fluid, protects its sump, flushes with all three pumps and shuts itself down safely, in one run stepped by a single button, with no hand on a valve. Thank you from all four of us.</p>
+</section>
+</main></body></html>
