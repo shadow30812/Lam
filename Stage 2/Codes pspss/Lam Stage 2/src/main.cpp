@@ -100,9 +100,9 @@ static const bool P2_SPEED_ON_ENABLE = true;
 static const uint32_t EN_PWM_FREQ_HZ = 1000;
 
 // Sequence timing (seconds). CASE1 and BV02 can be changed at runtime.
-static uint32_t CASE1_DURATION_S = 60; // how long Case 1 runs before flushing
-static uint32_t BV02_WINDOW_S = 5;     // time to open BV-02 before P-03 starts
-static uint32_t CASE2_DURATION_S = 60; // flush run time (counted once P-03 starts), then DONE
+static uint32_t CASE1_DURATION_S = 100; // how long Case 1 runs before flushing
+static uint32_t BV02_WINDOW_S = 5;      // time to open BV-02 before P-03 starts
+static uint32_t CASE2_DURATION_S = 60;  // flush run time (counted once P-03 starts), then DONE
 
 // Float switch: level reads LOW when the float closes the contact to GND.
 // If your float is mounted so the contact OPENS when the sump is full, set HIGH.
@@ -117,7 +117,7 @@ static const uint32_t BUTTON_DEBOUNCE_MS = 50;
 // Q = CAL_A * f + CAL_B. Replace with your fitted values (or use "fit save").
 static const float DEFAULT_CAL_A = 0.009213f; // fitted, 5 trials, 2026-10-11
 static const float DEFAULT_CAL_B = -0.0672f;
-static const uint32_t FLOW_GLITCH_US = 300; // 6 L/min is ~590 Hz (1.7 ms period)
+static const uint32_t FLOW_GLITCH_US = 500; // 2 L/min is ~200 Hz (5 ms period)
 
 // Motor PWM: BTS7960 accepts up to 25 kHz; 20 kHz is above hearing.
 static const uint32_t PWM_FREQ_HZ = 20000;
