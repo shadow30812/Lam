@@ -43,7 +43,9 @@ const uint8_t LED_PIN = 2;
 
 const uint8_t CASE1_DUTY_P1 = 50;
 const uint8_t CASE1_DUTY_P2 = 100;
-const uint8_t FLUSH_DUTY = 100;
+const uint8_t FLUSH_DUTY_P1 = 100;
+const uint8_t FLUSH_DUTY_P2 = 100;
+const uint8_t FLUSH_DUTY_P3 = 100;
 
 uint32_t case1Time = 100; // s
 uint32_t bv02Window = 5;  // s
@@ -294,8 +296,9 @@ void enterState(State s)
     break;
   case FLUSH:
     p1Held = false;
-    for (int i = 0; i < 3; i++)
-      setPump(i, FLUSH_DUTY);
+    setPump(P1, FLUSH_DUTY_P1);
+    setPump(P2, FLUSH_DUTY_P2);
+    setPump(P3, FLUSH_DUTY_P3);
     Serial.printf("# CASE 2: flushing, all three pumps ON for %lus. Press ON/OFF to stop early.\n",
                   (unsigned long)case2Time);
     break;
@@ -365,7 +368,7 @@ void runSequence()
   }
   else if (state == FLUSH)
   {
-    handleFloat(FLUSH_DUTY, FLUSH_DUTY);
+    handleFloat(FLUSH_DUTY_P1, FLUSH_DUTY_P3);
     if (secondsInState() >= case2Time)
       enterState(DONE);
   }
