@@ -11,10 +11,12 @@
  *   CASE 2  After CASE1_DURATION_S the controller closes SOV-01, stops P-01 and
  *           gives the operator BV02_WINDOW_S seconds to open BV-02 by hand
  *           (board LED blinks fast, countdown on serial). Then P-03, P-01 and
- *           P-02 all run until the ON/OFF button is pressed (no automatic stop).
+ *           P-02 all run for CASE2_DURATION_S, or until the ON/OFF button is
+ *           pressed, whichever comes first.
  *   Button: IDLE -> CASE 1 -> (press) -> CASE 2 -> (press) -> STOP.
- *   A press moves on at once, whatever time is left. Case 1 still moves to
- *   Case 2 by itself after CASE1_DURATION_S if nobody presses. Type "stop"
+ *   A press moves on at once, whatever time is left. Without a press, Case 1
+ *   moves to Case 2 after CASE1_DURATION_S and Case 2 stops after
+ *   CASE2_DURATION_S. Type "stop"
  *   in the serial monitor for an immediate stop from any state.
  *
  * Data acquisition
@@ -100,6 +102,7 @@ static const uint32_t EN_PWM_FREQ_HZ = 1000;
 // Sequence timing (seconds). CASE1 and BV02 can be changed at runtime.
 static uint32_t CASE1_DURATION_S = 60; // how long Case 1 runs before flushing
 static uint32_t BV02_WINDOW_S = 5;     // time to open BV-02 before P-03 starts
+static uint32_t CASE2_DURATION_S = 60; // flush run time (counted once P-03 starts), then DONE
 
 // Float switch: level reads LOW when the float closes the contact to GND.
 // If your float is mounted so the contact OPENS when the sump is full, set HIGH.
@@ -425,7 +428,8 @@ static void enterState(State s)
     pumpSet(P3, FLUSH_DUTY_P3);
     pumpSet(P1, FLUSH_DUTY_P1);
     pumpSet(P2, FLUSH_DUTY_P2);
-    Serial.println("# CASE 2: flushing, all three pumps ON. Press ON/OFF to stop.");
+    Serial.printf("# CASE 2: flushing, all three pumps ON for %lus. Press ON/OFF to stop early.\n",
+                  (unsigned long)CASE2_DURATION_S);
     break;
   case TEST:
     allPumpsOffNow();
@@ -498,7 +502,9 @@ static void runStateMachine()
     break;
   }
   case FLUSH:
-    handleFloat(FLUSH_DUTY_P1, FLUSH_DUTY_P3); // runs until the button is pressed
+    handleFloat(FLUSH_DUTY_P1, FLUSH_DUTY_P3);
+    if (secondsInState() >= CASE2_DURATION_S) // timer, or the button (in loop), ends Case 2
+      enterState(DONE);
     break;
   default:
     break;
@@ -619,6 +625,7 @@ static void printHelp()
       "#  start | stop | next        run sequence / stop all / skip to next phase\n"
       "#  status                     show state, flow, calibration\n"
       "#  c1time <s> | bvtime <s>    Case 1 duration / BV-02 window\n"
+      "#  c2time <s>                 Case 2 (flush) duration\n"
       "#  fsraw 1|0                  FT-01 diagnostic: pin level and raw edge count\n"
       "#  hold 0|1                   Case 1: P-02 at 100% (0) or PI to 3 L/min (1)\n"
       "#  log <ms>                   logging period\n"
@@ -664,16 +671,18 @@ static void handleCommand(String line)
   else if (cmd == "status")
   {
     Serial.printf("# state=%s t=%lus flow=%.3f L/min total=%.3f L float=%s sov=%d "
-                  "P1=%.0f P2=%.0f P3=%.0f a=%.6f b=%.4f c1time=%lu bvtime=%lu hold=%d\n",
+                  "P1=%.0f P2=%.0f P3=%.0f a=%.6f b=%.4f c1time=%lu bvtime=%lu c2time=%lu hold=%d\n",
                   STATE_NAMES[state], (unsigned long)secondsInState(), flowLpm, totalL,
                   floatHigh ? "HIGH" : "normal", sovOpen, pumps[0].actual, pumps[1].actual,
                   pumps[2].actual, calA, calB, (unsigned long)CASE1_DURATION_S,
-                  (unsigned long)BV02_WINDOW_S, holdFlowCase1);
+                  (unsigned long)BV02_WINDOW_S, (unsigned long)CASE2_DURATION_S, holdFlowCase1);
   }
   else if (cmd == "c1time")
     CASE1_DURATION_S = arg.toInt();
   else if (cmd == "bvtime")
     BV02_WINDOW_S = arg.toInt();
+  else if (cmd == "c2time")
+    CASE2_DURATION_S = arg.toInt();
   else if (cmd == "fsraw")
   {
     fsRaw = arg.toInt() != 0;
