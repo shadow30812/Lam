@@ -31,10 +31,11 @@
 #include <Arduino.h>
 #include <Preferences.h>
 
-// pins
+// Pins
 const uint8_t P1_RPWM = 33, P1_LPWM = 32, P1_REN = 26, P1_LEN = 13; // U2
 const uint8_t P2_RPWM = 19, P2_LPWM = 18, P2_REN = 17, P2_LEN = 16; // U3
 const uint8_t P3_RPWM = 25, P3_LPWM = 23, P3_REN = 22, P3_LEN = 21; // U4
+
 const uint8_t SOLENOID_PIN = 27;
 const uint8_t FLOW_PIN = 14;
 const uint8_t BUTTON_PIN = 34; // 10k pull-up on the PCB
@@ -47,16 +48,16 @@ const uint8_t FLUSH_DUTY_P1 = 100;
 const uint8_t FLUSH_DUTY_P2 = 100;
 const uint8_t FLUSH_DUTY_P3 = 100;
 
-uint32_t case1Time = 100; // s
-uint32_t bv02Window = 5;  // s
-uint32_t case2Time = 60;  // s
+uint32_t case1Time = 100;
+uint32_t bv02Window = 5;
+uint32_t case2Time = 60;
 
 const int FLOAT_HIGH = LOW;
 const uint32_t FLOAT_DEBOUNCE_MS = 300;
 const uint32_t FLOAT_CLEAR_MS = 3000;
 const uint32_t BUTTON_DEBOUNCE_MS = 50;
 
-const float DEFAULT_A = 0.009213; // fitted 2026-10-11
+const float DEFAULT_A = 0.009213;
 const float DEFAULT_B = -0.0672;
 const uint32_t GLITCH_US = 500;
 
@@ -290,7 +291,7 @@ void enterState(State s)
     setSolenoid(false);
     setPump(P1, 0);
     setPump(P3, 0);
-    setPump(P2, 100); // keep emptying the sump
+    setPump(P2, 100); // empty the sump
     Serial.printf("# CASE 2: SOV-01 closed. OPEN BALL VALVE BV-02 NOW. P-03 starts in %lus (type 'next' to start now)\n",
                   (unsigned long)bv02Window);
     break;
