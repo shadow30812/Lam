@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case 2 Flush Timer</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#1b2430; --muted:#5d6878; --line:#d9dee6;
+  --pipe:#9aa5b4; --water:#2f8fe0; --water2:#7cc0f5; --ok:#1f9d55; --warn:#d98a00; --bad:#d6342c;
+  --accent:#3b5bdb; --tank:#eef2f7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151b; --panel:#1a2029; --ink:#e7ecf2; --muted:#9aa6b6; --line:#2c3542;
+    --pipe:#5f6b7b; --water:#3d9cf0; --water2:#1f5f99; --ok:#3cc47a; --warn:#f0a72a; --bad:#ff5b52;
+    --accent:#7b93ff; --tank:#222a35;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151b; --panel:#1a2029; --ink:#e7ecf2; --muted:#9aa6b6; --line:#2c3542;
+  --pipe:#5f6b7b; --water:#3d9cf0; --water2:#1f5f99; --ok:#3cc47a; --warn:#f0a72a; --bad:#ff5b52;
+  --accent:#7b93ff; --tank:#222a35;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1360px;margin:0 auto;padding:12px 16px;min-height:100vh;display:flex;flex-direction:column;gap:10px}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h1{font-size:20px;margin:0}
+header p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(300px,1fr);gap:10px;flex:1}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 6px}
+.left{display:flex;flex-direction:column;gap:10px;min-width:0}
+.right{display:flex;flex-direction:column;gap:10px}
+svg{display:block;width:100%;height:auto}
+svg text{fill:var(--ink);font-family:inherit}
+.lbl{font-size:12px;font-weight:600}
+.sub{font-size:10.5px;fill:var(--muted)}
+.pipe{stroke:var(--pipe);stroke-width:9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.flow{stroke:var(--water);stroke-width:4;fill:none;stroke-dasharray:8 10;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.flow.on{opacity:1;animation:dash .6s linear infinite}
+.flow.air{stroke:var(--bad)}
+@keyframes dash{to{stroke-dashoffset:-18}}
+.tankwall{fill:var(--tank);stroke:var(--ink);stroke-width:2}
+.pump circle.body{fill:var(--panel);stroke:var(--ink);stroke-width:2}
+.pump.on circle.body{stroke:var(--ok);stroke-width:3}
+.pump.air circle.body{stroke:var(--bad);stroke-width:3;animation:shake .15s linear infinite}
+.pump .imp{transform-box:fill-box;transform-origin:center}
+.pump.on .imp,.pump.air .imp{animation:spin .5s linear infinite}
+.pump .imp line{stroke:var(--ink);stroke-width:2.5}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%{transform:translate(0,0)}25%{transform:translate(1px,-1px)}50%{transform:translate(-1px,1px)}75%{transform:translate(1px,1px)}}
+.valve path{stroke:var(--ink);stroke-width:2}
+.valve.open path{fill:var(--ok)}
+.valve.closed path{fill:var(--bad)}
+.valve.idle path{fill:var(--panel)}
+.danger{stroke:var(--bad);stroke-width:1.5;stroke-dasharray:5 4}
+.dangerTxt{fill:var(--bad)!important;font-size:11px;font-weight:600}
+.okTxt{fill:var(--ok)!important}
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+button{font:inherit;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+label{display:flex;align-items:center;gap:6px;color:var(--muted)}
+input[type=range]{width:150px;accent-color:var(--accent)}
+select{font:inherit;padding:4px 6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.timer{display:flex;gap:12px;align-items:center}
+.ring{width:118px;flex:none}
+.ring circle{fill:none;stroke-width:10}
+.ring .bgc{stroke:var(--line)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke .2s}
+.ring text{fill:var(--ink)}
+.state{font-size:15px;font-weight:700;padding:3px 9px;border-radius:6px;display:inline-block;background:var(--line)}
+.state.flush{background:var(--accent);color:#fff}
+.state.done{background:var(--ok);color:#fff}
+.state.prep{background:var(--warn);color:#fff}
+.state.air{background:var(--bad);color:#fff}
+.msg{color:var(--muted);margin-top:4px;font-size:13px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-variant-numeric:tabular-nums}
+.kv span:nth-child(even){font-weight:700;text-align:right}
+.calc{font-variant-numeric:tabular-nums;font-size:13px}
+.calc .row{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
+.calc .row.total{border-top:1px solid var(--ink);font-weight:700}
+.calc .eq{background:var(--bg);border-radius:6px;padding:6px 8px;margin:6px 0;font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.calc p{margin:4px 0}
+.good{color:var(--ok);font-weight:700}.badc{color:var(--bad);font-weight:700}
+.chartAxis{stroke:var(--muted);stroke-width:1}
+.grid line{stroke:var(--line)}
+.foot{color:var(--muted);font-size:12px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Case 2 flush: 60 s auto-stop</h1>
+</header>
+
+<div class="grid">
+<div class="left">
+  <div class="card">
+    <h2>Case 2 circuit (SOV-01 closed, BV-02 open)</h2>
+    <svg viewBox="0 0 860 335" id="skid" role="img" aria-label="Animated Case 2 flow circuit">
+      <defs>
+        <clipPath id="tk3clip"><rect x="42" y="62" width="126" height="236"/></clipPath>
+        <clipPath id="tk2clip"><rect x="602" y="182" width="106" height="136"/></clipPath>
+        <clipPath id="tk1clip"><rect x="382" y="32" width="136" height="86"/></clipPath>
+      </defs>
+
+      <!-- pipes -->
+      <path class="pipe" d="M168 270 H450 H575 V160 H640 V182"/>
+      <path class="pipe" d="M708 305 H830 V12 H500 V32"/>
+      <path class="pipe" d="M450 118 V270"/>
+      <path class="flow" id="fFlush" d="M168 270 H450 H575 V160 H640 V182"/>
+      <path class="flow" id="fReturn" d="M708 305 H830 V12 H500 V32"/>
+
+      <!-- TK-01 -->
+      <rect class="tankwall" x="380" y="30" width="140" height="90" rx="4"/>
+      <rect id="tk1w" x="382" y="70" width="136" height="48" fill="var(--water)" opacity=".75" clip-path="url(#tk1clip)"/>
+      <text class="lbl" x="390" y="50">TK-01 main tank (10 L)</text>
+
+      <!-- SOV-01 closed -->
+      <g class="valve closed" transform="translate(450,195)">
+        <path d="M-11 -14 L11 -14 L-11 14 L11 14 Z"/>
+      </g>
+      <text class="lbl" x="466" y="192">SOV-01</text>
+      <text class="sub" x="466" y="206">closed in Case 2</text>
+
+      <!-- TK-03 flush tank -->
+      <rect class="tankwall" x="40" y="60" width="130" height="240" rx="4"/>
+      <g clip-path="url(#tk3clip)">
+        <rect id="tk3w" x="42" y="60" width="126" height="240" fill="var(--water)" opacity=".8"/>
+        <path id="tk3wave" d="" fill="var(--water2)" opacity=".7"/>
+      </g>
+      <line class="danger" x1="30" y1="260" x2="180" y2="260"/>
+      <text class="dangerTxt" x="44" y="254">top of outlet (0.7 L left)</text>
+      <rect x="166" y="262" width="8" height="16" fill="var(--ink)"/>
+      <text class="lbl" x="40" y="22">TK-03 flush tank</text>
+      <text class="sub" x="40" y="37">4.2 L total, outlet on the bottom side</text>
+      <text class="lbl" id="tk3txt" x="105" y="130" text-anchor="middle" style="font-size:20px">4.20 L</text>
+      <g id="bubbles"></g>
+
+      <!-- BV-02 -->
+      <g class="valve open" id="bv02" transform="translate(220,270)">
+        <path d="M-12 -10 L12 10 L12 -10 L-12 10 Z"/>
+      </g>
+      <text class="lbl" x="204" y="300">BV-02</text>
+
+      <!-- P-03 -->
+      <g class="pump" id="p3" transform="translate(310,270)">
+        <circle class="body" r="22"/>
+        <g class="imp"><line x1="-12" y1="0" x2="12" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
+      </g>
+      <text class="lbl" x="292" y="310">P-03</text>
+      <text class="sub" x="270" y="324" id="p3txt">off</text>
+
+      <!-- tee -->
+      <circle cx="450" cy="270" r="6" fill="var(--ink)"/>
+      <text class="sub" x="458" y="290">tee</text>
+
+      <!-- P-01 -->
+      <g class="pump" id="p1" transform="translate(520,270)">
+        <circle class="body" r="22"/>
+        <g class="imp"><line x1="-12" y1="0" x2="12" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
+      </g>
+      <text class="lbl" x="502" y="310">P-01</text>
+
+      <!-- TK-02 sump -->
+      <rect class="tankwall" x="600" y="180" width="110" height="140" rx="4"/>
+      <rect id="tk2w" x="602" y="250" width="106" height="70" fill="var(--water)" opacity=".75" clip-path="url(#tk2clip)"/>
+      <text class="lbl" x="606" y="198">TK-02 sump</text>
+
+      <!-- P-02 -->
+      <g class="pump" id="p2" transform="translate(760,305)">
+        <circle class="body" r="20"/>
+        <g class="imp"><line x1="-11" y1="0" x2="11" y2="0"/><line x1="0" y1="-11" x2="0" y2="11"/></g>
+      </g>
+      <text class="lbl" x="745" y="290" text-anchor="end">P-02</text>
+
+      <!-- FT-01, BV-01 -->
+      <rect x="818" y="150" width="24" height="34" rx="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/>
+      <text class="lbl" x="812" y="166" text-anchor="end">FT-01</text>
+      <g class="valve open" transform="translate(830,90)"><path d="M-10 -12 L10 12 L-10 12 L10 -12 Z"/></g>
+      <text class="lbl" x="815" y="94" text-anchor="end">BV-01</text>
+
+      <!-- controller badge -->
+      <g transform="translate(600,40)">
+        <rect width="170" height="64" rx="8" fill="var(--panel)" stroke="var(--line)"/>
+        <text class="sub" x="10" y="18">ESP32 state</text>
+        <text class="lbl" id="ctrlState" x="10" y="38" style="font-size:15px">IDLE</text>
+        <text class="sub" id="ctrlTime" x="10" y="55">press Start</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="card">
+    <h2>TK-03 volume over time</h2>
+    <svg viewBox="0 0 860 210" id="chart" aria-label="Flush tank volume chart"></svg>
+  </div>
+
+  <div class="card controls">
+    <button class="primary" id="btnPlay">Start</button>
+    <button id="btnReset">Reset</button>
+    <label>Speed <select id="speed"><option value="1">1×</option><option value="3" selected>3×</option><option value="6">6×</option><option value="12">12×</option></select></label>
+    <label><input type="checkbox" id="timerOn" checked> 60 s auto-stop</label>
+  </div>
+</div>
+
+<div class="right">
+  <div class="card">
+    <h2>Flush timer (c2time)</h2>
+    <div class="timer">
+      <svg class="ring" viewBox="0 0 120 120">
+        <circle class="bgc" cx="60" cy="60" r="50"/>
+        <circle class="fg" id="ringFg" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="0"/>
+        <text id="ringNum" x="60" y="64" text-anchor="middle" style="font-size:30px;font-weight:700">60</text>
+        <text x="60" y="84" text-anchor="middle" class="sub">s left</text>
+      </svg>
+      <div>
+        <div class="state" id="stateBox">IDLE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Live readings</h2>
+    <div class="kv">
+      <span>Time since Case 2 began</span><span id="rT">0.0 s</span>
+      <span>Water in TK-03</span><span id="rV">4.20 L</span>
+      <span>Still usable (above outlet)</span><span id="rU">3.50 L</span>
+      <span>Drained so far</span><span id="rD">0.00 L</span>
+      <span>Air at P-03 inlet?</span><span id="rA" class="good">No</span>
+    </div>
+  </div>
+
+  <div class="card calc">
+    <h2>60 s calculation</h2>
+    <div class="row"><span>TK-03 capacity</span><span>4.2 L</span></div>
+    <div class="row"><span>Below top of outlet</span><span>−0.7 L</span></div>
+    <div class="row total"><span>Usable volume V<sub>u</sub></span><span>3.5 L</span></div>
+    <div class="row"><span>TK-03 drain rate Q</span><span>3.5 L/min</span></div>
+    <div class="eq">t = V<sub>u</sub> / Q = 3.5 L ÷ 3.5 L/min = 1 min = <b>60 s</b></div>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+<script>
+(() => {
+  const CAP = 4.2, DEAD = 0.7, USABLE = CAP - DEAD, PREP = 5, FLUSH = 60;
+  const TK = {x:42, w:126, yb:298, h:236};
+  const $ = id => document.getElementById(id);
+  let Q = 3.5, timerOn = true, speed = 3;
+  let t = 0, V = CAP, running = false, finished = false, airAt = null, last = null;
+  let trace = [];
+
+  function phase(){
+    if (t < PREP) return 'prep';
+    if (finished) return airAt !== null ? 'airstop' : 'done';
+    if (airAt !== null) return 'air';
+    return 'flush';
+  }
+
+  // ---------- chart ----------
+  const CH = {x0:52, x1:840, y0:180, y1:16};
+  let tMax = 75;
+  function airTime(){ return PREP + USABLE / Q * 60; }
+  function computeTMax(){
+    const ta = airTime();
+    tMax = timerOn ? Math.max(75, Math.min(ta + 12, 75)) : Math.min(Math.ceil((ta + 14) / 10) * 10, 260);
+    if (timerOn && ta < PREP + FLUSH) tMax = 75;
+  }
+  const sx = s => CH.x0 + (CH.x1 - CH.x0) * s / tMax;
+  const sy = v => CH.y0 - (CH.y0 - CH.y1) * v / CAP;
+  function drawChart(){
+    const c = $('chart');
+    let h = '';
+    const step = tMax > 150 ? 30 : (tMax > 90 ? 20 : 10);
+    h += '<g class="grid">';
+    for (let s = 0; s <= tMax; s += step) h += `<line x1="${sx(s)}" y1="${CH.y1}" x2="${sx(s)}" y2="${CH.y0}"/><text class="sub" x="${sx(s)}" y="${CH.y0+15}" text-anchor="middle">${s}</text>`;
+    for (let v = 0; v <= 4; v += 1) h += `<line x1="${CH.x0}" y1="${sy(v)}" x2="${CH.x1}" y2="${sy(v)}"/><text class="sub" x="${CH.x0-6}" y="${sy(v)+4}" text-anchor="end">${v}</text>`;
+    h += '</g>';
+    h += `<text class="sub" x="${CH.x1}" y="${CH.y0+30}" text-anchor="end">time since button press (s)</text>`;
+    h += `<text class="sub" x="12" y="${CH.y1+2}" transform="rotate(-90 12 ${CH.y1+2})" text-anchor="end">litres in TK-03</text>`;
+    h += `<rect x="${sx(0)}" y="${CH.y1}" width="${sx(PREP)-sx(0)}" height="${CH.y0-CH.y1}" fill="var(--warn)" opacity=".12"/>`;
+    h += `<text class="sub" x="${sx(PREP/2)}" y="${CH.y1+12}" text-anchor="middle">BV-02</text>`;
+    h += `<line class="danger" x1="${CH.x0}" y1="${sy(DEAD)}" x2="${CH.x1}" y2="${sy(DEAD)}"/>`;
+    h += `<text class="dangerTxt" x="${CH.x0+70}" y="${sy(DEAD)-5}">air enters P-03 below 0.7 L</text>`;
+    if (timerOn) {
+      h += `<line x1="${sx(PREP+FLUSH)}" y1="${CH.y1}" x2="${sx(PREP+FLUSH)}" y2="${CH.y0}" stroke="var(--ok)" stroke-width="2"/>`;
+      h += `<text class="sub okTxt" x="${sx(PREP+FLUSH)-5}" y="${CH.y1+12}" text-anchor="end">timer stops skid at 65 s</text>`;
+    }
+    // predicted path
+    const ta = airTime();
+    const tEnd = timerOn ? PREP + FLUSH : ta;
+    const vEnd = Math.max(CAP - Q / 60 * (tEnd - PREP), 0);
+    h += `<polyline fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.5" points="${sx(0)},${sy(CAP)} ${sx(PREP)},${sy(CAP)} ${sx(tEnd)},${sy(vEnd)}"/>`;
+    // actual trace
+    if (trace.length) {
+      h += `<polyline fill="none" stroke="var(--water)" stroke-width="3" points="${trace.map(p => sx(p[0]).toFixed(1)+','+sy(p[1]).toFixed(1)).join(' ')}"/>`;
+      const p = trace[trace.length-1];
+      h += `<circle cx="${sx(p[0])}" cy="${sy(p[1])}" r="5" fill="${p[1] < DEAD ? 'var(--bad)' : 'var(--water)'}"/>`;
+    }
+    h += `<line class="chartAxis" x1="${CH.x0}" y1="${CH.y0}" x2="${CH.x1}" y2="${CH.y0}"/><line class="chartAxis" x1="${CH.x0}" y1="${CH.y0}" x2="${CH.x0}" y2="${CH.y1}"/>`;
+    c.innerHTML = h;
+  }
+
+  // ---------- schematic ----------
+  let bubbleList = [], bubbleClock = 0;
+  function levelY(v){ return TK.yb - TK.h * Math.max(v,0) / CAP; }
+  function setPump(id, cls){ const g = $(id); g.classList.remove('on','air'); if (cls) g.classList.add(cls); }
+  function render(dtReal){
+    const ph = phase();
+    const y = levelY(V);
+    $('tk3w').setAttribute('y', y);
+    $('tk3w').setAttribute('height', TK.yb - y + 2);
+    const pumping = ph === 'flush' || ph === 'air';
+    const amp = pumping ? 2.2 : 0.6, k = performance.now() / 300;
+    let d = `M${TK.x} ${y+6}`;
+    for (let x = 0; x <= TK.w; x += 6) d += ` L${TK.x+x} ${y + Math.sin(k + x/14) * amp}`;
+    d += ` L${TK.x+TK.w} ${y+6} Z`;
+    $('tk3wave').setAttribute('d', d);
+    $('tk3txt').textContent = V.toFixed(2) + ' L';
+    // TK-01 fills slowly with the flush water
+    const tk1 = 0.5 + 0.35 * (CAP - V) / CAP;
+    $('tk1w').setAttribute('y', 118 - 86 * tk1); $('tk1w').setAttribute('height', 86 * tk1);
+    // sump wobble
+    const sl = pumping ? 0.5 + 0.06 * Math.sin(performance.now()/900) : (ph === 'prep' && running ? 0.45 : 0.5);
+    $('tk2w').setAttribute('y', 318 - 136 * sl); $('tk2w').setAttribute('height', 136 * sl);
+
+    const started = running || t > 0;
+    setPump('p3', ph === 'flush' ? 'on' : ph === 'air' ? 'air' : null);
+    setPump('p1', pumping ? 'on' : null);
+    setPump('p2', (started && (ph === 'prep' || pumping)) ? 'on' : null);
+    $('p3txt').textContent = ph === 'flush' ? 'on, 100 %' : ph === 'air' ? 'sucking air!' : ph === 'prep' && started ? 'waits for BV-02' : 'off';
+    $('fFlush').classList.toggle('on', pumping);
+    $('fFlush').classList.toggle('air', ph === 'air');
+    $('fReturn').classList.toggle('on', started && (ph === 'prep' || pumping));
+
+    // bubbles in the outlet line once level is below outlet top
+    if (ph === 'air') {
+      bubbleClock += dtReal;
+      while (bubbleClock > 0.09) { bubbleClock -= 0.09; bubbleList.push({x:150 + Math.random()*15, y:262 + Math.random()*14, r:2 + Math.random()*3}); }
+    }
+    bubbleList.forEach(b => { b.x += dtReal * 160; b.y += (270 - b.y) * 0.05; });
+    bubbleList = bubbleList.filter(b => b.x < 300);
+    $('bubbles').innerHTML = bubbleList.map(b => `<circle cx="${b.x.toFixed(1)}" cy="${b.y.toFixed(1)}" r="${b.r.toFixed(1)}" fill="var(--panel)" stroke="var(--bad)" stroke-width="1.2"/>`).join('');
+
+    // timer ring
+    const flushT = Math.max(0, Math.min(t - PREP, FLUSH));
+    const left = ph === 'prep' ? FLUSH : Math.max(0, FLUSH - flushT);
+    const showLeft = timerOn ? Math.ceil(left - 1e-6) : '—';
+    $('ringNum').textContent = ph === 'prep' && started ? Math.ceil(PREP - t) : showLeft;
+    $('ringFg').setAttribute('stroke-dashoffset', (314.16 * (1 - (ph === 'prep' ? 1 : left / FLUSH))).toFixed(1));
+    $('ringFg').style.stroke = ph === 'prep' && started ? 'var(--warn)' : ph === 'done' ? 'var(--ok)' : (ph === 'air' || ph === 'airstop') ? 'var(--bad)' : 'var(--accent)';
+    document.querySelector('.ring .sub').textContent = ph === 'prep' && started ? 's to P-03 start' : (timerOn ? 's left' : 'timer off');
+
+    const box = $('stateBox');
+    box.className = 'state';
+    let st = 'IDLE', m = 'Press Start. This replays the second press of the ON/OFF button (Case 1 to Case 2).', ctrl = 'IDLE';
+    if (started && ph === 'prep') { st = 'BV-02 WINDOW'; box.classList.add('prep'); ctrl = 'FLUSH_PREP'; m = 'SOV-01 closed, P-01 and P-03 off, P-02 keeps emptying the sump. Open BV-02 by hand now.'; }
+    else if (ph === 'flush') { st = 'FLUSHING'; box.classList.add('flush'); ctrl = 'FLUSH'; m = timerOn ? 'All three pumps at 100 %. TK-03 is draining; the timer will end the flush at 60 s.' : 'All three pumps at 100 %. No timer: nothing will stop the pumps.'; }
+    else if (ph === 'done') { st = 'DONE: AUTO STOP'; box.classList.add('done'); ctrl = 'DONE'; m = `Timer hit 60 s and stopped all pumps with ${(V-DEAD).toFixed(2)} L still above the outlet. No air reached P-03.`; }
+    else if (ph === 'air') { st = 'AIR INTO P-03'; box.classList.add('air'); ctrl = 'FLUSH'; m = 'Level is below the outlet top. P-03 is now pulling a water and air mix: it loses prime, runs partly dry and pushes bubbles through FT-01.'; }
+    else if (ph === 'airstop') { st = 'RAN DRY'; box.classList.add('air'); ctrl = timerOn ? 'DONE (late)' : 'FLUSH (no stop)'; m = timerOn ? 'The timer did stop the skid, but only after air had already entered P-03. At this flow 60 s is too long.' : 'Without the timer the pumps kept running after TK-03 emptied: dry running heats the diaphragm and valves, and bubbles spoil the FT-01 reading.'; }
+    box.textContent = st;
+    $('ctrlState').textContent = ctrl;
+    $('ctrlTime').textContent = started ? `t = ${t.toFixed(1)} s` : 'press Start';
+
+    $('rT').textContent = t.toFixed(1) + ' s';
+    $('rV').textContent = V.toFixed(2) + ' L';
+    $('rU').textContent = Math.max(V - DEAD, 0).toFixed(2) + ' L';
+    $('rD').textContent = (CAP - V).toFixed(2) + ' L';
+    const air = airAt !== null;
+    $('rA').textContent = air ? `Yes, from ${airAt.toFixed(1)} s` : 'No';
+    $('rA').className = air ? 'badc' : 'good';
+  }
+
+  // ---------- simulation ----------
+  function stepSim(dt){
+    if (!running || finished) return;
+    const ph = phase();
+    if (timerOn && t + dt >= PREP + FLUSH) dt = PREP + FLUSH - t;
+    let tn = t + dt;
+    if (ph === 'flush' || ph === 'air') {
+      const rate = (airAt !== null ? 0.35 : 1) * Q / 60;
+      V = Math.max(V - rate * dt, 0);
+      if (timerOn && tn >= PREP + FLUSH - 1e-9) V = Math.max(V, DEAD);
+      if (airAt === null && V < DEAD - 1e-9) { airAt = tn; V = DEAD; }
+    }
+    t = tn;
+    if (timerOn && t >= PREP + FLUSH - 1e-9) { t = PREP + FLUSH; finished = true; running = false; }
+    if (airAt !== null && !timerOn && t >= airAt + 8) { finished = true; running = false; }
+    trace.push([t, V]);
+    if (finished) $('btnPlay').textContent = 'Replay';
+  }
+
+  function frame(now){
+    const dtReal = last === null ? 0 : Math.min((now - last) / 1000, 0.1);
+    last = now;
+    let rem = dtReal * speed;
+    while (rem > 0) { const d = Math.min(rem, 0.05); stepSim(d); rem -= d; }
+    render(dtReal);
+    if (running || bubbleList.length) drawChart();
+    requestAnimationFrame(frame);
+  }
+
+  function reset(){
+    t = 0; V = CAP; running = false; finished = false; airAt = null; trace = []; bubbleList = [];
+    $('btnPlay').textContent = 'Start';
+    computeTMax(); drawChart(); render(0);
+  }
+  $('btnPlay').onclick = () => {
+    if (finished) reset();
+    running = !running;
+    if (running && !trace.length) trace.push([0, CAP]);
+    $('btnPlay').textContent = running ? 'Pause' : 'Resume';
+  };
+  $('btnReset').onclick = reset;
+  $('speed').onchange = e => speed = +e.target.value;
+  $('timerOn').onchange = e => { timerOn = e.target.checked; reset(); };
+  reset();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
