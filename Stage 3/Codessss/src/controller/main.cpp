@@ -1,27 +1,12 @@
-// ESP32 #1 (U2) -- controller board
-//
-// Drives SV1..SV4 and pumps P1..P4, reads the START switch, receives flow-sensor counts from
-// ESP32 #2 (U7) over UART and runs the whole batch:
-//     dose line by line (fast, then slow for the last part, stop early by the learned overrun)
-//  -> water chase into the mixing tank -> report -> wait for the hand valves to be switched
-//  -> second START press: water flush to the 2 L jug.
-//
-// Line numbers used everywhere: 1 = Red (P1, FT1, SV1), 2 = Yellow (P2, FT2, SV2), 3 = Green (P3, FT3, SV3),
-// 4 = Flush water (P4, SV4). The header outlet is split by two HAND ball valves the firmware cannot see:
-//     BV-M (header -> mixing tank) and BV-J (header -> flush jug).
-//     Batch and chase: BV-M open, BV-J shut.   Flush, prime, calibration: BV-M shut, BV-J open.
-// Type "help" in the serial monitor (115200 baud, newline line ending) for every command.
-
 #include <Arduino.h>
 #include <Preferences.h>
 #include "link.h"
 
-// ---------------------------------------------------------------- pins (PCB sheets 2-5)
-static const uint8_t SV_PIN[4] = {23, 22, 21, 19};  // SV1..SV4, HIGH = coil on = valve open (NC valves)
-static const uint8_t PWM_PIN[4] = {32, 33, 25, 26}; // PWM_1..PWM_4 -> MDD10A DRV1 ch1/ch2, DRV2 ch1/ch2
-static const uint8_t START_PIN = 14;                // ON/OFF_SWITCH1 to SGND, internal pull-up
+static const uint8_t SV_PIN[4] = {23, 22, 21, 19};
+static const uint8_t PWM_PIN[4] = {32, 33, 25, 26};
+static const uint8_t START_PIN = 14;
 
-static const uint32_t PWM_FREQ = 20000; // MDD10A accepts up to 20 kHz; inaudible
+static const uint32_t PWM_FREQ = 20000;
 static const uint8_t PWM_BITS = 10;
 
 static const char *LINE_NAME[4] = {"RED", "YELLOW", "GREEN", "FLUSH"};
@@ -32,52 +17,42 @@ enum
 static const char *NEED_JUG = "to the JUG: BV-M shut, BV-J open";
 static const char *NEED_MIX = "to the MIXING TANK: BV-M open, BV-J shut";
 
-// ================================================================ TUNING KNOBS
-// Edit these, re-upload, and they are what the controller uses at boot.
-// Live tuning: change any of them over serial with "set ...", try it, then type "code"
-// to print this block with the current values, and paste it back here.
-//
-// SETTINGS_FROM_CODE = true : these values win at every boot ("save" to flash is ignored at boot)
-// SETTINGS_FROM_CODE = false: values saved with "save" win; these are only the first-boot defaults
 static const bool SETTINGS_FROM_CODE = true;
-//                               RED     YELLOW    GREEN
-static const float TUNE_K[3] = {1.8719f, 9.6364f, 1.9033f};    // pulses per mL from calibration (0 = not calibrated)
-static const float TUNE_TARGET[3] = {1800.0f, 300.0f, 900.0f}; // mL per batch (60 / 10 / 30 %)
-static const uint8_t TUNE_FAST[3] = {100, 100, 100};           // % pump duty, fast phase
-static const uint8_t TUNE_SLOW[3] = {60, 60, 60};              // % pump duty, last part of the dose (raised automatically if the pump stalls)
-static const float TUNE_OVERRUN[3] = {3.0f, 3.0f, 3.0f};       // mL that still arrive after stop (start value; learned)
-static const uint8_t TUNE_ORDER[3] = {2, 3, 1};                // dose order by line number: 2 Yellow, 3 Green, 1 Red
-static const float TUNE_BAND_PCT = 10.0f;                      // slow phase = last 10 % of each dose ...
-static const float TUNE_BAND_MIN = 20.0f;                      // ... but at least this many mL
-static const uint8_t TUNE_P4 = 60;                             // % duty of the flush pump P4
-static const float TUNE_P4_RATE = 30.0f;                       // mL/s P4 delivers at that duty (measure it)
-static const uint32_t TUNE_CHASE_MS = 1500;                    // water chase into the mixing tank, ms
-static const uint32_t TUNE_FLUSH_MS = 6000;                    // water flush to the jug, ms
-static const bool TUNE_LEARN = true;                           // learn the overrun after every dose
-static const bool TUNE_WATER_STEPS = false;                    // false: batch = 3 colours only, then stop (no chase, no flush; START = new batch)
-                                                               // true: water chase after the colours, 2nd START press = flush
-// ================================================================
 
-// ---------------------------------------------------------------- settings (saved in flash)
+static const float TUNE_K[3] = {1.8719f, 9.6364f, 1.9033f};
+static const float TUNE_TARGET[3] = {1800.0f, 300.0f, 900.0f};
+static const uint8_t TUNE_FAST[3] = {100, 100, 100};
+static const uint8_t TUNE_SLOW[3] = {60, 60, 60};
+static const float TUNE_OVERRUN[3] = {3.0f, 3.0f, 3.0f};
+static const uint8_t TUNE_ORDER[3] = {2, 3, 1};
+static const float TUNE_BAND_PCT = 10.0f;
+static const float TUNE_BAND_MIN = 20.0f;
+static const uint8_t TUNE_P4 = 60;
+static const float TUNE_P4_RATE = 30.0f;
+static const uint32_t TUNE_CHASE_MS = 1500;
+static const uint32_t TUNE_FLUSH_MS = 6000;
+static const bool TUNE_LEARN = true;
+static const bool TUNE_WATER_STEPS = false;
+
 struct LineCfg
 {
-  float k;       // pulses per mL, from calibration. 0 = not calibrated yet
-  float target;  // mL for one batch
-  uint8_t fast;  // % duty in the fast phase
-  uint8_t slow;  // % duty in the slow phase (must still pump reliably)
-  float overrun; // mL that still arrive after the stop command; learned each dose
+  float k;
+  float target;
+  uint8_t fast;
+  uint8_t slow;
+  float overrun;
 };
 struct Config
 {
   LineCfg line[3];
-  uint8_t order[3]; // dose order, 0-based line index
-  float bandPct;    // slow phase covers the last bandPct % of the dose ...
-  float bandMinMl;  // ... but never less than this
-  uint8_t p4;       // flush pump duty %
-  float p4Rate;     // mL/s the flush pump delivers at p4 duty (measured in the dry run)
-  uint32_t chaseMs; // water chase into the mixing tank after the last colour
-  uint32_t flushMs; // water flush to the jug
-  bool learn;       // update overrun automatically after every dose
+  uint8_t order[3];
+  float bandPct;
+  float bandMinMl;
+  uint8_t p4;
+  float p4Rate;
+  uint32_t chaseMs;
+  uint32_t flushMs;
+  bool learn;
 };
 static Config cfg;
 static Preferences prefs;
@@ -96,11 +71,11 @@ static void setDefaults()
   cfg.flushMs = TUNE_FLUSH_MS;
   cfg.learn = TUNE_LEARN;
 }
-// Prints the TUNING block with the live values, ready to paste into the code.
+
 static void printCode()
 {
   const LineCfg *L = cfg.line;
-  Serial.println(F("// ---- paste over the TUNING KNOBS values ----"));
+  Serial.println(F("---- TUNING values ----"));
   Serial.printf("static const float   TUNE_K[3]      = {%.4ff, %.4ff, %.4ff};\n", L[0].k, L[1].k, L[2].k);
   Serial.printf("static const float   TUNE_TARGET[3] = {%.1ff, %.1ff, %.1ff};\n", L[0].target, L[1].target, L[2].target);
   Serial.printf("static const uint8_t TUNE_FAST[3]   = {%u, %u, %u};\n", L[0].fast, L[1].fast, L[2].fast);
@@ -130,7 +105,7 @@ static void loadConfig()
   {
     setDefaults();
     return;
-  } // the TUNING KNOBS block wins
+  }
   prefs.begin("choc", true);
   size_t n = prefs.getBytesLength("cfg");
   if (n == sizeof(cfg))
@@ -140,7 +115,6 @@ static void loadConfig()
   prefs.end();
 }
 
-// ---------------------------------------------------------------- outputs with interlocks
 static bool valveOpen[4] = {false};
 static uint8_t pumpPct[4] = {0};
 
@@ -153,14 +127,14 @@ static void allOff()
 {
   for (int p = 0; p < 4; p++)
     writePump(p, 0);
-  delay(100); // let pumps spin down before valves shut (no deadheading)
+  delay(100);
   for (int v = 0; v < 4; v++)
   {
     digitalWrite(SV_PIN[v], LOW);
     valveOpen[v] = false;
   }
 }
-// A pump may only run when its own line valve is open. The outlet hand valves are the operator's job.
+
 static bool pathOk(int p) { return valveOpen[p]; }
 
 static bool setPump(int p, uint8_t pct)
@@ -179,7 +153,6 @@ static bool setValve(int v, bool open)
 {
   if (!open && pumpPct[v])
   {
-    // closing a line valve first stops its pump, so it never runs against a closed valve
     writePump(v, 0);
     delay(100);
   }
@@ -188,7 +161,6 @@ static bool setValve(int v, bool open)
   return true;
 }
 
-// ---------------------------------------------------------------- UART link from U7
 static uint32_t counts[3] = {0, 0, 0};
 static uint32_t lastFrameMs = 0, framesOk = 0, framesBad = 0;
 static bool linkOk() { return framesOk > 0 && millis() - lastFrameMs < 150; }
@@ -230,7 +202,6 @@ static void pollLink()
   }
 }
 
-// ---------------------------------------------------------------- dose engine (one line at a time)
 enum Phase
 {
   D_IDLE,
@@ -244,30 +215,30 @@ enum Phase
 };
 static const char *PHASE_NAME[] = {"idle", "open", "fast", "slow", "stop", "settle", "done", "FAULT"};
 
-static const uint32_t VALVE_MS = 200;         // valve fully open before pump starts
-static const uint32_t STOP_TO_CLOSE_MS = 150; // pump stops, then line valve closes
-static const uint32_t SETTLE_MS = 800;        // count late pulses after valve closes
-static const uint32_t START_STALL_MS = 4000;  // no pulses at all this long after start = fault
-static const uint32_t STALL_MS = 2000;        // pulses stop mid-dose this long = fault
-static const uint32_t MAX_DOSE_MS = 600000;   // 10 min: Red 1800 mL at ~13 mL/s plus the slow phase is ~3 min, so this leaves margin
-static const uint32_t SLOW_BOOST_MS = 700;    // slow phase: no pulse this long -> raise duty 10 points
+static const uint32_t VALVE_MS = 200;
+static const uint32_t STOP_TO_CLOSE_MS = 150;
+static const uint32_t SETTLE_MS = 800;
+static const uint32_t START_STALL_MS = 4000;
+static const uint32_t STALL_MS = 2000;
+static const uint32_t MAX_DOSE_MS = 600000;
+static const uint32_t SLOW_BOOST_MS = 700;
 
 struct Dose
 {
   Phase ph = D_IDLE;
   int line = 0;
-  float target = 0;   // mL; ignored in timed mode
-  bool timed = false; // calibration run: fixed duty for runMs, no metering
+  float target = 0;
+  bool timed = false;
   uint32_t runMs = 0;
   uint8_t duty = 0;
-  bool toMix = false; // only for messages: the hand valves decide where it really goes
+  bool toMix = false;
   uint32_t t0 = 0, tPh = 0, startCount = 0, stopCount = 0, lastPulseMs = 0, lastCount = 0;
   float mlAtStop = 0, mlFinal = 0;
   uint32_t pulsesFinal = 0;
   char fault[64] = "";
 } dose;
 
-static uint32_t lastPulses[3] = {0, 0, 0}; // pulses of the latest finished dose/calrun per line (for "k")
+static uint32_t lastPulses[3] = {0, 0, 0};
 
 static float mlOf(int line, uint32_t pulses)
 {
@@ -323,7 +294,7 @@ static void doseTelemetry(uint32_t now)
   float rate = (prevMs && now > prevMs && p >= prevCount) ? mlOf(dose.line, p - prevCount) * 1000.0f / (now - prevMs) : 0;
   prevCount = p;
   prevMs = now;
-  // CSV: D,t_ms,line,phase,duty%,pulses,mL,mL_per_s
+
   Serial.printf("D,%lu,%d,%s,%u,%lu,%.1f,%.1f\n", (unsigned long)(now - dose.t0), dose.line + 1, PHASE_NAME[dose.ph],
                 pumpPct[dose.line], (unsigned long)p, mlOf(dose.line, p), rate);
 }
@@ -356,7 +327,7 @@ static void doseStep()
   if (dose.ph == D_FAST || dose.ph == D_SLOW)
   {
     uint32_t limit = (p == 0) ? START_STALL_MS : STALL_MS;
-    // Slow duty too low for this pump: step it up instead of faulting, and keep the new value.
+
     if (dose.ph == D_SLOW && now - dose.lastPulseMs > SLOW_BOOST_MS && pumpPct[dose.line] < L.fast)
     {
       int up = pumpPct[dose.line] + 10;
@@ -385,7 +356,7 @@ static void doseStep()
     {
       uint8_t d = dose.timed ? dose.duty : L.fast;
       if (!dose.timed && ml >= dose.target - band)
-        d = L.slow; // tiny dose: go straight to slow
+        d = L.slow;
       if (!setPump(dose.line, d))
       {
         doseFault("interlock refused pump start");
@@ -461,7 +432,6 @@ stop:
   dose.tPh = now;
 }
 
-// ---------------------------------------------------------------- simple timed flush-pump runs
 struct Timed
 {
   bool on = false;
@@ -469,7 +439,7 @@ struct Timed
   int phase = 0;
   bool toMix = false;
 } p4run;
-static float jugMl = 0; // estimated water in the jug since it was last emptied
+static float jugMl = 0;
 
 static bool p4Begin(bool toMix, uint32_t ms)
 {
@@ -528,7 +498,6 @@ static void p4Step()
   }
 }
 
-// ---------------------------------------------------------------- batch sequence
 enum Batch
 {
   B_IDLE,
@@ -639,13 +608,12 @@ static void batchStep()
       {
         if (!TUNE_WATER_STEPS)
         {
-          // Colours only: report and stop. The next START press runs a new batch.
           batchReport();
           allOff();
           batch = B_DONE;
           Serial.println(F(">>> BATCH COMPLETE. All pumps off, all valves shut. Press START for the next batch."));
         }
-        // BV-M is still open: push the last colour out of the header into the mixing tank
+
         else if (cfg.chaseMs == 0)
           batch = B_CHASE;
         else if (p4Begin(true, cfg.chaseMs))
@@ -690,7 +658,6 @@ static void batchFlush()
   batch = B_FLUSH;
 }
 
-// ---------------------------------------------------------------- start switch
 static void pollStart()
 {
   static bool last = true, stable = true;
@@ -705,7 +672,7 @@ static void pollStart()
   {
     stable = r;
     if (!stable)
-    { // pressed (pulled to SGND)
+    {
       if (busy())
         batchAbort("START pressed during run (used as stop)");
       else if (batch == B_WAIT_FLUSH)
@@ -716,7 +683,6 @@ static void pollStart()
   }
 }
 
-// ---------------------------------------------------------------- serial commands
 static void printConfig()
 {
   Serial.println(F("line    k(p/mL)  target  fast%  slow%  overrun"));
@@ -934,10 +900,8 @@ static void handleCommand(String line)
     Serial.println(F("? type help"));
 }
 
-// ---------------------------------------------------------------- setup / loop
 void setup()
 {
-  // Valves first: NC valves stay shut while the board boots.
   for (int v = 0; v < 4; v++)
   {
     pinMode(SV_PIN[v], OUTPUT);
@@ -951,7 +915,7 @@ void setup()
   }
   pinMode(START_PIN, INPUT_PULLUP);
   Serial.begin(115200);
-  Serial2.setRxBufferSize(1024); // room for ~30 frames, so a busy moment never overflows the link
+  Serial2.setRxBufferSize(1024);
   Serial2.begin(LINK_BAUD, SERIAL_8N1, LINK_RX_PIN, LINK_TX_PIN);
   loadConfig();
   delay(300);
@@ -966,7 +930,7 @@ void loop()
   doseStep();
   p4Step();
   batchStep();
-  // Read commands one character at a time so the loop never blocks while typing.
+
   static String rx;
   while (Serial.available())
   {
