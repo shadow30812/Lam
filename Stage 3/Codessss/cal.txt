@@ -1,0 +1,11 @@
+n represents the line number (1 Red, 2 Yellow, 3 Green)
+
+> prime n 5 runs line n for 5 seconds
+> calrun n 15 runs the calibration for line n in 15 seconds and records the values
+... Outputs number of raw pulses, say 700
+> k n 400 will tell the controller the volume of water received
+... Controller then calculates the value of k for that line n (here it's 700/400 pulses per mL)
+> dose n 300 uses line n to pass 300 ml of water in the same way as the batch set-up
+... Use k n 415 or whatever number you get to set volume again
+> set k2 1.85 will set k2 = 1.85
+> save will store every constant to ROM

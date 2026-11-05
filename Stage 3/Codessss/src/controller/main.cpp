@@ -1,4 +1,4 @@
-// ESP32 #1 (U2) · controller board · Team 13 Chocolate batch plant
+// ESP32 #1 (U2) · controller board
 //
 // Drives SV1..SV4 and pumps P1..P4, reads the START switch, receives flow-sensor counts from
 // ESP32 #2 (U7) over UART and runs the whole batch:
