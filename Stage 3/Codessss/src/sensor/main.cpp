@@ -76,8 +76,17 @@ void loop() {
     for (int i = 0; i < 3; i++) prevWatch[i] = c[i];
   }
 
-  if (Serial.available()) {
-    String cmd = Serial.readStringUntil('\n');
+  // Non-blocking command reader: frames to U2 keep flowing every 10 ms while you type.
+  static String rx;
+  bool gotLine = false;
+  while (Serial.available() && !gotLine) {
+    char ch = Serial.read();
+    if (ch == '\n' || ch == '\r') gotLine = rx.length() > 0;
+    else if (rx.length() < 40) rx += ch;
+  }
+  if (gotLine) {
+    String cmd = rx;
+    rx = "";
     cmd.trim();
     if (cmd == "show") {
       uint32_t c[3];
