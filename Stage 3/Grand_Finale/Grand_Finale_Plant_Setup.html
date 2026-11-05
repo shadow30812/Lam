@@ -1,0 +1,456 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chocolate Plant Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Drawing-sheet page: header + mode switch, one large front elevation, then build schedules. Same style as the Stage 2 Flow Skid sheet. */
+:root{
+  --paper:#eef1ef; --sheet:#fbfcfb; --ink:#16232a; --muted:#5b6b70; --rule:#cdd6d3;
+  --red:#c8202f; --yellow:#e2ad12; --green:#23894c; --water:#2f86c9; --choc:#5a2f22; --empty:#d5dcda; --ok:#1d7a4c; --stop:#b3261e;
+  --wall:#f4f5f2; --wall-dot:#dfe3df; --wood:#d8b98c; --wood-edge:#b8935f;
+  --glass:rgba(255,255,255,.35); --glass-edge:#7d9296; --tube:#9fb0b3; --panel:#e6e9e6;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f1518; --sheet:#151d21; --ink:#e2eaec; --muted:#93a4a9; --rule:#2b383d;
+  --red:#ef5361; --yellow:#f2c440; --green:#45b974; --water:#5aa8e6; --choc:#8a5040; --empty:#33413f; --ok:#4cc187; --stop:#ef6b5f;
+  --wall:#1a2327; --wall-dot:#26323a; --wood:#6b5537; --wood-edge:#4e3d27;
+  --glass:rgba(200,225,235,.08); --glass-edge:#7a9399; --tube:#5d6f74; --panel:#202b30; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1518; --sheet:#151d21; --ink:#e2eaec; --muted:#93a4a9; --rule:#2b383d;
+  --red:#ef5361; --yellow:#f2c440; --green:#45b974; --water:#5aa8e6; --choc:#8a5040; --empty:#33413f; --ok:#4cc187; --stop:#ef6b5f;
+  --wall:#1a2327; --wall-dot:#26323a; --wood:#6b5537; --wood-edge:#4e3d27;
+  --glass:rgba(200,225,235,.08); --glass-edge:#7a9399; --tube:#5d6f74; --panel:#202b30; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:28px 64px;display:flex;flex-direction:column;gap:28px}
+header{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:14px}
+@media (max-width:720px){header{grid-template-columns:1fr}.dwg{text-align:left!important}}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1;margin:6px 0 0;letter-spacing:.01em;text-wrap:balance}
+.dwg{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:right;line-height:1.6}
+.dwg b{color:var(--ink);font-weight:600}
+h2{font-family:var(--f-display);font-weight:600;font-size:26px;margin:0 0 10px;letter-spacing:.01em}
+p{margin:0;max-width:72ch}
+.controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;flex-wrap:wrap}
+.seg button{font:600 14px var(--f-body);background:transparent;color:var(--ink);border:0;padding:9px 14px;cursor:pointer;border-right:1.5px solid var(--ink)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.seg button:focus-visible,.chk input:focus-visible{outline:3px solid var(--water);outline-offset:2px}
+.chk{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.mode-note{border-left:4px solid var(--water);padding:8px 14px;background:var(--sheet);max-width:none;min-height:3.2em}
+figure{margin:0;background:var(--sheet);border:1px solid var(--rule);border-radius:4px}
+.scroll{overflow-x:auto}
+svg#plant{display:block;width:100%;min-width:980px;height:auto}
+figcaption{display:flex;flex-wrap:wrap;gap:8px 22px;padding:12px 16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.key{display:inline-flex;align-items:center;gap:8px}
+.sw{width:28px;height:6px;border-radius:3px;display:inline-block}
+.sw.dash{height:0;border-top:3px dashed var(--muted);border-radius:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+.grid2>*{min-width:0}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+td.n{font-family:var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;width:2.6em}
+tr.grp td{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+td code,p code,li code{font-family:var(--f-mono);font-size:12.5px}
+ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.flag{border:1.5px solid var(--stop);border-radius:4px;padding:10px 14px;background:var(--sheet)}
+.flag b{color:var(--stop)}
+.small{font-size:13px;color:var(--muted)}
+#plant text{fill:var(--ink)}
+#plant .t{font-family:var(--f-body);font-size:15px}
+#plant .ts{font-family:var(--f-body);font-size:13px;fill:var(--muted)}
+#plant .tag{font-family:var(--f-mono);font-size:15px;font-weight:600}
+#plant .pill text{font-family:var(--f-mono);font-size:12px;font-weight:600;fill:#fff}
+.fluid{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fluid.on{stroke-dasharray:12 9;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-42}}
+@media (prefers-reduced-motion: reduce){.fluid.on{animation:none}}
+#wiring{transition:opacity .2s}
+</style></head><body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Lam Research Challenge 2026 · Stage 3 · Grand Finale · Team 13</div>
+      <h1>Chocolate Batch Plant · Final Setup</h1>
+    </div>
+    <div class="dwg"><b>Front elevation, not to scale · rev C</b><br>Kit: 5 tanks · 4 pumps · 4 solenoid valves · 3 ball valves fitted · FT1–FT3<br>Tube: 8 × 5 mm clear PU line, 8 × 10 mm blue stubs at pump and sensor barbs</div>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Operating step">
+        <button data-m="yel" aria-pressed="true">1 · Yellow dose</button>
+        <button data-m="grn" aria-pressed="false">2 · Green dose</button>
+        <button data-m="red" aria-pressed="false">3 · Red dose</button>
+        <button data-m="chase" aria-pressed="false">4 · Water chase</button>
+        <button data-m="flush" aria-pressed="false">5 · Flush</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="wires" checked> Show wiring</label>
+    </div>
+    <p class="mode-note" id="note"></p>
+    <figure>
+      <div class="scroll"><svg id="plant" viewBox="0 0 1800 1080" role="img" aria-label="Front elevation of the Chocolate batch plant showing tanks, pumps, flow sensors, solenoid valves, header, hand valves, mixing tank, jug and control panel"></svg></div>
+      <figcaption>
+        <span class="key"><span class="sw" style="background:var(--yellow)"></span>Yellow</span>
+        <span class="key"><span class="sw" style="background:var(--green)"></span>Green</span>
+        <span class="key"><span class="sw" style="background:var(--red)"></span>Red</span>
+        <span class="key"><span class="sw" style="background:var(--water)"></span>Flush water</span>
+        <span class="key"><span class="sw" style="background:var(--empty)"></span>Line idle / isolated</span>
+        <span class="key"><span class="sw" style="background:#b3261e"></span>12 V / motor power</span>
+        <span class="key"><span class="sw dash"></span>Sensor &amp; control signals</span>
+        <span class="key">▢ Tank hole with hose connection, washer each side</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="grid2">
+    <div>
+      <h2>Hydraulic connections</h2>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>From → To</th><th>Line &amp; fittings</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td></td><td colspan="2">Each colour line (n = 1 Red, 2 Yellow, 3 Green)</td></tr>
+          <tr><td class="n">H1</td><td>T-n bottom hole → Pn inlet</td><td>Hose connection through the hole, 8 mm PU, 8 × 10 reducer, blue stub on the barb + clamp</td></tr>
+          <tr><td class="n">H2</td><td>Pn outlet → FTn inlet</td><td>Blue stub + clamp, 8 × 10 reducer, 8 mm PU, reducer, blue stub on the sensor barb + clamp. Sensor arrow away from the pump</td></tr>
+          <tr><td class="n">H3</td><td>FTn outlet → SVn inlet</td><td>Blue stub + clamp, 8 × 10 reducer, 8 mm PU, ¼″ male × 8 mm into SVn (PTFE tape). Body arrow toward the header</td></tr>
+          <tr><td class="n">H4</td><td>SVn outlet → header tee</td><td>¼″ male × 8 mm, 8 mm PU under 10 cm. Red → TE-1, Yellow → Y-1, Green → Y-2</td></tr>
+          <tr class="grp"><td></td><td colspan="2">Flush line</td></tr>
+          <tr><td class="n">H5</td><td>T-4 bottom hole → BV-F</td><td>Hose connection, 8 mm PU, ¼″ male × 8 mm into BV-F</td></tr>
+          <tr><td class="n">H6</td><td>BV-F → P4 inlet</td><td>¼″ male × 8 mm, 8 mm PU, 8 × 10 reducer, blue stub + clamp</td></tr>
+          <tr><td class="n">H7</td><td>P4 outlet → SV4 inlet</td><td>Blue stub + clamp, 8 × 10 reducer, 8 mm PU, ¼″ male × 8 mm. Body arrow toward the header</td></tr>
+          <tr><td class="n">H8</td><td>SV4 outlet → TE-1 run port</td><td>¼″ male × 8 mm, 8 mm PU. This is the start of the header</td></tr>
+          <tr class="grp"><td></td><td colspan="2">Header and outlets</td></tr>
+          <tr><td class="n">H9</td><td>TE-1 → Y-1 → Y-2 → TE-2</td><td>8 mm PU between push-fit tees. Measure the total length and write it down: the water chase time is set from it (19.6 mL per metre)</td></tr>
+          <tr><td class="n">H10</td><td>TE-2 → BV-M → T-5 middle top hole</td><td>¼″ male × 8 mm both sides of BV-M, 8 mm PU up and over into the hole. The tube end inside stays above the liquid</td></tr>
+          <tr><td class="n">H11</td><td>TE-2 → BV-J → J-1</td><td>¼″ male × 8 mm both sides of BV-J, short 8 mm PU pointing straight down into the jug</td></tr>
+        </tbody></table></div>
+      <p class="small" style="margin-top:10px">The fourteen 8 × 10 reducers map one-to-one onto the 8 pump barbs and 6 sensor barbs, and so do 14 of the 15 tube clamps. Fourteen of the twenty ¼″ male connectors go on the two ports of the 4 solenoid valves and 3 fitted ball valves, leaving 6 spare. PTFE tape goes on threaded joints only, never on push-fits. If your flow sensors have threaded ports instead of barbs, use a ¼″ female × 8 mm connector there.</p>
+    </div>
+    <div>
+      <h2>Electrical connections</h2>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>From → To</th><th>Cable / notes</th></tr></thead>
+        <tbody>
+          <tr><td class="n">E1</td><td>Mains cord → SMPS L / N / ⏚</td><td>The only mains connection. SMPS off for every wiring change</td></tr>
+          <tr><td class="n">E2</td><td>SMPS +V / −V → PCB 12V INPUT</td><td>Red / black, polarity checked with a meter</td></tr>
+          <tr><td class="n">E3</td><td>PCB P1 → MDD10A DRV1 power</td><td>12 V for P1 + P2</td></tr>
+          <tr><td class="n">E4</td><td>PCB P2 → MDD10A DRV2 power</td><td>12 V for P3 + P4 (PCB P3 spare)</td></tr>
+          <tr><td class="n">E5</td><td>PCB MOTOR_DRIVER1 → DRV1 input header</td><td>6-pin: 2 = PWM_1 (G32), 4 = PWM_2 (G33), 1/3/5/6 = GND (DIR held low). Match the MDD10A labels</td></tr>
+          <tr><td class="n">E6</td><td>PCB MOTOR_DRIVER2 → DRV2 input header</td><td>6-pin: 2 = PWM_3 (G25), 4 = PWM_4 (G26), rest GND</td></tr>
+          <tr><td class="n">E7</td><td>DRV1 M1 → P1 Red · M2 → P2 Yellow</td><td>Red / black. Swap the leads if a pump hums but moves no water</td></tr>
+          <tr><td class="n">E8</td><td>DRV2 M1 → P3 Green · M2 → P4 Flush</td><td>Red / black</td></tr>
+          <tr><td class="n">E9</td><td>PCB SV1 · SV2 · SV3 · SV4 → valve coils</td><td>2-pin, pin 1 = +12 V, pin 2 = switched −. Coils have no polarity. G23 / G22 / G21 / G19 on ESP32 #1</td></tr>
+          <tr><td class="n">E10</td><td>PCB FLOW_SENSOR1 · 2 · 3 → FT1 · FT2 · FT3</td><td>3-pin S / V / G: signal, 5 V, ground. G33 / G25 / G26 on ESP32 #2. FLOW_SENSOR4, 5 unused</td></tr>
+          <tr><td class="n">E11</td><td>PCB ON/OFF_SWITCH1 → tactile switch HS-1</td><td>2-pin, two diagonal legs. G14 on ESP32 #1</td></tr>
+          <tr><td class="n">E12</td><td>ESP32 #1 USB → laptop</td><td>Serial monitor 115200 for the log and commands. Flash ESP32 #2 with the same cable first</td></tr>
+        </tbody></table></div>
+      <div class="flag" style="margin-top:14px"><b>Two hand valves decide where the liquid goes.</b> The firmware cannot see BV-M and BV-J. For the batch: BV-M open, BV-J shut. For flush, priming and calibration: BV-M shut, BV-J open. Every serial message repeats the setting it needs.</div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div>
+      <h2>Tank holes</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>Tank</th><th>Hole</th><th>Use</th><th>Hardware</th></tr></thead>
+        <tbody>
+          <tr><td>T-1 Red</td><td>1 · bottom</td><td>Outlet to P1</td><td>Hose connection + 2 washers + nut</td></tr>
+          <tr><td>T-2 Yellow</td><td>1 · bottom</td><td>Outlet to P2</td><td>Hose connection + 2 washers + nut</td></tr>
+          <tr><td>T-3 Green</td><td>1 · bottom</td><td>Outlet to P3</td><td>Hose connection + 2 washers + nut</td></tr>
+          <tr><td>T-4 Flush water</td><td>bottom</td><td>Outlet to BV-F → P4</td><td>Hose connection + 2 washers + nut</td></tr>
+          <tr><td>T-4 Flush water</td><td>top</td><td>Fill and air vent, left open</td><td>Hose connection + 2 washers + female connector, or leave bare</td></tr>
+          <tr><td>T-5 Mixing</td><td>top · middle</td><td>Header inlet from BV-M; end above liquid</td><td>Hose connection + 2 washers + female connector</td></tr>
+          <tr><td>T-5 Mixing</td><td>top · left</td><td>Air vent, left open</td><td>Hose connection or bare</td></tr>
+          <tr><td>T-5 Mixing</td><td>top · right</td><td>Spare (stirring / sampling), left open</td><td>Hose connection or bare</td></tr>
+        </tbody></table></div>
+      <p class="small" style="margin-top:10px">8 holes = the 8 hose connections in the kit. Use the 4 nuts on the 4 bottom holes, where the water presses on the joint. The top holes carry no pressure, so a female connector or a snug fit is enough. One washer goes inside and one outside each wall (16 of the 37 washers). Tighten until the washers just compress, and don't crack the plastic.</p>
+    </div>
+    <div>
+      <h2>Control sequence</h2>
+      <ol class="seq">
+        <li>Set BV-M open and BV-J shut. Stir the base tanks. Press START once.</li>
+        <li><b>Yellow:</b> SV2 opens, then P2 runs at full duty. At 270 mL it drops to slow duty, and it stops early at 300 mL minus the learned overrun. SV2 closes.</li>
+        <li><b>Green:</b> the same with SV3, P3 and FT3 for 900 mL. Green pushes Yellow's leftover out of the header.</li>
+        <li><b>Red:</b> the same with SV1, P1 and FT1 for 1,800 mL.</li>
+        <li><b>Water chase:</b> SV4 opens and P4 runs for the set time, pushing Red's leftover from the header into T-5.</li>
+        <li>The report prints the target, metered volume and error for each colour. The controller then waits.</li>
+        <li><b>Flush:</b> shut BV-M, open BV-J, press START again. P4 sends flush water through SV4 and the whole header into the 2 L jug only.</li>
+        <li>Before the next batch, set BV-J shut and BV-M open. Empty the jug when it nears 2 L.</li>
+      </ol>
+      <h2 style="margin-top:22px">Assumptions in this drawing</h2>
+      <ul class="seq">
+        <li>Only 4 solenoid valves are on the table, so the mixing tank and jug outlets use hand ball valves. The batch itself still runs from one START press.</li>
+        <li>The colour tanks have no ball valve: the normally closed SV at the end of each line isolates them. The fourth ball valve is spare.</li>
+        <li>Supply tanks sit on a shelf above the pumps, so the pumps start flooded and self-prime.</li>
+        <li>Flow sensors have hose barbs (as in the photo), wire colours red = V, black or brown = G, third = S. Confirm during priming.</li>
+        <li>The fitting counts are matched to the kit list. Check the parts in hand before cutting tube.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const W = document.getElementById('plant');
+const S = [];
+const add = s => S.push(s);
+
+add(`<defs>
+  <pattern id="peg" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="14" cy="14" r="2.2" fill="var(--wall-dot)"/></pattern>
+  <linearGradient id="motor" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a2d30"/><stop offset=".5" stop-color="#4a4f54"/><stop offset="1" stop-color="#1c1e20"/></linearGradient>
+  <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c46a"/><stop offset=".55" stop-color="#c9982f"/><stop offset="1" stop-color="#9c7320"/></linearGradient>
+  <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8d9499"/><stop offset=".45" stop-color="#eef1f3"/><stop offset="1" stop-color="#9aa1a6"/></linearGradient>
+  <linearGradient id="smps" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe3e6"/><stop offset="1" stop-color="#aeb5ba"/></linearGradient>
+</defs>`);
+// wall, shelf, baseboard
+add(`<rect x="30" y="50" width="1745" height="830" rx="6" fill="var(--wall)"/><rect x="30" y="50" width="1745" height="830" rx="6" fill="url(#peg)"/>`);
+add(`<rect x="20" y="880" width="1765" height="30" fill="var(--wood)"/><rect x="20" y="906" width="1765" height="8" fill="var(--wood-edge)"/>`);
+add(`<text class="ts" x="44" y="900">Plywood baseboard</text>`);
+add(`<rect x="40" y="330" width="980" height="12" fill="var(--wood)" stroke="var(--wood-edge)"/>`);
+[60,520,1000].forEach(x=>add(`<polygon points="${x},342 ${x+20},342 ${x},372" fill="var(--wood-edge)"/>`));
+add(`<text class="ts" x="1026" y="340">Shelf: supply tanks above the pumps</text>`);
+
+/* ---------- helpers ---------- */
+function tank(id,x,y,w,h,level,fluid,t1,t2){
+  const dx=20, dy=-14, ly=y+h-(h*level);
+  return `<g id="${id}">
+   <rect x="${x+dx}" y="${y+dy}" width="${w}" height="${h}" fill="none" stroke="var(--glass-edge)" stroke-width="1.2" opacity=".5"/>
+   <g class="water"><rect class="wbody" x="${x}" y="${ly}" width="${w}" height="${y+h-ly}" fill="${fluid}" opacity=".55"/>
+   <polygon class="wtop" points="${x},${ly} ${x+dx},${ly+dy} ${x+w+dx},${ly+dy} ${x+w},${ly}" fill="${fluid}" opacity=".3"/></g>
+   <polygon points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="1.5"/>
+   <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="2"/>
+   <polygon points="${x-4},${y} ${x+dx-4},${y+dy} ${x+w+dx+4},${y+dy} ${x+w+4},${y}" fill="var(--glass-edge)" opacity=".55"/>
+   <rect x="${x+10}" y="${y+12}" width="${w-20}" height="46" rx="2" fill="#fff" stroke="#1a1a1a" stroke-width="1"/>
+   <text x="${x+18}" y="${y+32}" style="font:700 16px var(--f-mono);fill:#111">${t1}</text>
+   <text x="${x+18}" y="${y+50}" style="font:500 12px var(--f-body);fill:#333">${t2}</text>
+  </g>`;
+}
+function hole(x,y,dir){ // hose connection through a wall; dir 'down' (bottom) or 'up' (top)
+  const s = dir==='down'?1:-1;
+  return `<rect x="${x-9}" y="${y-3}" width="18" height="6" fill="#1b1b1b"/><rect x="${x-6}" y="${dir==='down'?y+3:y-17}" width="12" height="14" fill="url(#brass)" stroke="#7a5a18"/><rect x="${x-10}" y="${y-3-s*0}" width="20" height="3" fill="#333"/>`;
+}
+function pump(id,cx,y,tag,sub){ // head y..y+46 (ports at y+23), motor below
+  return `<g id="${id}">
+   <rect x="${cx-22}" y="${y+46}" width="44" height="78" rx="10" fill="url(#motor)" stroke="#111"/>
+   <rect x="${cx-30}" y="${y+118}" width="60" height="8" rx="2" fill="#111"/>
+   <rect x="${cx-14}" y="${y+70}" width="28" height="34" rx="2" fill="#e7b934" stroke="#7a5a18"/>
+   <text x="${cx}" y="${y+86}" text-anchor="middle" style="font:700 8px var(--f-mono);fill:#2a1b00">EARTH</text><text x="${cx}" y="${y+97}" text-anchor="middle" style="font:600 7px var(--f-mono);fill:#2a1b00">4002</text>
+   <rect x="${cx-30}" y="${y}" width="60" height="46" rx="6" fill="#26292c" stroke="#000"/>
+   <circle cx="${cx-21}" cy="${y+8}" r="2.4" fill="#cfd5d8"/><circle cx="${cx+21}" cy="${y+8}" r="2.4" fill="#cfd5d8"/><circle cx="${cx-21}" cy="${y+38}" r="2.4" fill="#cfd5d8"/><circle cx="${cx+21}" cy="${y+38}" r="2.4" fill="#cfd5d8"/>
+   <rect x="${cx-46}" y="${y+17}" width="16" height="12" fill="#2b5fa8" stroke="#183a6a"/><rect x="${cx+30}" y="${y+17}" width="16" height="12" fill="#2b5fa8" stroke="#183a6a"/>
+   <text class="tag" x="${cx+30}" y="${y+66}">${tag}</text><text class="ts" x="${cx+30}" y="${y+82}">${sub}</text>
+  </g>`;
+}
+function flowSensor(id,x,y,tag,pin){
+  return `<g id="${id}">
+   <rect x="${x-8}" y="${y-36}" width="16" height="12" fill="#2b5fa8" stroke="#183a6a"/><rect x="${x-8}" y="${y+24}" width="16" height="12" fill="#2b5fa8" stroke="#183a6a"/>
+   <circle cx="${x}" cy="${y}" r="24" fill="#1d1f21" stroke="#000"/><circle cx="${x}" cy="${y}" r="9" fill="#3a3e42"/>
+   <circle cx="${x-15}" cy="${y-15}" r="2.4" fill="#cfd5d8"/><circle cx="${x+15}" cy="${y+15}" r="2.4" fill="#cfd5d8"/><circle cx="${x+15}" cy="${y-15}" r="2.4" fill="#cfd5d8"/>
+   <text class="tag" x="${x+32}" y="${y-2}">${tag}</text><text class="ts" x="${x+32}" y="${y+14}">${pin}</text>
+  </g>`;
+}
+function solValve(id,x,y,tag,pin){ // vertical line through x; coil sits to the left
+  return `<g id="${id}">
+   <rect x="${x-13}" y="${y-18}" width="26" height="36" rx="3" fill="url(#brass)" stroke="#7a5a18"/>
+   <rect x="${x-62}" y="${y-22}" width="44" height="44" rx="5" fill="url(#chrome)" stroke="#6f777c"/>
+   <rect x="${x-18}" y="${y-6}" width="6" height="12" fill="#b8882a"/>
+   <rect class="coilmark" x="${x-58}" y="${y-8}" width="36" height="16" rx="2" fill="#fff" stroke="#aaa"/>
+   <text x="${x-40}" y="${y+4}" text-anchor="middle" style="font:600 8px var(--f-mono);fill:#2a7bb0">Uflow</text>
+   <path d="M${x+18},${y-10} l0,20 l-5,-6 M${x+18},${y+10} l5,-6" stroke="var(--muted)" stroke-width="1.5" fill="none"/>
+   <text class="tag" x="${x+28}" y="${y-2}">${tag}</text><text class="ts" x="${x+28}" y="${y+14}">${pin}</text>
+  </g>`;
+}
+function ballValveH(id,x,y,tag,sub){
+  return `<g id="${id}">
+   <rect x="${x-20}" y="${y-10}" width="40" height="20" rx="3" fill="url(#brass)" stroke="#7a5a18"/>
+   <rect x="${x-4}" y="${y-18}" width="8" height="10" fill="#b8882a" stroke="#7a5a18"/>
+   <g class="lever"><rect x="${x-3}" y="${y-22}" width="38" height="8" rx="3" fill="#d43a2f" stroke="#8c1f18"/></g>
+   <circle cx="${x}" cy="${y-18}" r="4" fill="#c9cdd0" stroke="#666"/>
+   <text class="tag" x="${x}" y="${y+32}" text-anchor="middle">${tag}</text><text class="ts" x="${x}" y="${y+48}" text-anchor="middle">${sub}</text>
+  </g>`;
+}
+function ballValveV(id,x,y,tag,sub,left){
+  return `<g id="${id}">
+   <rect x="${x-10}" y="${y-20}" width="20" height="40" rx="3" fill="url(#brass)" stroke="#7a5a18"/>
+   <rect x="${x+8}" y="${y-4}" width="10" height="8" fill="#b8882a" stroke="#7a5a18"/>
+   <g class="lever"><rect x="${x+14}" y="${y-3}" width="8" height="38" rx="3" fill="#d43a2f" stroke="#8c1f18"/></g>
+   <circle cx="${x+18}" cy="${y}" r="4" fill="#c9cdd0" stroke="#666"/>
+   <text class="tag" x="${left?x-16:x+34}" y="${y-2}" text-anchor="${left?'end':'start'}">${tag}</text><text class="ts" x="${left?x-16:x+34}" y="${y+14}" text-anchor="${left?'end':'start'}">${sub}</text>
+  </g>`;
+}
+function pill(id,x,y,w){ return `<g class="pill" id="${id}"><rect x="${x}" y="${y}" width="${w}" height="22" rx="11" fill="var(--muted)"/><text x="${x+w/2}" y="${y+15.5}" text-anchor="middle"></text></g>`; }
+function tee(x,y,t,dx=10,dy=-12){ return `<circle cx="${x}" cy="${y}" r="9" fill="#f2f2ee" stroke="#555" stroke-width="2"/><text class="tag" x="${x+dx}" y="${y+dy}" style="font-size:13px">${t}</text>`; }
+
+/* ---------- geometry ---------- */
+const COL = {F:150, R:390, Y:630, G:870};
+const HY = 770;           // header height
+const T2 = 1120;          // TE-2 x
+const PY = 395;           // pump head top
+const TANK = {F:['tk4','T-4','Flush water · 10 L','var(--water)',.8], R:['tk1','T-1','Red · 10 L','var(--red)',.75], Y:['tk2','T-2','Yellow · 10 L','var(--yellow)',.75], G:['tk3','T-3','Green · 10 L','var(--green)',.75]};
+for (const k of Object.keys(COL)){
+  const cx=COL[k], [id,t1,t2,fl,lv]=TANK[k];
+  add(tank(id,cx-90,110,180,220,lv,fl,t1,t2));
+}
+// Mixing tank on the board, 3 top holes
+add(tank('tk5',1260,640,240,240,.31,'var(--choc)','T-5','Mixing tank · 10 L'));
+add(`<g id="jug"><path d="M1076,826 L1084,880 L1156,880 L1164,826 Z" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="2"/><rect id="jugw" x="1082" y="866" width="76" height="13" fill="var(--water)" opacity=".45"/>
+  <text class="tag" x="1176" y="846">J-1</text><text class="ts" x="1176" y="862">2 L jug</text></g>`);
+
+/* ---------- hydraulic lines ---------- */
+const L = {};
+const colIn = cx => [[cx-60,336],[cx-60,PY+23],[cx-46,PY+23]];
+const colOut = cx => [[cx+46,PY+23],[cx+70,PY+23],[cx+70,HY]];
+for (const k of Object.keys(COL)){ L[k+'in']={pts:colIn(COL[k])}; L[k+'out']={pts:colOut(COL[k])}; }
+L.h0={pts:[[COL.F+70,HY],[COL.R+70,HY]]};
+L.h1={pts:[[COL.R+70,HY],[COL.Y+70,HY]]};
+L.h2={pts:[[COL.Y+70,HY],[COL.G+70,HY]]};
+L.h3={pts:[[COL.G+70,HY],[T2,HY]]};
+L.bm={pts:[[T2,HY],[1225,HY],[1225,560],[1380,560],[1380,690]]};
+L.bj={pts:[[T2,HY],[T2,846]]};
+const ON = {
+  yel:{c:'var(--yellow)',k:['Yin','Yout','h2','h3','bm']},
+  grn:{c:'var(--green)',k:['Gin','Gout','h3','bm']},
+  red:{c:'var(--red)',k:['Rin','Rout','h1','h2','h3','bm']},
+  chase:{c:'var(--water)',k:['Fin','Fout','h0','h1','h2','h3','bm']},
+  flush:{c:'var(--water)',k:['Fin','Fout','h0','h1','h2','h3','bj']},
+};
+const toD = p => 'M'+p.map(q=>q.join(',')).join(' L');
+let tubes='', fluids='', arrows='';
+for (const [k,l] of Object.entries(L)){
+  const d=toD(l.pts);
+  tubes += `<path d="${d}" fill="none" stroke="var(--tube)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="${d}" fill="none" stroke="var(--sheet)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>`;
+  fluids += `<path class="fluid" data-k="${k}" d="${d}" stroke-width="6"/>`;
+  // one arrow on the longest segment
+  let best=0, bi=0; for(let i=0;i<l.pts.length-1;i++){ const [a,b]=[l.pts[i],l.pts[i+1]]; const len=Math.hypot(b[0]-a[0],b[1]-a[1]); if(len>best){best=len;bi=i;} }
+  const [a,b]=[l.pts[bi],l.pts[bi+1]]; const mx=(a[0]+b[0])/2, my=(a[1]+b[1])/2, ang=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;
+  if (best>60) arrows += `<polygon class="arr" data-k="${k}" points="-8,-7 9,0 -8,7" transform="translate(${mx},${my}) rotate(${ang})"/>`;
+}
+add(`<g>${tubes}</g><g>${fluids}</g><g>${arrows}</g>`);
+
+/* ---------- components on top of tubes ---------- */
+for (const k of Object.keys(COL)) add(hole(COL[k]-60,330,'down'));
+add(hole(COL.F+40,110,'up')+`<text class="ts" x="${COL.F+52}" y="86">top hole: fill / vent</text>`);
+[1300,1380,1460].forEach(x=>add(hole(x,640,'up')));
+add(`<text class="ts" x="1268" y="616">vent</text><text class="ts" x="1430" y="616">spare</text><text class="ts" x="1370" y="590" text-anchor="end">inlet · end above liquid</text>`);
+add(ballValveV('bvf',COL.F-60,370,'BV-F','open',true));
+add(pump('p4',COL.F,PY,'P4','Flush · DRV2-M2'));
+add(pump('p1',COL.R,PY,'P1','Red · DRV1-M1'));
+add(pump('p2',COL.Y,PY,'P2','Yellow · DRV1-M2'));
+add(pump('p3',COL.G,PY,'P3','Green · DRV2-M1'));
+add(flowSensor('ft1',COL.R+70,580,'FT1','FS1 · G33'));
+add(flowSensor('ft2',COL.Y+70,580,'FT2','FS2 · G25'));
+add(flowSensor('ft3',COL.G+70,580,'FT3','FS3 · G26'));
+add(solValve('sv4',COL.F+70,670,'SV4','G19'));
+add(solValve('sv1',COL.R+70,670,'SV1','G23'));
+add(solValve('sv2',COL.Y+70,670,'SV2','G22'));
+add(solValve('sv3',COL.G+70,670,'SV3','G21'));
+add(tee(COL.R+70,HY,'TE-1')+tee(COL.Y+70,HY,'Y-1')+tee(COL.G+70,HY,'Y-2')+tee(T2,HY,'TE-2',-46,-12));
+add(`<rect x="${COL.F+62}" y="${HY-8}" width="16" height="16" rx="3" fill="#f2f2ee" stroke="#555" stroke-width="2"/>`); // elbow
+add(ballValveH('bvm',1172,HY,'BV-M','batch: open'));
+add(ballValveV('bvj',T2,806,'BV-J','flush: open',true));
+add(`<text class="t" x="${COL.F+70}" y="${HY+40}" style="font-weight:600">Common header</text><text class="ts" x="${COL.F+70}" y="${HY+57}">8 × 5 mm PU · 19.6 mL per metre</text>`);
+// pump pills
+[['pl-p4','F'],['pl-p1','R'],['pl-p2','Y'],['pl-p3','G']].forEach(([id,k])=>add(pill(id,COL[k]-120,PY+92,92)));
+
+/* ---------- control panel ---------- */
+add(`<rect x="1530" y="100" width="235" height="770" rx="6" fill="var(--panel)" stroke="var(--glass-edge)"/>
+ <text class="tag" x="1546" y="126">Control panel</text>
+ <rect x="1550" y="140" width="195" height="90" rx="4" fill="url(#smps)" stroke="#7d868c"/>
+ <text x="1647" y="180" text-anchor="middle" style="font:700 14px var(--f-mono);fill:#222">SMPS 12 V 30 A</text><text x="1647" y="198" text-anchor="middle" style="font:500 11px var(--f-mono);fill:#333">L N ⏚ · +V −V</text>
+ <rect x="1550" y="250" width="195" height="230" rx="4" fill="#1f5a3a" stroke="#0f3322"/>
+ <text x="1560" y="270" style="font:600 11px var(--f-mono);fill:#e9f2ff">CONTROL PCB 12 VDC</text>
+ <rect x="1562" y="282" width="80" height="120" rx="3" fill="#202428" stroke="#000"/><text x="1602" y="345" text-anchor="middle" style="font:600 10px var(--f-mono);fill:#e9f2ff">ESP32 #1</text><text x="1602" y="360" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#bcd">U2 · valves</text><text x="1602" y="372" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#bcd">pumps · START</text>
+ <rect x="1653" y="282" width="80" height="120" rx="3" fill="#202428" stroke="#000"/><text x="1693" y="345" text-anchor="middle" style="font:600 10px var(--f-mono);fill:#e9f2ff">ESP32 #2</text><text x="1693" y="360" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#bcd">U7 · flow</text><text x="1693" y="372" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#bcd">sensors</text>
+ <line x1="1642" y1="330" x2="1653" y2="330" stroke="#e9c46a" stroke-width="2"/><text x="1647" y="322" text-anchor="middle" style="font:500 8px var(--f-mono);fill:#e9c46a">UART</text>
+ <text x="1560" y="425" style="font:500 9.5px var(--f-mono);fill:#e9f2ff">SV1–SV4 · MOTOR_DRIVER1/2</text><text x="1560" y="440" style="font:500 9.5px var(--f-mono);fill:#e9f2ff">FLOW_SENSOR1–3 · ON/OFF_SW1</text><text x="1560" y="455" style="font:500 9.5px var(--f-mono);fill:#e9f2ff">P1, P2 12 V out · 12V INPUT</text>
+ <rect x="1550" y="500" width="92" height="80" rx="4" fill="#9b1c1c" stroke="#5b0f0f"/><text x="1596" y="535" text-anchor="middle" style="font:700 12px var(--f-mono);fill:#fff">MDD10A</text><text x="1596" y="552" text-anchor="middle" style="font:600 11px var(--f-mono);fill:#fff">DRV1</text><text x="1596" y="568" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#fdd">P1 · P2</text>
+ <rect x="1653" y="500" width="92" height="80" rx="4" fill="#9b1c1c" stroke="#5b0f0f"/><text x="1699" y="535" text-anchor="middle" style="font:700 12px var(--f-mono);fill:#fff">MDD10A</text><text x="1699" y="552" text-anchor="middle" style="font:600 11px var(--f-mono);fill:#fff">DRV2</text><text x="1699" y="568" text-anchor="middle" style="font:500 9px var(--f-mono);fill:#fdd">P3 · P4</text>
+ <rect x="1600" y="640" width="96" height="70" rx="6" fill="var(--sheet)" stroke="var(--glass-edge)"/><circle cx="1648" cy="675" r="16" fill="#d43a2f" stroke="#8c1f18" stroke-width="2"/>
+ <text class="tag" x="1648" y="730" text-anchor="middle">HS-1 START</text><text class="ts" x="1648" y="746" text-anchor="middle">G14 · 2nd press = flush</text>
+ <text class="ts" x="1546" y="790">USB to laptop: ESP32 #1</text><text class="ts" x="1546" y="806">serial log + commands</text>`);
+
+/* ---------- wiring overlay ---------- */
+let wr='';
+const pwr=(d)=>`<path d="${d}" fill="none" stroke="#b3261e" stroke-width="3" stroke-linejoin="round"/><path d="${d}" transform="translate(0,4)" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linejoin="round"/>`;
+const sig=(d,c)=>`<path d="${d}" fill="none" stroke="${c}" stroke-width="2.2" stroke-dasharray="7 5" stroke-linejoin="round"/>`;
+// SMPS -> PCB, PCB -> drivers
+wr+=pwr('M1560,230 L1560,250')+pwr('M1735,230 L1735,250');
+wr+=pwr('M1575,480 L1575,500')+pwr('M1720,480 L1720,500');
+wr+=`<path d="M1650,140 L1650,60 L1765,60" fill="none" stroke="#555" stroke-width="4"/><text class="ts" x="1660" y="76">mains cord</text>`;
+// motor power: drivers -> pumps along y=548
+const mpy = 548;
+wr+=pwr(`M1550,555 L1500,555 L1500,${mpy} L${COL.R},${mpy} L${COL.R},${PY+124}`);
+wr+=pwr(`M${COL.Y},${mpy} L${COL.Y},${PY+124}`);
+wr+=pwr(`M1653,570 L1640,570 L1640,600 L1510,600 L1510,${mpy+14} L${COL.G},${mpy+14} L${COL.G},${PY+124}`);
+wr+=pwr(`M${COL.G},${mpy+14} L${COL.F},${mpy+14} L${COL.F},${PY+124}`);
+// valve coils: PCB -> along y=705
+wr+=sig(`M1550,460 L1520,460 L1520,712 L${COL.F+30},712 L${COL.F+30},692`,'#b3261e');
+[COL.R,COL.Y,COL.G].forEach(cx=>wr+=sig(`M${cx+30},712 L${cx+30},692`,'#b3261e'));
+// flow sensor signals: PCB -> along y=622
+wr+=sig(`M1550,400 L1530,400 L1530,622 L${COL.R+94},622 L${COL.R+94},592`,'#2f8a3f');
+[COL.Y,COL.G].forEach(cx=>wr+=sig(`M${cx+94},622 L${cx+94},592`,'#2f8a3f'));
+wr+=sig('M1648,480 L1648,640','#d6a20f');
+wr+=`<text class="ts" x="${COL.G+110}" y="${mpy-8}">pump power</text><text class="ts" x="${COL.G+110}" y="618">FT signals</text><text class="ts" x="${COL.G+110}" y="728">SV coils</text>`;
+add(`<g id="wiring">${wr}</g>`);
+
+/* ---------- bottom labels ---------- */
+const BL=[
+  [190,'Bottom holes','Colour tanks T-1 to T-3','straight to their pumps'],
+  [520,'Flow direction','Pump → FT → SV → header','FT arrow away from pump, SV arrow to header'],
+  [900,'Header tees','TE-1 flush + red · Y-1 yellow','Y-2 green · TE-2 split'],
+  [1240,'Hand valves','BV-M to T-5 · BV-J to jug','batch: M open · flush: J open'],
+  [1600,'Wiring','12 V SMPS → PCB → MDD10A ×2','SV1–SV4, FS1–FS3, START'],
+];
+BL.forEach(([x,t,a,b])=>add(`<text class="tag" x="${x}" y="960" text-anchor="middle">${t}</text><text class="t" x="${x}" y="982" text-anchor="middle">${a}</text><text class="ts" x="${x}" y="1001" text-anchor="middle">${b}</text>`));
+add(`<text class="ts" x="900" y="1050" text-anchor="middle">Front elevation, not to scale. Tags match the P&amp;ID (rev C).</text>`);
+
+W.innerHTML = S.join('');
+
+/* ---------- modes ---------- */
+const NOTES={
+  yel:['Step 1 · Yellow dose','BV-M open, BV-J shut. SV2 opens and P2 runs at full duty, then slow for the last 10 %, stopping at 300 mL measured by FT2. Yellow flows down the header through Y-1, Y-2 and TE-2, then up through BV-M into the mixing tank.'],
+  grn:['Step 2 · Green dose','SV3 opens and P3 doses 900 mL, measured by FT3. Green enters at Y-2 and pushes the Yellow left in the header into T-5.'],
+  red:['Step 3 · Red dose','SV1 opens and P1 doses 1,800 mL, measured by FT1. Red enters at TE-1, so it sweeps the whole header.'],
+  chase:['Step 4 · Water chase','SV4 opens and P4 pushes a timed shot of flush water through the header, carrying the last of the Red into T-5. Then the report prints and the controller waits.'],
+  flush:['Step 5 · Flush (second START press)','Shut BV-M and open BV-J by hand first. P4 sends flush water through SV4 and the whole header into the 2 L jug only. SV1 to SV3 stay shut, so no water enters a colour line.'],
+};
+const TL = {yel:.03, grn:.12, red:.30, chase:.31, flush:.31};
+const TC = {yel:'var(--yellow)', grn:'#7a7a1a', red:'var(--choc)', chase:'var(--choc)', flush:'var(--choc)'};
+const PUMP = {yel:'p2', grn:'p3', red:'p1', chase:'p4', flush:'p4'};
+const SV = {yel:'sv2', grn:'sv3', red:'sv1', chase:'sv4', flush:'sv4'};
+function setPill(id,txt,on){ const g=document.getElementById(id); g.querySelector('text').textContent=txt; g.querySelector('rect').setAttribute('fill', on?'var(--ok)':'var(--muted)'); }
+function setMode(m){
+  document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.m===m));
+  const col=ON[m].c;
+  document.querySelectorAll('.fluid').forEach(p=>{ const on=ON[m].k.includes(p.dataset.k); p.classList.toggle('on',on); p.setAttribute('stroke', on?col:'var(--empty)'); });
+  document.querySelectorAll('.arr').forEach(a=>{ const on=ON[m].k.includes(a.dataset.k); a.setAttribute('fill', col); a.style.display = on?'':'none'; });
+  const pm={p1:'pl-p1',p2:'pl-p2',p3:'pl-p3',p4:'pl-p4'};
+  for (const [p,pl] of Object.entries(pm)) setPill(pl, PUMP[m]===p ? (p==='p4'?'ON':'FAST→SLOW') : 'OFF', PUMP[m]===p);
+  ['sv1','sv2','sv3','sv4'].forEach(s=>{ const r=document.querySelector('#'+s+' .coilmark'); r.setAttribute('stroke', SV[m]===s?'var(--ok)':'#aaa'); r.setAttribute('stroke-width', SV[m]===s?3:1); });
+  // hand valves: lever along the pipe = open, across = shut
+  const mOpen = m!=='flush';
+  document.querySelector('#bvm .lever').setAttribute('transform', mOpen?'':'rotate(-90 1172 752)');
+  document.querySelector('#bvj .lever').setAttribute('transform', mOpen?'rotate(-90 1138 806)':'');
+  document.querySelector('#bvm text.ts').textContent = mOpen?'OPEN':'SHUT';
+  document.querySelector('#bvj text.ts').textContent = mOpen?'SHUT':'OPEN';
+  // mixing tank level and colour
+  const top=640,h=240,x=1260,w=240,ly=top+h-h*TL[m];
+  const t5=document.getElementById('tk5'); const wb=t5.querySelector('.wbody'), wt=t5.querySelector('.wtop');
+  wb.setAttribute('y',ly); wb.setAttribute('height',top+h-ly); wb.setAttribute('fill',TC[m]); wt.setAttribute('fill',TC[m]);
+  wt.setAttribute('points',`${x},${ly} ${x+20},${ly-14} ${x+w+20},${ly-14} ${x+w},${ly}`);
+  document.getElementById('jugw').setAttribute('opacity', m==='flush'?.6:.15);
+  const n=document.getElementById('note'); n.innerHTML=`<b>${NOTES[m][0]}.</b> ${NOTES[m][1]}`; n.style.borderColor=col;
+  try{ localStorage.setItem('plant-mode',m);}catch(e){}
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+document.getElementById('wires').addEventListener('change',e=>{ document.getElementById('wiring').style.opacity = e.target.checked?1:0; });
+let start='yel'; try{ const s=localStorage.getItem('plant-mode'); if(NOTES[s]) start=s; }catch(e){}
+const qp = location.hash.replace('#',''); if(NOTES[qp]) start=qp;
+setMode(start);
+</script>
+</body></html>

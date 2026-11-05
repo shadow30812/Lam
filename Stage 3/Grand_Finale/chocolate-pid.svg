@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1340" viewBox="0 0 2000 1340" font-family="DejaVu Sans, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiODkxZjU5Ni01YWU3LTQ2YTEtOTQ4MS1jYzA3MzkyMWUzZTYAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaMv+RRR6QywinExSGO6TF3wAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo4YzVhOTdmMC00YTViLTRmMzktYjFmOS05ZTk2ZjY1OGI0N2FscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo/hhkaSmgzUbpYJ1EvUk7MAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggE+LbOKopkBJvhHDtkjrDKAeJG2fhmj+Z6X25OtSY8eykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaIEowe2oT0a7lBqepcG39mwAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDkGs+78h2bB5+d5xxT774PbSfvwTRhXv/ZwXi/mgfwx2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjHZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmI4OTFmNTk2LTVhZTctNDZhMS05NDgxLWNjMDczOTIxZTNlNi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjgzMzQ0YjJmLWUwMmQtNDkxOC1hNjVmLWIyYmZiN2Y2MGU0ZHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAT4ts4qimQEm+EcO2SOsMoB4kbZ+GaP5npfbk61Jjx7KJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggWUTZVUqHEHX4Z88qbN9GBZKB6HFUHmNfnB1KUvWgS4yiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggG47FBICfKDcEQO8ZMIziai0gBJtR7Twj9yArNOe/Wyd0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQMmhLVig9L6wSwZiuXSicrTZyIcqPndPoVXN0JIygOx30aLW+qawi0MBLOviDvsLaIALm0UJLoL8XT7SA2N2cqM=</c2pa:manifest></metadata>
+<rect width="2000" height="1340" fill="#fff"/>
+<rect x="10" y="10" width="1980" height="1320" fill="none" stroke="#111" stroke-width="2"/>
+<g transform="translate(0,90)">
+<rect x="40" y="20" width="170" height="120" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="44" y="80.0" width="162" height="56.0" rx="5" fill="#cfe8ff" opacity="0.85"/>
+<text x="125.0" y="44" font-size="17" text-anchor="middle" font-weight="bold" fill="#111" style="">T-4</text>
+<text x="125.0" y="64" font-size="15" text-anchor="middle" font-weight="normal" fill="#111" style="">FLUSH WATER</text>
+<text x="90" y="160" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">10 L</text>
+<rect x="168" y="140" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<polyline points="175,154 175,170 940,170" stroke="#111" stroke-width="3.5" fill="none" />
+<rect x="93" y="6" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="112" y="2" font-size="12" text-anchor="start" font-weight="normal" fill="#555" style="">top hole: fill / vent</text>
+<polygon points="274,158.0 306,182.0 306,158.0 274,182.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<circle cx="290" cy="170" r="6" fill="#111"/>
+<text x="290" y="210" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">BV-F</text>
+<text x="290" y="228" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">manual, NO</text>
+<polygon points="216,161 234,170 216,179" fill="#111"/>
+<circle cx="420" cy="170" r="26" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="420" y1="144" x2="450" y2="144" stroke="#111" stroke-width="2.5"/>
+<polygon points="410,158 434,170 410,182" fill="#111"/>
+<text x="420" y="220" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">P4</text>
+<text x="420" y="238" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">PWM_4 · U2 G26 · DRV2</text>
+<polygon points="744,158.0 776,182.0 776,158.0 744,182.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="760" y1="170" x2="760" y2="140" stroke="#111" stroke-width="2.5"/>
+<rect x="745" y="112" width="30" height="28" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="760" y="133" font-size="18" text-anchor="middle" font-weight="bold" fill="#111" style="">S</text>
+<text x="760" y="210" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">SV4</text>
+<text x="760" y="228" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">NC · U2 G19</text>
+<polygon points="856,161 874,170 856,179" fill="#111"/>
+<rect x="40" y="220" width="170" height="120" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="44" y="280.0" width="162" height="56.0" rx="5" fill="#d7263d" opacity="0.85"/>
+<text x="125.0" y="244" font-size="17" text-anchor="middle" font-weight="bold" fill="#111" style="">T-1</text>
+<text x="125.0" y="264" font-size="15" text-anchor="middle" font-weight="normal" fill="#111" style="">RED · 60%</text>
+<text x="90" y="360" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">10 L</text>
+<rect x="168" y="340" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<polyline points="175,354 175,370 940,370" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="216,361 234,370 216,379" fill="#111"/>
+<circle cx="420" cy="370" r="26" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="420" y1="344" x2="450" y2="344" stroke="#111" stroke-width="2.5"/>
+<polygon points="410,358 434,370 410,382" fill="#111"/>
+<text x="420" y="420" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">P1</text>
+<text x="420" y="438" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">PWM_1 · U2 G32 · DRV1</text>
+<rect x="576" y="359" width="28" height="22" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="582" y1="359" x2="598" y2="381" stroke="#111" stroke-width="1.5"/>
+<line x1="590" y1="359" x2="590" y2="332" stroke="#111" stroke-width="1.5" stroke-dasharray="5,4"/>
+<circle cx="590" cy="308" r="24" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="590" y="305" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">FT</text>
+<text x="590" y="322" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">1</text>
+<text x="620" y="313" font-size="13" text-anchor="start" font-weight="normal" fill="#555" style="">FS1 · U7 G33</text>
+<polygon points="666,361 684,370 666,379" fill="#111"/>
+<polygon points="744,358.0 776,382.0 776,358.0 744,382.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="760" y1="370" x2="760" y2="340" stroke="#111" stroke-width="2.5"/>
+<rect x="745" y="312" width="30" height="28" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="760" y="333" font-size="18" text-anchor="middle" font-weight="bold" fill="#111" style="">S</text>
+<text x="760" y="410" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">SV1</text>
+<text x="760" y="428" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">NC · U2 G23</text>
+<polygon points="856,361 874,370 856,379" fill="#111"/>
+<rect x="40" y="410" width="170" height="120" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="44" y="470.0" width="162" height="56.0" rx="5" fill="#f2c14e" opacity="0.85"/>
+<text x="125.0" y="434" font-size="17" text-anchor="middle" font-weight="bold" fill="#111" style="">T-2</text>
+<text x="125.0" y="454" font-size="15" text-anchor="middle" font-weight="normal" fill="#111" style="">YELLOW · 10%</text>
+<text x="90" y="550" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">10 L</text>
+<rect x="168" y="530" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<polyline points="175,544 175,560 940,560" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="216,551 234,560 216,569" fill="#111"/>
+<circle cx="420" cy="560" r="26" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="420" y1="534" x2="450" y2="534" stroke="#111" stroke-width="2.5"/>
+<polygon points="410,548 434,560 410,572" fill="#111"/>
+<text x="420" y="610" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">P2</text>
+<text x="420" y="628" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">PWM_2 · U2 G33 · DRV1</text>
+<rect x="576" y="549" width="28" height="22" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="582" y1="549" x2="598" y2="571" stroke="#111" stroke-width="1.5"/>
+<line x1="590" y1="549" x2="590" y2="522" stroke="#111" stroke-width="1.5" stroke-dasharray="5,4"/>
+<circle cx="590" cy="498" r="24" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="590" y="495" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">FT</text>
+<text x="590" y="512" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">2</text>
+<text x="620" y="503" font-size="13" text-anchor="start" font-weight="normal" fill="#555" style="">FS2 · U7 G25</text>
+<polygon points="666,551 684,560 666,569" fill="#111"/>
+<polygon points="744,548.0 776,572.0 776,548.0 744,572.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="760" y1="560" x2="760" y2="530" stroke="#111" stroke-width="2.5"/>
+<rect x="745" y="502" width="30" height="28" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="760" y="523" font-size="18" text-anchor="middle" font-weight="bold" fill="#111" style="">S</text>
+<text x="760" y="600" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">SV2</text>
+<text x="760" y="618" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">NC · U2 G22</text>
+<polygon points="856,551 874,560 856,569" fill="#111"/>
+<rect x="40" y="600" width="170" height="120" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="44" y="660.0" width="162" height="56.0" rx="5" fill="#2e9e5b" opacity="0.85"/>
+<text x="125.0" y="624" font-size="17" text-anchor="middle" font-weight="bold" fill="#111" style="">T-3</text>
+<text x="125.0" y="644" font-size="15" text-anchor="middle" font-weight="normal" fill="#111" style="">GREEN · 30%</text>
+<text x="90" y="740" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">10 L</text>
+<rect x="168" y="720" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<polyline points="175,734 175,750 940,750" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="216,741 234,750 216,759" fill="#111"/>
+<circle cx="420" cy="750" r="26" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="420" y1="724" x2="450" y2="724" stroke="#111" stroke-width="2.5"/>
+<polygon points="410,738 434,750 410,762" fill="#111"/>
+<text x="420" y="800" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">P3</text>
+<text x="420" y="818" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">PWM_3 · U2 G25 · DRV2</text>
+<rect x="576" y="739" width="28" height="22" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="582" y1="739" x2="598" y2="761" stroke="#111" stroke-width="1.5"/>
+<line x1="590" y1="739" x2="590" y2="712" stroke="#111" stroke-width="1.5" stroke-dasharray="5,4"/>
+<circle cx="590" cy="688" r="24" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="590" y="685" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">FT</text>
+<text x="590" y="702" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">3</text>
+<text x="620" y="693" font-size="13" text-anchor="start" font-weight="normal" fill="#555" style="">FS3 · U7 G26</text>
+<polygon points="666,741 684,750 666,759" fill="#111"/>
+<polygon points="744,738.0 776,762.0 776,738.0 744,762.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="760" y1="750" x2="760" y2="720" stroke="#111" stroke-width="2.5"/>
+<rect x="745" y="692" width="30" height="28" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="760" y="713" font-size="18" text-anchor="middle" font-weight="bold" fill="#111" style="">S</text>
+<text x="760" y="790" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">SV3</text>
+<text x="760" y="808" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">NC · U2 G21</text>
+<polygon points="856,741 874,750 856,759" fill="#111"/>
+<text x="187" y="802" font-size="12" text-anchor="start" font-weight="normal" fill="#555" style="">bottom outlets</text>
+<line x1="940" y1="170" x2="940" y2="900" stroke="#111" stroke-width="3.5" fill="none" />
+<circle cx="940" cy="370" r="6" fill="#111"/>
+<text x="954" y="360" font-size="13" text-anchor="start" font-weight="bold" fill="#333" style="">TE-1</text>
+<circle cx="940" cy="560" r="6" fill="#111"/>
+<text x="954" y="550" font-size="13" text-anchor="start" font-weight="bold" fill="#333" style="">Y-1</text>
+<circle cx="940" cy="750" r="6" fill="#111"/>
+<text x="954" y="740" font-size="13" text-anchor="start" font-weight="bold" fill="#333" style="">Y-2</text>
+<polygon points="931,261 940,279 949,261" fill="#111"/>
+<polygon points="931,456 940,474 949,456" fill="#111"/>
+<polygon points="931,646 940,664 949,646" fill="#111"/>
+<polygon points="931,831 940,849 949,831" fill="#111"/>
+<circle cx="940" cy="900" r="6" fill="#111"/>
+<text x="926" y="890" font-size="13" text-anchor="end" font-weight="bold" fill="#333" style="">TE-2</text>
+<text x="954" y="190" font-size="14" text-anchor="start" font-weight="bold" fill="#333" style="">COMMON HEADER</text>
+<line x1="940" y1="900" x2="1110" y2="900" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="1014,888.0 1046,912.0 1046,888.0 1014,912.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<circle cx="1030" cy="900" r="6" fill="#111"/>
+<text x="1030" y="858" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">BV-M</text>
+<text x="1030" y="876" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">open for batch</text>
+<polyline points="1110,900 1110,270 1300.0,270 1300.0,326" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="1101,609 1110,591 1119,609" fill="#111"/>
+<polygon points="1291.0,301 1300.0,319 1309.0,301" fill="#111"/>
+<rect x="1180" y="340" width="240" height="320" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="1184" y="500.0" width="232" height="156.0" rx="5" fill="#6b3a2a" opacity="0.85"/>
+<text x="1300.0" y="364" font-size="17" text-anchor="middle" font-weight="bold" fill="#111" style="">T-5</text>
+<text x="1300.0" y="384" font-size="15" text-anchor="middle" font-weight="normal" fill="#111" style="">MIXING TANK</text>
+<text x="1300.0" y="680" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">10 L · batch 3,000 mL</text>
+<rect x="1223" y="326" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1230" y="322" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" style="">vent</text>
+<rect x="1293.0" y="326" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<rect x="1363" y="326" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1370" y="322" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" style="">spare</text>
+<text x="1122" y="258" font-size="12" text-anchor="start" font-weight="normal" fill="#555" style="">inlet: tube end above liquid (air gap)</text>
+<text x="1300.0" y="698" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" style="">3 top holes</text>
+<line x1="940" y1="900" x2="940" y2="1060" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="928.0,969 952.0,1001 928.0,1001 952.0,969" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<circle cx="940" cy="985" r="6" fill="#111"/>
+<text x="966" y="983" font-size="16" text-anchor="start" font-weight="bold" fill="#111" style="">BV-J</text>
+<text x="966" y="1001" font-size="13" text-anchor="start" font-weight="normal" fill="#555" style="">open for flush</text>
+<polygon points="931,1031 940,1049 949,1031" fill="#111"/>
+<path d="M 885 1070 L 895 1180 L 985 1180 L 995 1070" fill="#e9f3ff" stroke="#111" stroke-width="3"/>
+<text x="940" y="1118" font-size="16" text-anchor="middle" font-weight="bold" fill="#111" style="">J-1</text>
+<text x="940" y="1138" font-size="13" text-anchor="middle" font-weight="normal" fill="#111" style="">FLUSH JUG</text>
+<text x="940" y="1156" font-size="13" text-anchor="middle" font-weight="normal" fill="#111" style="">2 L</text>
+<text x="940" y="1202" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" style="">flush water goes ONLY here</text>
+<rect x="40" y="930" width="760" height="300" rx="6" fill="#fafafa" stroke="#111" stroke-width="2" stroke-dasharray="8,5"/>
+<text x="60" y="962" font-size="18" text-anchor="start" font-weight="bold" fill="#111" style="">UC-1  CONTROL PCB (12 VDC)</text>
+<text x="60" y="995" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">ESP32 #1 (U2): SV1-SV4, PWM_1-4 to pumps, START switch</text>
+<text x="60" y="1019" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">ESP32 #2 (U7): FT1-FT3 pulse inputs  ·  UART link U2 ⇄ U7</text>
+<text x="60" y="1043" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">MDD10A DRV1: P1 + P2  ·  MDD10A DRV2: P3 + P4</text>
+<text x="60" y="1067" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">BV-M / BV-J are hand valves: BATCH = M open, J shut;</text>
+<text x="60" y="1091" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">FLUSH = M shut, J open. Pin under each symbol = PCB pin.</text>
+<circle cx="700" cy="1150" r="30" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="670" y1="1150" x2="730" y2="1150" stroke="#111" stroke-width="1.5"/>
+<text x="700" y="1143" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">HS</text>
+<text x="700" y="1168" font-size="15" text-anchor="middle" font-weight="bold" fill="#111" style="">1</text>
+<text x="660" y="1155" font-size="13" text-anchor="end" font-weight="normal" fill="#555" style="">START · U2 G14</text>
+<rect x="1180" y="790" width="340" height="440" rx="6" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1196" y="820" font-size="17" text-anchor="start" font-weight="bold" fill="#111" style="">LEGEND</text>
+<polygon points="1209,848.0 1241,872.0 1241,848.0 1209,872.0" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<circle cx="1225" cy="860" r="6" fill="#111"/>
+<text x="1270" y="865" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Ball valve (manual)</text>
+<polygon points="1212,908.25 1238,927.75 1238,908.25 1212,927.75" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<line x1="1225" y1="918" x2="1225" y2="900" stroke="#111" stroke-width="2"/>
+<rect x="1215" y="884" width="20" height="16" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1270" y="913" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Solenoid valve, normally closed</text>
+<circle cx="1225" cy="956" r="17" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<polygon points="1218,948 1234,956 1218,964" fill="#111"/>
+<text x="1270" y="961" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Diaphragm pump, PWM speed</text>
+<circle cx="1225" cy="1004" r="17" fill="#fff" stroke="#111" stroke-width="2.5"/>
+<text x="1225" y="1009" font-size="12" text-anchor="middle" font-weight="bold" fill="#111" style="">FT</text>
+<text x="1270" y="1009" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flow transmitter (pulse)</text>
+<circle cx="1225" cy="1052" r="6" fill="#111"/>
+<text x="1270" y="1057" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Tee / Y-tee junction</text>
+<line x1="1200" y1="1100" x2="1250" y2="1100" stroke="#111" stroke-width="3.5" fill="none" />
+<polygon points="1221,1091 1239,1100 1221,1109" fill="#111"/>
+<text x="1270" y="1105" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Process line 8×5 mm + flow</text>
+<line x1="1200" y1="1148" x2="1250" y2="1148" stroke="#111" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="1270" y="1153" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Signal line</text>
+<rect x="1218" y="1189" width="14" height="14" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1270" y="1201" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Tank hole (bulkhead)</text>
+<rect x="1550" y="40" width="420" height="1190" rx="6" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="1566" y="72" font-size="18" text-anchor="start" font-weight="bold" fill="#111" style="">TAG LIST</text>
+<text x="1566" y="106" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">T-1</text>
+<text x="1638" y="106" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Red tank 10 L · 1 bottom hole</text>
+<text x="1566" y="136" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">T-2</text>
+<text x="1638" y="136" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Yellow tank 10 L · 1 bottom hole</text>
+<text x="1566" y="166" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">T-3</text>
+<text x="1638" y="166" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Green tank 10 L · 1 bottom hole</text>
+<text x="1566" y="196" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">T-4</text>
+<text x="1638" y="196" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flush water 10 L · top + bottom</text>
+<text x="1566" y="226" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">T-5</text>
+<text x="1638" y="226" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Mixing tank 10 L · 3 top holes</text>
+<text x="1566" y="256" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">J-1</text>
+<text x="1638" y="256" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flush jug 2 L</text>
+<line x1="1562" y1="274" x2="1958" y2="274" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="296" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">P1</text>
+<text x="1638" y="296" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Red pump · PWM_1 G32 · DRV1</text>
+<text x="1566" y="326" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">P2</text>
+<text x="1638" y="326" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Yellow pump · PWM_2 G33 · DRV1</text>
+<text x="1566" y="356" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">P3</text>
+<text x="1638" y="356" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Green pump · PWM_3 G25 · DRV2</text>
+<text x="1566" y="386" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">P4</text>
+<text x="1638" y="386" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flush pump · PWM_4 G26 · DRV2</text>
+<line x1="1562" y1="404" x2="1958" y2="404" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="426" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">FT1</text>
+<text x="1638" y="426" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Red flow · FS1 · U7 G33</text>
+<text x="1566" y="456" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">FT2</text>
+<text x="1638" y="456" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Yellow flow · FS2 · U7 G25</text>
+<text x="1566" y="486" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">FT3</text>
+<text x="1638" y="486" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Green flow · FS3 · U7 G26</text>
+<line x1="1562" y1="504" x2="1958" y2="504" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="526" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">SV1</text>
+<text x="1638" y="526" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Red line shut-off · G23</text>
+<text x="1566" y="556" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">SV2</text>
+<text x="1638" y="556" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Yellow line shut-off · G22</text>
+<text x="1566" y="586" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">SV3</text>
+<text x="1638" y="586" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Green line shut-off · G21</text>
+<text x="1566" y="616" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">SV4</text>
+<text x="1638" y="616" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flush water inlet · G19</text>
+<line x1="1562" y1="634" x2="1958" y2="634" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="656" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">BV-F</text>
+<text x="1638" y="656" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Flush tank outlet, open</text>
+<text x="1566" y="686" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">BV-M</text>
+<text x="1638" y="686" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Header → mixing tank (hand)</text>
+<text x="1566" y="716" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">BV-J</text>
+<text x="1638" y="716" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Header → flush jug (hand)</text>
+<text x="1566" y="746" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">BV-S</text>
+<text x="1638" y="746" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Spare ball valve (not fitted)</text>
+<line x1="1562" y1="764" x2="1958" y2="764" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="786" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">TE-1</text>
+<text x="1638" y="786" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Equal tee: flush + red</text>
+<text x="1566" y="816" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">Y-1</text>
+<text x="1638" y="816" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Y-tee: + yellow</text>
+<text x="1566" y="846" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">Y-2</text>
+<text x="1638" y="846" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Y-tee: + green</text>
+<text x="1566" y="876" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">TE-2</text>
+<text x="1638" y="876" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Equal tee: split mix / jug</text>
+<line x1="1562" y1="894" x2="1958" y2="894" stroke="#ccc" stroke-width="1"/>
+<text x="1566" y="916" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">HS-1</text>
+<text x="1638" y="916" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Start switch · U2 G14</text>
+<text x="1566" y="946" font-size="14" text-anchor="start" font-weight="bold" fill="#111" style="">UC-1</text>
+<text x="1638" y="946" font-size="14" text-anchor="start" font-weight="normal" fill="#111" style="">Control PCB, 2× ESP32</text>
+<text x="1566" y="980" font-size="12" text-anchor="start" font-weight="normal" fill="#555" style="">SV pins on ESP32 #1 (U2), HIGH = open.</text>
+<text x="1566" y="998" font-size="12" text-anchor="start" font-weight="normal" fill="#555" style="">Valve body arrow = flow direction.</text>
+</g>
+<text x="40" y="46" font-size="24" text-anchor="start" font-weight="bold" fill="#111" style="">P&amp;ID · Chocolate batch plant · Team 13 · rev C</text>
+<text x="40" y="72" font-size="14" text-anchor="start" font-weight="normal" fill="#555" style="">Dose order Yellow 300 mL → Green 900 mL → Red 1,800 mL → water chase (BV-M) · flush to J-1 (BV-J) · 4 solenoid valves</text>
+</svg>
