@@ -72,6 +72,16 @@ ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap
 @keyframes flow{to{stroke-dashoffset:-42}}
 @media (prefers-reduced-motion: reduce){.fluid.on{animation:none}}
 #wiring{transition:opacity .2s}
+svg#wire{display:block;width:100%;min-width:980px;height:auto}
+#wire text{fill:var(--ink)}
+#wire .wt{font-family:var(--f-body);font-size:15px}
+#wire .wm{font-family:var(--f-mono);font-size:13px}
+#wire .ws{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+#wire .wq{font-family:var(--f-mono);font-size:9.5px;font-weight:600;fill:#1b2226}
+#wire .wh{font-family:var(--f-display);font-size:21px;font-weight:600}
+#wire .b{font-weight:600}
+#wire .pb,#wire .pd{fill:#eef7f1}
+#wire .pd{fill:#fbecec}
 </style></head><body>
 <div class="wrap">
   <header>
@@ -79,7 +89,7 @@ ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap
       <div class="eyebrow">Lam Research Challenge 2026 · Stage 3 · Grand Finale · Team 13</div>
       <h1>Chocolate Batch Plant · Final Setup</h1>
     </div>
-    <div class="dwg"><b>Front elevation, not to scale · rev C</b><br>Kit: 5 tanks · 4 pumps · 4 solenoid valves · 3 ball valves fitted · FT1–FT3<br>Tube: 8 × 5 mm clear PU line, 8 × 10 mm blue stubs at pump and sensor barbs</div>
+    <div class="dwg"><b>Front elevation, not to scale · rev D</b><br>Kit: 5 tanks · 4 pumps · 4 solenoid valves · 3 ball valves fitted · FT1–FT3<br>Tube: 8 × 5 mm clear PU line, 8 × 10 mm blue stubs at pump and sensor barbs</div>
   </header>
 
   <section style="display:flex;flex-direction:column;gap:14px">
@@ -109,6 +119,56 @@ ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap
     </figure>
   </section>
 
+  <section style="display:flex;flex-direction:column;gap:14px" id="pins">
+    <h2 style="margin:0">Wiring diagram · pin by pin</h2>
+    <p>Every cable you make between the SMPS, the control PCB, both MDD10A drivers, the pumps, the valves, the flow sensors and the START switch. The names are the ones printed on the boards, so wire by label, not by position. The PCB already joins each connector to its ESP32 pin on board.</p>
+    <figure>
+      <div class="scroll"><svg id="wire" viewBox="0 0 1600 1080" role="img" aria-label="Wiring diagram: SMPS to PCB 12 V input; PCB SV1 to SV4 terminals to the valve coils; PCB FLOW_SENSOR1 to 3 to FT1 to FT3; ON/OFF_SWITCH1 to the START switch; PCB MOTOR_DRIVER1 and 2 to the logic headers of DRV1 and DRV2; PCB P1 and P2 to the driver power terminals; driver M1A, M1B, M2A, M2B to the four pumps"></svg></div>
+      <figcaption>
+        <span class="key"><span class="sw" style="background:#d33a3a"></span>+12 V, or + lead to a pump</span>
+        <span class="key"><span class="sw" style="background:var(--ink)"></span>GND, − lead, switched −</span>
+        <span class="key"><span class="sw" style="background:#8b5cf6"></span>PWM speed signal</span>
+        <span class="key"><span class="sw" style="background:#8f979b"></span>DIR, held LOW by the PCB</span>
+        <span class="key"><span class="sw" style="background:#e08a00"></span>Sensor or switch signal</span>
+        <span class="key"><span class="sw" style="background:#f08c84"></span>5 V to a flow sensor</span>
+      </figcaption>
+    </figure>
+    <div class="grid2">
+      <div>
+        <h2>MDD10A connections</h2>
+        <div class="tbl"><table>
+          <thead><tr><th>Driver pin</th><th>DRV1 (pumps P1, P2)</th><th>DRV2 (pumps P3, P4)</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="3">Logic header, 5 pins</td></tr>
+            <tr><td><code>DIR1</code></td><td>MOTOR_DRIVER1 pin 1 <code>DIR1</code> (held LOW)</td><td>MOTOR_DRIVER2 pin 1 <code>DIR3</code> (held LOW)</td></tr>
+            <tr><td><code>PWM1</code></td><td>pin 2 <code>PWM1</code> · G32 · P1 Red speed</td><td>pin 2 <code>PWM3</code> · G25 · P3 Green speed</td></tr>
+            <tr><td><code>DIR2</code></td><td>pin 3 <code>DIR2</code> (held LOW)</td><td>pin 3 <code>DIR4</code> (held LOW)</td></tr>
+            <tr><td><code>PWM2</code></td><td>pin 4 <code>PWM2</code> · G33 · P2 Yellow speed</td><td>pin 4 <code>PWM4</code> · G26 · P4 Flush speed</td></tr>
+            <tr><td><code>GND</code></td><td>pin 5 <code>GND</code> (pin 6 stays empty)</td><td>pin 5 <code>GND</code> (pin 6 stays empty)</td></tr>
+            <tr class="grp"><td colspan="3">Power terminal, 6 screws</td></tr>
+            <tr><td><code>PWR +</code> (green)</td><td>PCB <code>P1 +</code>, red wire</td><td>PCB <code>P2 +</code>, red wire</td></tr>
+            <tr><td><code>PWR −</code> (green)</td><td>PCB <code>P1 −</code>, black wire</td><td>PCB <code>P2 −</code>, black wire</td></tr>
+            <tr><td><code>M1A</code></td><td>P1 Red pump, red lead</td><td>P3 Green pump, red lead</td></tr>
+            <tr><td><code>M1B</code></td><td>P1 Red pump, black lead</td><td>P3 Green pump, black lead</td></tr>
+            <tr><td><code>M2A</code></td><td>P2 Yellow pump, red lead</td><td>P4 Flush pump, red lead</td></tr>
+            <tr><td><code>M2B</code></td><td>P2 Yellow pump, black lead</td><td>P4 Flush pump, black lead</td></tr>
+          </tbody></table></div>
+      </div>
+      <div>
+        <h2>Driver wiring notes</h2>
+        <ul class="seq">
+          <li><b>Wire by the printed names.</b> With the driver's header facing the PCB, its pins read <code>DIR1 · PWM1 · DIR2 · PWM2 · GND</code> from left to right, the same order as PCB pins 1 to 5, so a straight 5-wire cable works. Seen from the other side the order is reversed (<code>GND · PWM2 · DIR2 · PWM1 · DIR1</code>), so check the labels before you plug in.</li>
+          <li>On MOTOR_DRIVER2 the PCB prints <code>DIR3 PWM3 DIR4 PWM4</code>. They go to <code>DIR1 PWM1 DIR2 PWM2</code> on DRV2, because each driver numbers its own two channels 1 and 2.</li>
+          <li>PCB pin 6 is a second GND. The driver has only one GND pin, so pin 6 has no wire.</li>
+          <li>Connect the DIR wires even though the PCB holds them LOW. A floating DIR input could flip a pump's direction at random.</li>
+          <li>The green terminal is the driver's 12 V input. Check + and − with a meter at PCB P1 and P2 before you connect it, because a reversed supply can destroy the driver. P3 to P5 stay spare.</li>
+          <li>Each channel drives one 3.5 A pump, well under the 10 A rating. The 3.3 V PWM from the ESP32 drives the MDD10A input directly, at the firmware's 20 kHz.</li>
+          <li>If a pump hums but moves no water, swap its two leads at <code>MxA</code> and <code>MxB</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="grid2">
     <div>
       <h2>Hydraulic connections</h2>
@@ -134,17 +194,18 @@ ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap
     </div>
     <div>
       <h2>Electrical connections</h2>
+      <p class="small" style="margin-bottom:10px">Pin by pin in the <a href="#pins" style="color:inherit">wiring diagram</a> above.</p>
       <div class="tbl"><table>
         <thead><tr><th></th><th>From → To</th><th>Cable / notes</th></tr></thead>
         <tbody>
           <tr><td class="n">E1</td><td>Mains cord → SMPS L / N / ⏚</td><td>The only mains connection. SMPS off for every wiring change</td></tr>
           <tr><td class="n">E2</td><td>SMPS +V / −V → PCB 12V INPUT</td><td>Red / black, polarity checked with a meter</td></tr>
-          <tr><td class="n">E3</td><td>PCB P1 → MDD10A DRV1 power</td><td>12 V for P1 + P2</td></tr>
-          <tr><td class="n">E4</td><td>PCB P2 → MDD10A DRV2 power</td><td>12 V for P3 + P4 (PCB P3 spare)</td></tr>
-          <tr><td class="n">E5</td><td>PCB MOTOR_DRIVER1 → DRV1 input header</td><td>6-pin: 2 = PWM_1 (G32), 4 = PWM_2 (G33), 1/3/5/6 = GND (DIR held low). Match the MDD10A labels</td></tr>
-          <tr><td class="n">E6</td><td>PCB MOTOR_DRIVER2 → DRV2 input header</td><td>6-pin: 2 = PWM_3 (G25), 4 = PWM_4 (G26), rest GND</td></tr>
-          <tr><td class="n">E7</td><td>DRV1 M1 → P1 Red · M2 → P2 Yellow</td><td>Red / black. Swap the leads if a pump hums but moves no water</td></tr>
-          <tr><td class="n">E8</td><td>DRV2 M1 → P3 Green · M2 → P4 Flush</td><td>Red / black</td></tr>
+          <tr><td class="n">E3</td><td>PCB P1 + / − → DRV1 PWR+ / PWR−</td><td>Green power terminal on the MDD10A. 12 V for P1 + P2. Red to +, black to −; meter-check first</td></tr>
+          <tr><td class="n">E4</td><td>PCB P2 + / − → DRV2 PWR+ / PWR−</td><td>12 V for P3 + P4. PCB P3 to P5 stay spare</td></tr>
+          <tr><td class="n">E5</td><td>PCB MOTOR_DRIVER1 → DRV1 logic header</td><td>DIR1→DIR1, PWM1→PWM1 (G32), DIR2→DIR2, PWM2→PWM2 (G33), GND→GND. PCB pin 6 (2nd GND) has no wire. DIR held LOW on the PCB</td></tr>
+          <tr><td class="n">E6</td><td>PCB MOTOR_DRIVER2 → DRV2 logic header</td><td>DIR3→DIR1, PWM3→PWM1 (G25), DIR4→DIR2, PWM4→PWM2 (G26), GND→GND. Pin 6 no wire</td></tr>
+          <tr><td class="n">E7</td><td>DRV1 M1A / M1B → P1 Red · M2A / M2B → P2 Yellow</td><td>Pump red lead to MxA, black to MxB. Swap the two if a pump hums but moves no water</td></tr>
+          <tr><td class="n">E8</td><td>DRV2 M1A / M1B → P3 Green · M2A / M2B → P4 Flush</td><td>Same rule: red to MxA, black to MxB</td></tr>
           <tr><td class="n">E9</td><td>PCB SV1 · SV2 · SV3 · SV4 → valve coils</td><td>2-pin, pin 1 = +12 V, pin 2 = switched −. Coils have no polarity. G23 / G22 / G21 / G19 on ESP32 #1</td></tr>
           <tr><td class="n">E10</td><td>PCB FLOW_SENSOR1 · 2 · 3 → FT1 · FT2 · FT3</td><td>3-pin S / V / G: signal, 5 V, ground. G33 / G25 / G26 on ESP32 #2. FLOW_SENSOR4, 5 unused</td></tr>
           <tr><td class="n">E11</td><td>PCB ON/OFF_SWITCH1 → tactile switch HS-1</td><td>2-pin, two diagonal legs. G14 on ESP32 #1</td></tr>
@@ -452,5 +513,137 @@ document.getElementById('wires').addEventListener('change',e=>{ document.getElem
 let start='yel'; try{ const s=localStorage.getItem('plant-mode'); if(NOTES[s]) start=s; }catch(e){}
 const qp = location.hash.replace('#',''); if(NOTES[qp]) start=qp;
 setMode(start);
+
+// ---------- Pin-by-pin wiring diagram ----------
+(function(){
+const o=[]; const a=s=>o.push(s);
+const RED='#d33a3a', BLK='var(--ink)', PWMC='#8b5cf6', DIRC='#8f979b', SIG='#e08a00', FIVE='#f08c84';
+const PCBG='#1d6b3c', PCBT='#eaf6ee', DRVC='#8e2323';
+function wire(pts,col,w=2.6,dash){ const p=pts.map(q=>q.join(',')).join(' ');
+  a(`<polyline points="${p}" fill="none" stroke="var(--sheet)" stroke-width="${w+6}" stroke-linejoin="round"/>`);
+  a(`<polyline points="${p}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash?` stroke-dasharray="${dash}"`:''}/>`); }
+const pins=[]; const dot=(x,y)=>pins.push(`<circle cx="${x}" cy="${y}" r="3.6" fill="#f4f5f2" stroke="#2a2f33" stroke-width="1.4"/>`);
+const screw=(x,y)=>pins.push(`<circle cx="${x}" cy="${y}" r="7" fill="#d9dde0" stroke="#4a5257" stroke-width="1.5"/><line x1="${x-4}" y1="${y-4}" x2="${x+4}" y2="${y+4}" stroke="#4a5257" stroke-width="1.5"/>`);
+const T=(x,y,s,cls='wt',anch='start',extra='')=>a(`<text class="${cls}" x="${x}" y="${y}" text-anchor="${anch}" ${extra}>${s}</text>`);
+const vlabel=(x,y,s,cls,anch)=>a(`<text class="${cls}" x="${x}" y="${y}" text-anchor="${anch}" transform="rotate(-90 ${x} ${y})">${s}</text>`);
+
+// ---- control PCB ----
+a(`<rect x="300" y="60" width="940" height="460" rx="10" fill="${PCBG}" stroke="#0e4626" stroke-width="2"/>`);
+T(320,92,'CONTROL PCB · 12 VDC','wh pb');
+// ESP32 #1
+a(`<rect x="480" y="112" width="290" height="236" rx="6" fill="#15191c"/><rect x="605" y="100" width="40" height="16" rx="3" fill="#b8bec2"/>`);
+T(625,48,'USB → laptop, serial 115200','ws','middle'); a(`<line x1="625" y1="54" x2="625" y2="98" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>`);
+[['ESP32 #1 · U2 · actuators',1],['G23 → SV1    G22 → SV2'],['G21 → SV3    G19 → SV4'],['G32 → PWM1   G33 → PWM2'],['G25 → PWM3   G26 → PWM4'],['G14 ← START (pull-up)'],['G17 TX · G16 RX ⇄ #2']]
+  .forEach((r,i)=>T(498,142+i*30,r[0],r[1]?'wm pb b':'wm pb','start','xml:space="preserve"'));
+// ESP32 #2
+a(`<rect x="820" y="112" width="250" height="176" rx="6" fill="#15191c"/><rect x="925" y="100" width="40" height="16" rx="3" fill="#b8bec2"/>`);
+T(945,48,'USB: flash ESP32 #2 only','ws','middle'); a(`<line x1="945" y1="54" x2="945" y2="98" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>`);
+[['ESP32 #2 · U7 · sensors',1],['G33 ← FS1 (FT1)'],['G25 ← FS2 (FT2)'],['G26 ← FS3 (FT3)'],['G17 TX · G16 RX ⇄ #1']]
+  .forEach((r,i)=>T(838,142+i*30,r[0],r[1]?'wm pb b':'wm pb'));
+a(`<line x1="770" y1="300" x2="820" y2="270" stroke="${PCBT}" stroke-width="1.5" stroke-dasharray="5 4"/>`);
+T(795,322,'UART','ws pb','middle');
+T(500,392,'On-board traces already join every connector to its ESP32 pin.','ws pb');
+T(500,410,'The coloured wires outside the board are the cables you make.','ws pb');
+
+// ---- SV terminals (left edge) and valve coils ----
+const SV=[[4,19,'Flush water'],[3,21,'Green line'],[2,22,'Yellow line'],[1,23,'Red line']];
+SV.forEach(([n,g,line],i)=>{ const y0=112+i*72;
+  a(`<rect x="294" y="${y0}" width="30" height="46" rx="3" fill="#2f6fd0" stroke="#1d4c96"/>`);
+  T(334,y0+18,`SV${n} · G${g}`,'wm pb b'); T(334,y0+36,'1 +12V · 2 sw −','ws pb');
+  a(`<rect x="130" y="${y0}" width="62" height="46" rx="4" fill="#26292c"/><rect x="146" y="${y0+46}" width="30" height="10" fill="#c9982f"/>`);
+  T(161,y0+28,`SV${n}`,'wm','middle','style="fill:#fff;font-weight:600"');
+  T(118,y0+20,line,'wt','end'); T(118,y0+38,'NC coil 12 V 10 W','ws','end');
+  wire([[192,y0+12],[309,y0+12]],RED); wire([[192,y0+34],[309,y0+34]],BLK);
+  screw(309,y0+12); screw(309,y0+34);
+});
+T(24,420,'Coils have no polarity','ws');
+
+// ---- right edge: flow sensors, start switch, 12 V input ----
+const FT=[[1,33,'Red line'],[2,25,'Yellow line'],[3,26,'Green line']];
+FT.forEach(([n,g,line],i)=>{ const yb=110+i*76;
+  a(`<rect x="1212" y="${yb-9}" width="26" height="46" rx="2" fill="#f3f3ef" stroke="#9aa"/>`);
+  ['S','V','G'].forEach((l,k)=>a(`<text class="wq" x="1220" y="${yb+k*14+3.5}" text-anchor="middle">${l}</text>`));
+  T(1202,yb+6,`FLOW_SENSOR${n}`,'wm pb b','end'); T(1202,yb+24,`S V G · #2 G${g}`,'ws pb','end');
+  a(`<rect x="1350" y="${yb-8}" width="76" height="44" rx="8" fill="#1f2326"/>`);
+  T(1388,yb+19,`FT${n}`,'wm','middle','style="fill:#fff;font-weight:600"');
+  T(1438,yb+8,line,'wt'); T(1438,yb+26,'arrow in flow direction','ws');
+  wire([[1238,yb],[1350,yb]],SIG); wire([[1238,yb+14],[1350,yb+14]],FIVE); wire([[1238,yb+28],[1350,yb+28]],BLK);
+  [0,14,28].forEach(d=>dot(1238,yb+d));
+});
+T(1250,84,'S signal · V 5 V · G ground','ws');
+{ const yb=322;
+  a(`<rect x="1212" y="${yb-9}" width="26" height="32" rx="2" fill="#f3f3ef" stroke="#9aa"/>`);
+  T(1202,yb+4,'ON/OFF_SWITCH1','wm pb b','end'); T(1202,yb+22,'SW GND · #1 G14','ws pb','end');
+  a(`<rect x="1350" y="${yb-12}" width="38" height="38" rx="3" fill="#2a2d30"/><circle cx="1369" cy="${yb+7}" r="10" fill="#c8202f"/>`);
+  T(1400,yb+5,'HS-1 START','wt'); T(1400,yb+22,'tactile switch, diagonal legs','ws');
+  wire([[1238,yb],[1350,yb]],SIG); wire([[1238,yb+14],[1350,yb+14]],BLK); dot(1238,yb); dot(1238,yb+14);
+}
+{ const yb=384;
+  a(`<rect x="1208" y="${yb}" width="32" height="50" rx="3" fill="#2f6fd0" stroke="#1d4c96"/>`);
+  T(1198,yb+20,'12 V INPUT','wm pb b','end'); T(1198,yb+38,'+ top · − bottom','ws pb','end');
+  a(`<rect x="1350" y="${yb-10}" width="220" height="132" rx="4" fill="#cfd4d7" stroke="#7b8287"/>`);
+  a(`<text class="wh" x="1460" y="${yb+30}" text-anchor="middle" style="fill:#1b2226">SMPS 12 V · 30 A</text>`);
+  a(`<text class="ws" x="1460" y="${yb+54}" text-anchor="middle" style="fill:#33403f">+V red · −V black</text>`);
+  a(`<text class="ws" x="1460" y="${yb+76}" text-anchor="middle" style="fill:#33403f">L · N · ⏚ ← mains cord</text>`);
+  a(`<text class="ws" x="1460" y="${yb+98}" text-anchor="middle" style="fill:#b3261e">Off for every wiring change</text>`);
+  wire([[1224,yb+12],[1300,yb+12],[1300,yb+10],[1350,yb+10]],RED,3.4);
+  wire([[1224,yb+38],[1350,yb+38]],BLK,3.4);
+  screw(1224,yb+12); screw(1224,yb+38);
+}
+
+// ---- bottom edge: motor driver connectors and power outputs ----
+const MD=[{x0:406,name:'MOTOR_DRIVER1',lab:['DIR1','PWM1','DIR2','PWM2','GND','GND']},
+          {x0:786,name:'MOTOR_DRIVER2',lab:['DIR3','PWM3','DIR4','PWM4','GND','GND']}];
+MD.forEach(m=>{
+  a(`<rect x="${m.x0-12}" y="498" width="${22*5+24}" height="22" rx="2" fill="#f3f3ef" stroke="#9aa"/>`);
+  T(m.x0+55,446,m.name,'wm pb b','middle');
+  m.lab.forEach((l,i)=>vlabel(m.x0+i*22+4,492,`${i+1} ${l}`,'ws pb','start'));
+});
+a(`<g opacity=".45"><rect x="934" y="498" width="70" height="22" rx="2" fill="#f3f3ef" stroke="#9aa"/></g>`);
+T(969,470,'MOTOR_DRIVER3','ws pb','middle'); T(969,486,'not used','ws pb','middle');
+[['P1',1048,1],['P2',1108,1],['P3',1168,0]].forEach(([n,x,used])=>{
+  a(`<g opacity="${used?1:.45}"><rect x="${x-12}" y="490" width="48" height="30" rx="3" fill="#2f6fd0" stroke="#1d4c96"/></g>`);
+  T(x+12,452,n,'wm pb b','middle'); T(x,482,'+','ws pb','middle'); T(x+24,482,'−','ws pb','middle');
+  if(used){ screw(x,505); screw(x+24,505); }
+});
+
+
+// ---- drivers ----
+const DRV=[{n:1,x:300,mp:[['P1','Red','var(--red)'],['P2','Yellow','var(--yellow)']],md:0,feed:1048},
+           {n:2,x:680,mp:[['P3','Green','var(--green)'],['P4','Flush','var(--water)']],md:1,feed:1108}];
+DRV.forEach(d=>{
+  const hx=MD[d.md].x0;
+  a(`<rect x="${d.x}" y="640" width="300" height="164" rx="8" fill="${DRVC}" stroke="#5a1212" stroke-width="2"/>`);
+  a(`<rect x="${hx-12}" y="640" width="${22*4+24}" height="20" rx="2" fill="#f3f3ef" stroke="#9aa"/>`);
+  ['DIR1','PWM1','DIR2','PWM2','GND'].forEach((l,i)=>vlabel(hx+i*22+4,666,l,'ws pd','end'));
+  T(d.x+150,728,`DRV${d.n} · Cytron MDD10A`,'wh pd','middle');
+  T(d.x+150,750,`CH1 → ${d.mp[0][0]} ${d.mp[0][1]}   CH2 → ${d.mp[1][0]} ${d.mp[1][1]}`,'ws pd','middle','xml:space="preserve"');
+  const tx=d.x+50; // terminal centres tx + 40k
+  a(`<rect x="${tx-18}" y="788" width="76" height="30" rx="2" fill="#222"/><rect x="${tx+62}" y="788" width="76" height="30" rx="2" fill="#2f9a55"/><rect x="${tx+142}" y="788" width="76" height="30" rx="2" fill="#222"/>`);
+  ['M1A','M1B','PWR+','PWR−','M2A','M2B'].forEach((l,k)=>T(tx+40*k,781,l,'ws pd','middle'));
+  // logic cable from PCB
+  [DIRC,PWMC,DIRC,PWMC,BLK].forEach((c,i)=>{ wire([[hx+i*22,520],[hx+i*22,640]],c,2.4); dot(hx+i*22,520); dot(hx+i*22,640); });
+  dot(hx+5*22,520);
+  // pumps
+  d.mp.forEach(([tag,line,col],j)=>{ const cx=tx+20+160*j;
+    a(`<rect x="${cx-36}" y="880" width="72" height="62" rx="6" fill="#2c3034"/><rect x="${cx-36}" y="880" width="72" height="8" rx="3" fill="${col}"/>`);
+    T(cx,920,tag,'wm','middle','style="fill:#fff;font-weight:600"');
+    T(cx,962,`${line} pump`,'ws','middle');
+    wire([[cx-20,818],[cx-20,880]],RED); wire([[cx+20,818],[cx+20,880]],BLK);
+  });
+});
+[516,896].forEach(x=>{a(`<line x1="${x}" y1="520" x2="${x}" y2="540" stroke="var(--muted)" stroke-width="1.5"/><path d="M${x-5} 535 l10 10 M${x+5} 535 l-10 10" stroke="var(--muted)" stroke-width="1.8"/>`); T(x+12,546,'pin 6: no wire','ws');});
+// 12 V feeds, DRV2 first so DRV1's risers hop over them
+wire([[1108,520],[1108,1000],[810,1000],[810,818]],RED,3.4);
+wire([[1132,520],[1132,1014],[850,1014],[850,818]],BLK,3.4);
+wire([[1048,520],[1048,1034],[430,1034],[430,818]],RED,3.4);
+wire([[1072,520],[1072,1048],[470,1048],[470,818]],BLK,3.4);
+T(1000,990,'P2 → DRV2 · 12 V','ws','end');
+T(620,1068,'P1 → DRV1 · 12 V','ws');
+DRV.forEach(d=>{ const tx=d.x+50; [0,1,2,3,4,5].forEach(k=>screw(tx+40*k,803)); });
+
+a(pins.join(''));
+document.getElementById('wire').innerHTML=o.join('');
+})();
 </script>
 </body></html>

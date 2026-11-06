@@ -1,0 +1,5 @@
+line,name,sensor,k_pulses_per_mL
+1,RED,FT1,1.8719
+2,YELLOW,FT2,9.6364
+3,GREEN,FT3,1.9033
+4,WATER,FT1,1.8719

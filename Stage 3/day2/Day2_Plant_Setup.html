@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 2 Plant Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+
+:root{
+  --paper:#eef1ef; --sheet:#fbfcfb; --ink:#16232a; --muted:#5b6b70; --rule:#cdd6d3;
+  --red:#c8202f; --yellow:#e2ad12; --green:#23894c; --water:#2f86c9; --choc:#5a2f22; --empty:#d5dcda; --ok:#1d7a4c; --stop:#b3261e;
+  --wall:#f4f5f2; --wall-dot:#dfe3df; --wood:#d8b98c; --wood-edge:#b8935f;
+  --glass:rgba(255,255,255,.35); --glass-edge:#7d9296; --tube:#9fb0b3; --panel:#e6e9e6;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f1518; --sheet:#151d21; --ink:#e2eaec; --muted:#93a4a9; --rule:#2b383d;
+  --red:#ef5361; --yellow:#f2c440; --green:#45b974; --water:#5aa8e6; --choc:#8a5040; --empty:#33413f; --ok:#4cc187; --stop:#ef6b5f;
+  --wall:#1a2327; --wall-dot:#26323a; --wood:#6b5537; --wood-edge:#4e3d27;
+  --glass:rgba(200,225,235,.08); --glass-edge:#7a9399; --tube:#5d6f74; --panel:#202b30; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1518; --sheet:#151d21; --ink:#e2eaec; --muted:#93a4a9; --rule:#2b383d;
+  --red:#ef5361; --yellow:#f2c440; --green:#45b974; --water:#5aa8e6; --choc:#8a5040; --empty:#33413f; --ok:#4cc187; --stop:#ef6b5f;
+  --wall:#1a2327; --wall-dot:#26323a; --wood:#6b5537; --wood-edge:#4e3d27;
+  --glass:rgba(200,225,235,.08); --glass-edge:#7a9399; --tube:#5d6f74; --panel:#202b30; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:28px 64px;display:flex;flex-direction:column;gap:28px}
+header{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:14px}
+@media (max-width:720px){header{grid-template-columns:1fr}.dwg{text-align:left!important}}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1;margin:6px 0 0;letter-spacing:.01em;text-wrap:balance}
+.dwg{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:right;line-height:1.6}
+.dwg b{color:var(--ink);font-weight:600}
+h2{font-family:var(--f-display);font-weight:600;font-size:26px;margin:0 0 10px;letter-spacing:.01em}
+p{margin:0;max-width:72ch}
+.controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;flex-wrap:wrap}
+.seg button{font:600 14px var(--f-body);background:transparent;color:var(--ink);border:0;padding:9px 14px;cursor:pointer;border-right:1.5px solid var(--ink)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.seg button:focus-visible,.chk input:focus-visible{outline:3px solid var(--water);outline-offset:2px}
+.chk{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.mode-note{border-left:4px solid var(--water);padding:8px 14px;background:var(--sheet);max-width:none;min-height:3.2em}
+figure{margin:0;background:var(--sheet);border:1px solid var(--rule);border-radius:4px}
+.scroll{overflow-x:auto}
+svg#plant{display:block;width:100%;min-width:980px;height:auto}
+figcaption{display:flex;flex-wrap:wrap;gap:8px 22px;padding:12px 16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.key{display:inline-flex;align-items:center;gap:8px}
+.sw{width:28px;height:6px;border-radius:3px;display:inline-block}
+.sw.dash{height:0;border-top:3px dashed var(--muted);border-radius:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+.grid2>*{min-width:0}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+td.n{font-family:var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;width:2.6em}
+tr.grp td{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+td code,p code,li code{font-family:var(--f-mono);font-size:12.5px}
+ol.seq,ul.seq{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.flag{border:1.5px solid var(--stop);border-radius:4px;padding:10px 14px;background:var(--sheet)}
+.flag b{color:var(--stop)}
+.small{font-size:13px;color:var(--muted)}
+#plant text{fill:var(--ink)}
+#plant .t{font-family:var(--f-body);font-size:15px}
+#plant .ts{font-family:var(--f-body);font-size:13px;fill:var(--muted)}
+#plant .tag{font-family:var(--f-mono);font-size:15px;font-weight:600}
+#plant .pill text{font-family:var(--f-mono);font-size:12px;font-weight:600;fill:#fff}
+.fluid{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fluid.on{stroke-dasharray:12 9;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-42}}
+@media (prefers-reduced-motion: reduce){.fluid.on{animation:none}}
+#wiring{transition:opacity .2s}
+svg#wire{display:block;width:100%;min-width:980px;height:auto}
+#wire text{fill:var(--ink)}
+#wire .wt{font-family:var(--f-body);font-size:15px}
+#wire .wm{font-family:var(--f-mono);font-size:13px}
+#wire .ws{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+#wire .wq{font-family:var(--f-mono);font-size:9.5px;font-weight:600;fill:#1b2226}
+#wire .wh{font-family:var(--f-display);font-size:21px;font-weight:600}
+#wire .b{font-weight:600}
+#wire .pb,#wire .pd{fill:#eef7f1}
+#wire .pd{fill:#fbecec}
+.ro{font-family:var(--f-mono);font-size:13px}
+.state td.o{color:var(--ok);font-weight:600}
+.state td.c{color:var(--muted)}
+#plant .sv.open .body{fill:var(--ok)}
+#plant .pumpOn circle{fill:var(--ok)!important}
+#plant .pumpOn .rot{fill:#fff;animation:pulse .8s ease-in-out infinite alternate}
+@keyframes pulse{to{opacity:.35}}
+@media (prefers-reduced-motion: reduce){#plant .pumpOn .rot{animation:none}}
+#plant .heat{stroke:var(--muted)}
+#plant .heat.on{stroke:var(--stop);filter:drop-shadow(0 0 4px var(--stop))}
+</style></head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Lam Research Challenge 2026 · Stage 3 · Day 2 · Team 13</div>
+      <h1>Chocolate Plant · Day 2 Setup: Flush → ΔT 10 °C → Dose</h1>
+    </div>
+    <div class="dwg"><b>Skid schematic, not to scale · Day 2 rev B</b><br>5 solenoid valves · 4 pumps (P4 = cooling loop) · FT1–FT3 · TT-1/TT-2 DS18B20<br>Ice bath 4.2 L with copper coil · one START press</div>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Operating step">
+        <button data-m="idle" aria-pressed="false">Ready</button>
+        <button data-m="s1" aria-pressed="true">Step 1 · Flush</button>
+        <button data-m="s2" aria-pressed="false">Step 2 · Cool</button>
+        <button data-m="yel" aria-pressed="false">Step 3a · Yellow</button>
+        <button data-m="grn" aria-pressed="false">Step 3b · Green</button>
+        <button data-m="red" aria-pressed="false">Step 3c · Red</button>
+        <button data-m="done" aria-pressed="false">Done / Trip</button>
+      </div>
+    </div>
+    <p class="mode-note" id="note"></p>
+    <figure>
+      <div class="scroll"><svg id="plant" viewBox="0 0 1500 900" role="img" aria-label="Day 2 skid: flush, red, green and yellow tanks on the shelf; red and flush share P1 through tee TA; yellow tank has a cooling loop through P4, SV5 and a copper coil in an ice bath; each colour has its own line into the mixing tank, with the jug under the red outlet during the flush"></svg></div>
+      <figcaption>
+        <span class="key"><span class="sw" style="background:var(--water)"></span>Flush water</span>
+        <span class="key"><span class="sw" style="background:var(--yellow)"></span>Yellow (and cooling loop)</span>
+        <span class="key"><span class="sw" style="background:var(--green)"></span>Green</span>
+        <span class="key"><span class="sw" style="background:var(--red)"></span>Red</span>
+        <span class="key"><span class="sw" style="background:var(--empty)"></span>Idle line</span>
+        <span class="key"><span class="sw" style="background:var(--ok)"></span>Solenoid open / pump running</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Valve and pump state for each step</h2>
+    <div class="tbl"><table class="state">
+      <thead><tr><th>Step</th><th>SV1 G23 red</th><th>SV2 G22 yellow</th><th>SV3 G21 green</th><th>SV4 G19 water</th><th>SV5 G18 loop</th><th>Pump</th><th>Ends when</th></tr></thead>
+      <tbody>
+        <tr><td>Ready</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td>none</td><td>START pressed (jug empty, standing in T-5 under the red outlet)</td></tr>
+        <tr><td>1 Flush</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="o">OPEN</td><td class="c">shut</td><td>P1 100 % → 60 %</td><td>FT1 totalises 2,000 mL, P1 off, SV4 shut. Lift the jug out.</td></tr>
+        <tr><td>2 Cool</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="o">OPEN</td><td>P4 100 %</td><td>|TT-1 − TT-2| ≥ 10.3 °C on 3 readings in a row, P4 off, SV5 shut</td></tr>
+        <tr><td>3a Yellow</td><td class="c">shut</td><td class="o">OPEN</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td>P2</td><td>FT2 = 300 mL</td></tr>
+        <tr><td>3b Green</td><td class="c">shut</td><td class="c">shut</td><td class="o">OPEN</td><td class="c">shut</td><td class="c">shut</td><td>P3</td><td>FT3 = 900 mL</td></tr>
+        <tr><td>3c Red</td><td class="o">OPEN</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td>P1</td><td>FT1 = 1,800 mL</td></tr>
+        <tr><td>Done / Trip</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td class="c">shut</td><td>all off</td><td>safe state</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small" style="margin-top:8px">SV1 and SV4 are never open together (water would run by gravity into the red tank). P1 only starts with exactly one of them open. P2 needs SV2, P3 needs SV3, P4 needs SV5. PCB output SV6 and heater output H1 are not used.</p>
+  </section>
+
+  <div class="grid2">
+    <div>
+      <h2>Hydraulic connections</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>#</th><th>From</th><th>To</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Red and flush share P1</td></tr>
+          <tr><td class="n">1</td><td>T-4 flush tank bottom</td><td>BV-F → SV4</td><td>SV4 arrow towards TA</td></tr>
+          <tr><td class="n">2</td><td>T-1 red tank bottom</td><td>BV-1 → SV1</td><td>SV1 arrow towards TA</td></tr>
+          <tr><td class="n">3</td><td>SV4 out + SV1 out</td><td>TA (equal tee)</td><td>side port and run port</td></tr>
+          <tr><td class="n">4</td><td>TA</td><td>P1 → FT1</td><td>FT1 arrow with the flow</td></tr>
+          <tr><td class="n">5</td><td>FT1</td><td>T-5 left top hole</td><td>the jug stands under this outlet in Step 1</td></tr>
+          <tr class="grp"><td colspan="4">Green</td></tr>
+          <tr><td class="n">6</td><td>T-3 bottom → BV-3 → P3 → FT3 → SV3</td><td>T-5 middle top hole</td><td></td></tr>
+          <tr class="grp"><td colspan="4">Yellow, cooled (two-hole tank)</td></tr>
+          <tr><td class="n">7</td><td>T-2 bottom hole</td><td>BV-2 → TC (equal tee)</td><td></td></tr>
+          <tr><td class="n">8</td><td>TC run port</td><td>P2 → FT2 → SV2 → T-5 right top hole</td><td>dosing</td></tr>
+          <tr><td class="n">9</td><td>TC side port</td><td>P4 → SV5 → coil CL-1 inlet</td><td>coil sits in the ice bath T-6</td></tr>
+          <tr><td class="n">10</td><td>CL-1 outlet</td><td>T-2 top hole</td><td>tube end above the liquid, so nothing siphons</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div>
+      <h2>Electrical connections</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>Item</th><th>PCB</th><th>ESP32 pin</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>SV1 red source</td><td>SV1</td><td>U2 G23</td><td>moved: now before the pump</td></tr>
+          <tr><td>SV2 yellow</td><td>SV2</td><td>U2 G22</td><td>as Day 1</td></tr>
+          <tr><td>SV3 green</td><td>SV3</td><td>U2 G21</td><td>as Day 1</td></tr>
+          <tr><td>SV4 flush water source</td><td>SV4</td><td>U2 G19</td><td>moved: now before TA</td></tr>
+          <tr><td>SV5 cooling loop</td><td>SV5</td><td>U2 G18</td><td>new valve</td></tr>
+          <tr><td>P4 loop pump</td><td>DRV2 M2</td><td>PWM_4 U2 G26</td><td>as Day 1 wiring</td></tr>
+          <tr class="grp"><td colspan="4">DS18B20 probes (3-wire, JST plug)</td></tr>
+          <tr><td>TT-1 in yellow T-2</td><td>TS1</td><td>U7 G32</td><td>red = VDD · black = GND · brown = DATA</td></tr>
+          <tr><td>TT-2 in flush T-4</td><td>TS2</td><td>U7 G13</td><td>same colours</td></tr>
+        </tbody>
+      </table></div>
+      <p class="flag" style="margin-top:12px"><b>Check before plugging the probes in.</b> Red / brown / black isn't the usual DS18B20 colour code. Make sure the JST plug's pins line up with the TS header labels on the PCB (V, S, G or similar). A DS18B20 wired backwards gets hot within seconds: unplug it at once. Then type <code>scan</code> on ESP32 #2 (U7) and expect 1 sensor on each bus.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>Before pressing START</h2>
+      <ol class="seq">
+        <li>Empty 2 L jug standing inside T-5 under the red outlet. Mixing tank otherwise empty; <code>mix 0</code> on ESP32 #1 (U2) if you emptied it since boot.</li>
+        <li>Ice bath packed with ice and little water, coil fully covered. Spare ice ready.</li>
+        <li>All ball valves open. Base tanks stirred.</li>
+        <li><code>temps</code> on ESP32 #1 (U2): both probes read. TT-1 at mid-depth in yellow, TT-2 in the flush tank.</li>
+        <li>USB cable on ESP32 #1 (U2), <code>pio device monitor</code> running so the log file is written.</li>
+        <li>When the log prints <code>LIFT THE JUG OUT OF THE MIXING TANK NOW</code>, lift it out. Step 2 lasts many minutes, so there is time.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Assumptions in this drawing</h2>
+      <ul class="seq">
+        <li>Tanks are filled to the organiser's level, so Step 2 has to cool about 10 L of yellow. Roughly 1.3 kg of ice melts, which should take about 20 to 40 minutes. That's an estimate, not a measurement.</li>
+        <li>The idle P2 and P4 block backflow (diaphragm pumps with check valves), so the cooling loop and the dosing line share TC without an extra valve.</li>
+        <li>The loop has no flow sensor. The firmware checks that TT-1 drops at least 0.3 °C in the first 3 minutes, and trips if it doesn't.</li>
+        <li>Each colour has its own tube into one of the three top holes of T-5. There's no shared header, so the one equal tee in use is TA and the spare equal tee is TC.</li>
+        <li>No float switches. Empty tank = no pulses on that line's flow sensor; full mixing tank / jug = volume count.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+const W = document.getElementById('plant');
+const S = [];
+const add = s => S.push(s);
+const C = {w:'var(--water)', r:'var(--red)', y:'var(--yellow)', g:'var(--green)'};
+add(`<rect x="20" y="20" width="1460" height="860" rx="6" fill="var(--wall)"/>`);
+add(`<rect x="40" y="262" width="1000" height="14" rx="3" fill="var(--wood)" stroke="var(--wood-edge)"/>`);
+add(`<rect x="40" y="840" width="1420" height="14" rx="3" fill="var(--wood)" stroke="var(--wood-edge)"/>`);
+const seg = {
+  w1:[[210,250],[210,410],[420,410]],
+  r1:[[420,250],[420,410]],
+  p1:[[420,410],[420,780],[1120,780],[1120,380],[1200,380],[1200,418]],
+  g1:[[670,250],[670,740],[1100,740],[1100,360],[1275,360],[1275,418]],
+  y0:[[920,250],[920,330]],
+  y1:[[920,330],[920,700],[1080,700],[1080,340],[1350,340],[1350,418]],
+  l1:[[920,330],[1008,330],[1008,560]],
+  l2:[[1050,600],[1064,600],[1064,40],[960,40],[960,58]]
+};
+for (const k in seg) {
+  const p = seg[k].map(q => q.join(',')).join(' ');
+  add(`<polyline points="${p}" class="fluid" stroke="var(--empty)" stroke-width="12"/>`);
+  add(`<polyline id="s_${k}" points="${p}" class="fluid" stroke="transparent" stroke-width="8"/>`);
+}
+function tank(x, y, w, h, tag, name, col) {
+  add(`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="3"/>`);
+  if (col) add(`<rect x="${x+5}" y="${y+h*0.32}" width="${w-10}" height="${h*0.68-5}" rx="6" fill="${col}" opacity=".8"/>`);
+  add(`<text x="${x+w/2}" y="${y+26}" text-anchor="middle" class="tag">${tag}</text><text x="${x+w/2}" y="${y+46}" text-anchor="middle" class="ts">${name}</text>`);
+}
+tank(80, 60, 190, 190, 'T-4', 'Flush water', 'var(--water)');
+tank(330, 60, 180, 190, 'T-1', 'Red 60 %', 'var(--red)');
+tank(580, 60, 180, 190, 'T-3', 'Green 30 %', 'var(--green)');
+tank(830, 60, 180, 190, 'T-2', 'Yellow 10 % · cooled', 'var(--yellow)');
+add(`<rect x="950" y="50" width="20" height="10" fill="var(--sheet)" stroke="var(--ink)" stroke-width="2"/>`);
+add(`<line x1="120" y1="120" x2="120" y2="220" stroke="var(--ink)" stroke-width="4"/><circle cx="120" cy="220" r="5" fill="var(--ink)"/><text x="130" y="238" class="tag" style="font-size:13px">TT-2</text>`);
+add(`<line x1="870" y1="120" x2="870" y2="170" stroke="var(--ink)" stroke-width="4"/><circle cx="870" cy="170" r="5" fill="var(--ink)"/><text x="880" y="186" class="tag" style="font-size:13px">TT-1</text>`);
+add(`<rect x="1150" y="420" width="250" height="300" rx="10" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="3"/>`);
+add(`<rect id="mixfill" x="1155" y="715" width="240" height="0" rx="6" fill="var(--choc)" opacity=".85"/>`);
+add(`<text x="1275" y="760" text-anchor="middle" class="tag">T-5</text><text x="1275" y="780" text-anchor="middle" class="ts">Mixing tank · 3,000 mL batch</text>`);
+add(`<g id="jug"><path d="M 1160 470 L 1168 600 L 1232 600 L 1240 470" fill="var(--sheet)" stroke="var(--water)" stroke-width="3"/><rect id="jugfill" x="1169" y="598" width="62" height="0" fill="var(--water)" opacity=".75"/><text x="1200" y="530" text-anchor="middle" class="tag" style="font-size:13px">J-1</text></g>`);
+add(`<rect x="962" y="520" width="90" height="130" rx="8" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="3"/><rect id="ice" x="967" y="545" width="80" height="100" rx="5" fill="#cfe9f7"/>`);
+for (let k = 0; k < 4; k++) add(`<ellipse cx="${986+k*14}" cy="600" rx="7" ry="26" fill="none" stroke="#b5651d" stroke-width="3"/>`);
+add(`<text x="1007" y="672" text-anchor="middle" class="tag" style="font-size:13px">T-6 ice bath</text><text x="1007" y="688" text-anchor="middle" class="ts">coil CL-1</text>`);
+function bv(x, y, tag) {
+  add(`<polygon points="${x-14},${y-11} ${x+14},${y+11} ${x+14},${y-11} ${x-14},${y+11}" transform="rotate(90 ${x} ${y})" fill="var(--sheet)" stroke="var(--ink)" stroke-width="2.5"/><circle cx="${x}" cy="${y}" r="5" fill="var(--ink)"/>`);
+  add(`<text x="${x+22}" y="${y+5}" class="ts">${tag} open</text>`);
+}
+function sv(x, y, tag, pin, left) {
+  add(`<g class="sv" id="v_${tag}"><polygon class="body" transform="rotate(90 ${x} ${y})" points="${x-16},${y-12} ${x+16},${y+12} ${x+16},${y-12} ${x-16},${y+12}" fill="var(--empty)" stroke="var(--ink)" stroke-width="2.5"/>`);
+  add(`<rect x="${x-46}" y="${y-13}" width="26" height="26" fill="var(--sheet)" stroke="var(--ink)" stroke-width="2"/><text x="${x-33}" y="${y+5}" text-anchor="middle" class="tag" style="font-size:13px">S</text><text x="${left?x-54:x+24}" y="${y}" class="tag" text-anchor="${left?'end':'start'}">${tag}</text><text x="${left?x-54:x+24}" y="${y+17}" class="ts" text-anchor="${left?'end':'start'}">${pin}</text></g>`);
+}
+function pump(x, y, tag, pin, left) {
+  add(`<g id="p_${tag}"><circle cx="${x}" cy="${y}" r="24" style="fill:var(--panel)" stroke="var(--ink)" stroke-width="3"/><polygon class="rot" points="${x-11},${y-8} ${x+11},${y-8} ${x},${y+13}" fill="var(--ink)"/></g>`);
+  add(`<text x="${left?x-34:x+34}" y="${y-2}" class="tag" text-anchor="${left?'end':'start'}">${tag}</text><text x="${left?x-34:x+34}" y="${y+15}" class="ts" text-anchor="${left?'end':'start'}">${pin}</text>`);
+}
+function ft(x, y, tag, pin, left) {
+  add(`<rect x="${x-12}" y="${y-16}" width="24" height="32" fill="var(--sheet)" stroke="var(--ink)" stroke-width="2.5"/><line x1="${x-12}" y1="${y-10}" x2="${x+12}" y2="${y+10}" stroke="var(--ink)" stroke-width="1.5"/>`);
+  add(`<text x="${left?x-24:x+24}" y="${y}" class="tag" text-anchor="${left?'end':'start'}">${tag}</text><text x="${left?x-24:x+24}" y="${y+17}" class="ts" text-anchor="${left?'end':'start'}">${pin}</text>`);
+}
+const dot = (x, y, t, dx=12) => add(`<circle cx="${x}" cy="${y}" r="7" fill="var(--ink)"/><text x="${x+dx}" y="${y-10}" class="ts">${t}</text>`);
+bv(210, 300, 'BV-F'); sv(210, 360, 'SV4', 'U2 G19 water');
+bv(420, 300, 'BV-1'); sv(420, 360, 'SV1', 'U2 G23 red');
+bv(670, 300, 'BV-3'); bv(920, 296, 'BV-2');
+dot(420, 410, 'TA'); dot(920, 330, 'TC', -34);
+pump(420, 480, 'P1', 'G32 · red + flush'); pump(670, 480, 'P3', 'G25'); pump(920, 480, 'P2', 'G33', true);
+ft(420, 570, 'FT1', 'U7 G33'); ft(670, 570, 'FT3', 'U7 G26'); ft(920, 570, 'FT2', 'U7 G25', true);
+sv(670, 660, 'SV3', 'U2 G21'); sv(920, 640, 'SV2', 'U2 G22', true);
+pump(1008, 400, 'P4', 'G26 loop'); sv(1008, 470, 'SV5', 'U2 G18');
+add(`<text x="1072" y="150" class="ts" transform="rotate(90 1072 150)">cold yellow back to T-2 top</text>`);
+add(`<rect x="1110" y="40" width="350" height="230" rx="6" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/>`);
+add(`<text x="1130" y="70" class="tag">UC-1 control PCB</text>`);
+add(`<text x="1130" y="96" class="ts">ESP32 #1 U2: SV1–SV5, P1–P4, START G14</text>`);
+add(`<text x="1130" y="116" class="ts">ESP32 #2 U7: FT1–FT3, TS1 G32, TS2 G13</text>`);
+add(`<text x="1130" y="152" class="tag" style="font-size:14px">TT-1 yellow</text><text id="t1" x="1310" y="152" class="tag" style="font-size:14px">24.0 °C</text>`);
+add(`<text x="1130" y="178" class="tag" style="font-size:14px">TT-2 water</text><text id="t2" x="1310" y="178" class="tag" style="font-size:14px">24.3 °C</text>`);
+add(`<text x="1130" y="204" class="tag" style="font-size:14px">ΔT</text><text id="dt" x="1310" y="204" class="tag" style="font-size:14px">0.3 °C</text>`);
+add(`<text x="1130" y="236" class="tag" style="font-size:14px">FT total</text><text id="vol" x="1310" y="236" class="tag" style="font-size:14px">0 mL</text>`);
+W.innerHTML = S.join('');
+
+const M = {
+  idle: {segs:{}, v:[], p:[], t:[24.0,24.3], vol:'0 mL', mix:0, jug:0, jugIn:true, note:'Ready. Empty jug standing in T-5 under the red outlet, all valves shut. One press of START (HS-1) runs Steps 1 → 2 → 3.'},
+  s1: {segs:{w1:'w', p1:'w'}, v:['SV4'], p:['P1'], t:[24.0,24.3], vol:'2,000 mL water', mix:0, jug:.95, jugIn:true, note:'Step 1 · Flush. SV4 opens, then P1 pulls water from T-4 through TA and FT1 and pushes it out of the red outlet into the jug. FT1 totalises; P1 drops to slow duty for the last 10 % and stops at 2.0 L, then SV4 closes. The log says LIFT THE JUG OUT, and Step 2 starts by itself.'},
+  s2: {segs:{y0:'y', l1:'y', l2:'y'}, v:['SV5'], p:['P4'], t:[13.9,24.3], vol:'–', mix:0, jug:.95, jugIn:false, note:'Step 2 · Cool. SV5 opens and P4 circulates yellow from the bottom of T-2 through the copper coil in the ice bath and back in at the top. TT-1 (yellow) and TT-2 (flush water) are read every 0.8 s. When |TT-1 − TT-2| ≥ 10.3 °C on 3 readings in a row, P4 stops, SV5 closes and Step 3 starts. Trip if TT-1 has not dropped 0.3 °C after 3 minutes, or after 60 minutes in total.'},
+  yel: {segs:{y0:'y', y1:'y'}, v:['SV2'], p:['P2'], t:[14.0,24.3], vol:'300 mL yellow', mix:.1, jug:.95, jugIn:false, note:'Step 3a · Yellow 300 mL. P2 draws the cold yellow from the same tee TC (the idle P4 blocks the loop). Fast, then slow for the last 30 mL, stop early by the learned overrun, SV2 closes.'},
+  grn: {segs:{g1:'g'}, v:['SV3'], p:['P3'], t:[14.1,24.3], vol:'900 mL green', mix:.4, jug:.95, jugIn:false, note:'Step 3b · Green 900 mL through P3, FT3 and SV3 into its own top hole.'},
+  red: {segs:{r1:'r', p1:'r'}, v:['SV1'], p:['P1'], t:[14.2,24.3], vol:'1,800 mL red', mix:1, jug:.95, jugIn:false, note:'Step 3c · Red 1,800 mL. SV1 opens (SV4 stays shut), P1 pulls from T-1. The first 20 to 30 mL out are the flush water left between TA and the outlet. FT1 still counts the real volume.'},
+  done: {segs:{}, v:[], p:[], t:[14.3,24.3], vol:'3,000 mL batch', mix:1, jug:.95, jugIn:false, note:'Done (or tripped). All pumps de-energised, SV1–SV5 closed. The report with flush run, calibration table, ΔT trend and dosed volumes prints to the log. A trip (no flow, empty tank, jug or mixing tank full, link lost, no cooling, START pressed) lands here too.'}
+};
+function show(m) {
+  const s = M[m];
+  for (const k in seg) {
+    const el = document.getElementById('s_' + k);
+    const c = s.segs[k];
+    el.setAttribute('stroke', c ? C[c] : 'transparent');
+    el.classList.toggle('on', !!c);
+  }
+  W.querySelectorAll('.sv').forEach(g => g.classList.toggle('open', s.v.includes(g.id.slice(2))));
+  ['P1','P2','P3','P4'].forEach(p => document.getElementById('p_' + p).classList.toggle('pumpOn', s.p.includes(p)));
+  document.getElementById('t1').textContent = s.t[0].toFixed(1) + ' °C';
+  document.getElementById('t2').textContent = s.t[1].toFixed(1) + ' °C';
+  document.getElementById('dt').textContent = Math.abs(s.t[0] - s.t[1]).toFixed(1) + ' °C';
+  document.getElementById('vol').textContent = s.vol;
+  const mf = document.getElementById('mixfill'), h = 160 * s.mix;
+  mf.setAttribute('y', 715 - h); mf.setAttribute('height', h);
+  const jf = document.getElementById('jugfill'), jh = 120 * s.jug;
+  jf.setAttribute('y', 598 - jh); jf.setAttribute('height', jh);
+  document.getElementById('jug').style.display = s.jugIn ? '' : 'none';
+  document.getElementById('note').textContent = s.note;
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === m));
+}
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => show(b.dataset.m)));
+show('s1');
+</script>
+</body></html>
