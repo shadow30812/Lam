@@ -1,0 +1,543 @@
+all off
+link OK (ok 113871, bad 0)  counts 0 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 730 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1712
+sequence idle  dose idle
+! temperature sensors TS1/TS2 not both reading, run refused (type temps)
+? type help
+? type help
+link OK (ok 116030, bad 0)  counts 0 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 205 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1740
+sequence idle  dose idle
+link OK (ok 119346, bad 0)  counts 0 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 185 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1782
+sequence idle  dose idle
+!,TRIP,1209.3,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+! interlock: P1 needs exactly one of SV1 (red) / SV4 (water) open
+link OK (ok 122558, bad 0)  counts 1 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 705 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1822
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+! interlock: P1 needs exactly one of SV1 (red) / SV4 (water) open
+link OK (ok 123165, bad 0)  counts 1 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 453 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1830
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+link OK (ok 124129, bad 0)  counts 1 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.44 C  TS2 (reference) 23.56 C  dT 0.12 C  loop P4 off  age 609 ms
+  raw 23.44 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1842
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 125080, bad 0)  counts 1 34 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 646 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1854
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 136414, bad 0)  counts 1 35 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 219 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 1999
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 137535, bad 0)  counts 1 35 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 373 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2013
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1395.5,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 145712, bad 0)  counts 2 39 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 776 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2116
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 146154, bad 0)  counts 2 39 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 448 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2122
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1482.1,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 148388, bad 0)  counts 2 39 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 673 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2150
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 148868, bad 0)  counts 2 40 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 735 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2156
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1509.6,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+? type help
+link OK (ok 151042, bad 0)  counts 2 40 2  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 351 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2184
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 153040, bad 0)  counts 2 40 2  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 587 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2209
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+all off
+link OK (ok 157961, bad 0)  counts 851 40 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.38 C  TS2 (reference) 23.56 C  dT 0.18 C  loop P4 off  age 26 ms
+  raw 23.38 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2272
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 158683, bad 0)  counts 851 40 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 136 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2281
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1614.0,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+? type help
+link OK (ok 161887, bad 0)  counts 877 40 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 570 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2321
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 162624, bad 0)  counts 877 40 2  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 47 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2331
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1648.9,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 167120, bad 0)  counts 877 40 2  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 761 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2387
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 167329, bad 0)  counts 877 40 2  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=100% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 484 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2390
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 179553, bad 0)  counts 877 40 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 272 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2545
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 179924, bad 0)  counts 877 40 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 37 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2550
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1823.4,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 180858, bad 0)  counts 884 40 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 683 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2561
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 181138, bad 0)  counts 884 40 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 321 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2565
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1836.2,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 182600, bad 0)  counts 886 40 458  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 719 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2583
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 182927, bad 0)  counts 886 40 458  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 42 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2588
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 187080, bad 0)  counts 1005 40 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 493 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2640
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 187493, bad 0)  counts 1005 40 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 670 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2645
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,1900.2,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 190813, bad 0)  counts 1005 42 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 696 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2687
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 191645, bad 0)  counts 1005 42 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 323 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2698
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,1942.7,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 193349, bad 0)  counts 1005 44 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 769 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2719
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 193496, bad 0)  counts 1005 44 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.31 C  TS2 (reference) 23.56 C  dT 0.25 C  loop P4 off  age 665 ms
+  raw 23.31 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2721
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,1961.0,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 203497, bad 0)  counts 1005 46 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 339 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2848
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 203500, bad 0)  counts 1005 46 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 374 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2848
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 203749, bad 0)  counts 1005 46 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 492 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2851
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,2063.4,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 205009, bad 0)  counts 1005 47 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 449 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2867
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 205012, bad 0)  counts 1005 47 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 484 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2867
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 205841, bad 0)  counts 1005 47 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 87 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 2878
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,2086.1,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 217920, bad 0)  counts 1005 48 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 796 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3030
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 217923, bad 0)  counts 1005 48 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 13 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3031
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 217926, bad 0)  counts 1005 48 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 48 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3031
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 217940, bad 0)  counts 1005 48 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 ON  age 181 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3031
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,2207.1,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 218775, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 651 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3041
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 218778, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 686 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3041
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 218782, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 722 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3041
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 218794, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 ON  age 50 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3042
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,2217.6,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 224237, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 765 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3110
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 225350, bad 0)  counts 1005 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 47 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3125
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,2284.0,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+? type help
+link OK (ok 229820, bad 0)  counts 1017 49 458  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 498 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3181
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+link OK (ok 231249, bad 0)  counts 1017 49 458  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.25 C  TS2 (reference) 23.56 C  dT 0.31 C  loop P4 off  age 575 ms
+  raw 23.25 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3199
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+? type help
+link OK (ok 233339, bad 0)  counts 1181 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 144 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3226
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 234067, bad 0)  counts 1181 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 311 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3235
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,2372.7,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 251318, bad 0)  counts 1193 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 605 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3453
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 251424, bad 0)  counts 1193 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 83 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3455
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,2547.4,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+link OK (ok 252215, bad 0)  counts 1196 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 96 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3465
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 252260, bad 0)  counts 1196 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 542 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3465
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,2555.3,no flow on P1 (manual run)
+! INTERLOCK TRIP: no flow on P1 (manual run). All pumps off, all valves closed.
+? type help
+link OK (ok 263071, bad 0)  counts 1198 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.19 C  TS2 (reference) 23.56 C  dT 0.37 C  loop P4 off  age 423 ms
+  raw 23.19 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3602
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 264214, bad 0)  counts 1198 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 799 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3616
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 265112, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 296 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3628
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 265480, bad 0)  counts 1199 49 458  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 24 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3633
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 267310, bad 0)  counts 1199 49 458  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 157 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3656
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 267833, bad 0)  counts 1199 49 458  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 638 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3662
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 269019, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 652 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3677
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 270400, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 247 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3695
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 271471, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 684 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3708
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 275072, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 349 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3754
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 278759, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 92 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3801
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 280171, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 off  age 780 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3818
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 286664, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 off  age 147 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3901
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 290469, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 273 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3949
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 291929, bad 0)  counts 1199 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 652 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 3967
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 295024, bad 0)  counts 1270 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 off  age 798 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4006
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 295710, bad 0)  counts 1270 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 ON  age 538 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4015
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 298782, bad 0)  counts 1270 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 off  age 449 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4054
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 300424, bad 0)  counts 1270 49 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.13 C  TS2 (reference) 23.56 C  dT 0.43 C  loop P4 ON  age 282 ms
+  raw 23.13 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4075
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 312429, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 off  age 251 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4227
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+! interlock: P2 needs SV2 open
+link OK (ok 313348, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 off  age 749 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4238
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+? type help
+link OK (ok 314494, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 23.56 C  dT 0.50 C  loop P4 ON  age 359 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4253
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off

@@ -1,0 +1,1915 @@
+? type help
+link OK (ok 325716, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 407 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4339
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 327041, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 390 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4339
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 327465, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 732 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4339
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 330229, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=1 SV3=1 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 292 ms
+  raw 23.06 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4344
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+! interlock: SV1 and SV4 may never be open together (water would run into the red tank)
+link OK (ok 330710, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=1 SV3=1 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 419 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4344
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+! interlock: SV1 and SV4 may never be open together (water would run into the red tank)
+link OK (ok 331451, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=1 SV3=1 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 30 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4344
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+! interlock: P4 needs SV5 open
+link OK (ok 335508, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 42 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+! interlock: P4 needs SV5 open
+link OK (ok 335843, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 276 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+! interlock: P4 needs SV5 open
+link OK (ok 336177, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 496 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+! interlock: P4 needs SV5 open
+link OK (ok 336813, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.31 C  dT 1.75 C  loop P4 off  age 613 ms
+  raw 23.06 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+! interlock: P4 needs SV5 open
+link OK (ok 337969, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 478 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 338930, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 726 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 339217, bad 0)  counts 1270 52 458  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 ON  age 473 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+? type help
+all off
+link OK (ok 341934, bad 0)  counts 1271 56 460  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.06 C  TS2 (reference) 21.38 C  dT 1.68 C  loop P4 off  age 344 ms
+  raw 23.06 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4346
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 342343, bad 0)  counts 1271 56 460  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 ON  age 537 ms
+  raw 23.00 / nan C, offsets +0.00 / +0.00 C, bad readings so far 4347
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+? type help
+link OK (ok 347160, bad 0)  counts 1293 64 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 340 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4348
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 347500, bad 0)  counts 1293 64 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 627 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4349
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+all off
+link OK (ok 354342, bad 0)  counts 2291 64 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 406 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 354814, bad 0)  counts 2291 64 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 442 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 355376, bad 0)  counts 2388 64 460  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 602 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+link OK (ok 355661, bad 0)  counts 2436 64 460  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 334 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P1 (manual run)
+!,TRIP,3606.7,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+? type help
+link OK (ok 356575, bad 0)  counts 2480 65 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 109 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+! interlock: P3 needs SV3 open
+link OK (ok 356900, bad 0)  counts 2480 65 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 239 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+! interlock: P3 needs SV3 open
+link OK (ok 357298, bad 0)  counts 2480 65 460  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 326 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 358036, bad 0)  counts 2480 65 460  start=up
+valves SV1=1 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 680 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 358257, bad 0)  counts 2480 65 460  start=up
+valves SV1=1 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=100% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 557 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4350
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,3635.9,no flow on P3 (manual run)
+! INTERLOCK TRIP: no flow on P3 (manual run). All pumps off, all valves closed.
+link OK (ok 359930, bad 0)  counts 2480 65 465  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 120 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+! interlock: P4 needs SV5 open
+link OK (ok 360200, bad 0)  counts 2480 65 465  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 486 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+link OK (ok 360495, bad 0)  counts 2480 65 465  start=up
+valves SV1=0 SV2=0 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=100% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.38 C  dT 1.62 C  loop P4 off  age 309 ms
+  raw 23.00 / 21.38 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+all off
+link OK (ok 362225, bad 0)  counts 2480 65 738  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 454 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+link OK (ok 362595, bad 0)  counts 2480 65 738  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 249 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+link OK (ok 362984, bad 0)  counts 2480 65 738  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 240 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4351
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+link OK (ok 364300, bad 0)  counts 2728 65 738  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=100% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 23.00 C  TS2 (reference) 21.31 C  dT 1.69 C  loop P4 off  age 146 ms
+  raw 23.00 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4352
+sequence idle  dose idle  last trip: no flow on P3 (manual run)
+!,TRIP,3696.0,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+link OK (ok 378024, bad 0)  counts 2782 66 738  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 100 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4355
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+! interlock: P1 needs exactly one of SV1 (red) / SV4 (water) open
+link OK (ok 378531, bad 0)  counts 2782 66 738  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 491 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4355
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+! interlock: P1 needs exactly one of SV1 (red) / SV4 (water) open
+link OK (ok 378866, bad 0)  counts 2782 66 738  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.31 C  dT 1.63 C  loop P4 off  age 728 ms
+  raw 22.94 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4355
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+all off
+link OK (ok 384735, bad 0)  counts 2782 66 738  start=up
+valves SV1=1 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.31 C  dT 1.63 C  loop P4 off  age 129 ms
+  raw 22.94 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+? type help
+link OK (ok 385352, bad 0)  counts 2782 66 738  start=up
+valves SV1=1 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.31 C  dT 1.63 C  loop P4 off  age 65 ms
+  raw 22.94 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 385576, bad 0)  counts 2782 66 738  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.31 C  dT 1.63 C  loop P4 off  age 744 ms
+  raw 22.94 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 385778, bad 0)  counts 2782 66 738  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.31 C  dT 1.63 C  loop P4 off  age 420 ms
+  raw 22.94 / 21.31 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 386403, bad 0)  counts 2782 66 738  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=1  pumps P1=100% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 435 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 386986, bad 0)  counts 2946 66 738  start=up
+valves SV1=1 SV2=1 SV3=1 SV4=0 SV5=1  pumps P1=100% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 19 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4357
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,3929.8,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+? type help
+? type help
+link OK (ok 395954, bad 0)  counts 3067 66 738  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 807 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 396197, bad 0)  counts 3067 66 738  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=1 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 96 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 396587, bad 0)  counts 3067 66 738  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 89 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+? type help
+link OK (ok 397588, bad 0)  counts 3067 66 738  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=1 SV5=1  pumps P1=0% P2=0% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 ON  age 742 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+all off
+����������������������������������������������������������������k OK (ok 404273, bad 0)  counts 3079 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 513 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 404276, bad 0)  counts 3079 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 548 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 404280, bad 0)  counts 3079 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 584 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 404296, bad 0)  counts 3079 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 ON  age 746 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4360
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,4107.2,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+����������������������������������������������������������������ink OK (ok 406916, bad 0)  counts 3081 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 427 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4361
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 406920, bad 0)  counts 3081 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 463 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4361
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 406923, bad 0)  counts 3081 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 off  age 498 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4361
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+link OK (ok 406942, bad 0)  counts 3081 66 741  start=up
+valves SV1=0 SV2=1 SV3=0 SV4=0 SV5=1  pumps P1=0% P2=100% P3=0% P4=100% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 22.94 C  TS2 (reference) 21.25 C  dT 1.69 C  loop P4 ON  age 679 ms
+  raw 22.94 / 21.25 C, offsets +0.00 / +0.00 C, bad readings so far 4361
+sequence idle  dose idle  last trip: no flow on P2 (manual run)
+!,TRIP,4135.8,no flow on P2 (manual run)
+! INTERLOCK TRIP: no flow on P2 (manual run). All pumps off, all valves closed.
+����������������������������������������������������������������#RUN,1
+>>> RUN 1 START. Step 1 flush 2000 mL water -> jug, Step 2 dT 10.0 C by cooling, Step 3 YELLOW 300 -> GREEN 900 -> RED 1800 mL
+S,0.0,STEP1_START
+T,0.0,22.81,21.19,1.62,0
+> dose WATER 2000.0 mL (into the JUG (jug must sit under the red outlet))
+D,0.22,4,fast,100,0,0.0,0.0
+D,0.47,4,fast,100,2,1.1,4.3
+D,0.72,4,fast,100,7,3.7,10.7
+D,0.97,4,fast,100,13,6.9,12.8
+D,1.22,4,fast,100,18,9.6,10.7
+D,1.47,4,fast,100,23,12.3,10.7
+D,1.72,4,fast,100,28,15.0,10.7
+D,1.97,4,fast,100,32,17.1,8.5
+T,2.0,22.81,21.19,1.62,0
+D,2.22,4,fast,100,36,19.2,8.5
+D,2.47,4,fast,100,41,21.9,10.7
+D,2.72,4,fast,100,45,24.0,8.5
+D,2.97,4,fast,100,50,26.7,10.7
+D,3.22,4,fast,100,55,29.4,10.7
+D,3.47,4,fast,100,61,32.6,12.8
+D,3.72,4,fast,100,66,35.3,10.7
+D,3.97,4,fast,100,71,37.9,10.7
+T,4.0,22.81,21.19,1.62,0
+D,4.22,4,fast,100,76,40.6,10.7
+D,4.47,4,fast,100,81,43.3,10.7
+D,4.72,4,fast,100,87,46.5,12.8
+D,4.97,4,fast,100,93,49.7,12.8
+D,5.22,4,fast,100,99,52.9,12.8
+D,5.47,4,fast,100,105,56.1,12.8
+D,5.72,4,fast,100,110,58.8,10.7
+D,5.97,4,fast,100,114,60.9,8.5
+T,6.0,22.81,21.19,1.62,0
+D,6.22,4,fast,100,118,63.0,8.5
+D,6.47,4,fast,100,122,65.2,8.5
+D,6.72,4,fast,100,126,67.3,8.5
+D,6.97,4,fast,100,130,69.4,8.5
+D,7.22,4,fast,100,135,72.1,10.7
+D,7.47,4,fast,100,141,75.3,12.8
+D,7.72,4,fast,100,149,79.6,17.1
+D,7.97,4,fast,100,157,83.9,17.1
+T,8.0,22.81,21.19,1.62,0
+D,8.22,4,fast,100,164,87.6,15.0
+D,8.47,4,fast,100,168,89.7,8.5
+D,8.72,4,fast,100,173,92.4,10.7
+D,8.97,4,fast,100,177,94.6,8.5
+D,9.22,4,fast,100,180,96.2,6.4
+D,9.47,4,fast,100,183,97.8,6.4
+D,9.72,4,fast,100,187,99.9,8.5
+D,9.97,4,fast,100,191,102.0,8.5
+T,10.0,22.81,21.19,1.62,0
+D,10.22,4,fast,100,197,105.2,12.8
+D,10.47,4,fast,100,204,109.0,15.0
+D,10.72,4,fast,100,212,113.3,17.1
+D,10.97,4,fast,100,218,116.5,12.8
+D,11.22,4,fast,100,223,119.1,10.7
+D,11.47,4,fast,100,228,121.8,10.7
+D,11.72,4,fast,100,231,123.4,6.4
+D,11.97,4,fast,100,235,125.5,8.5
+T,12.0,22.81,21.19,1.62,0
+D,12.22,4,fast,100,238,127.1,6.4
+D,12.47,4,fast,100,241,128.7,6.4
+D,12.72,4,fast,100,244,130.3,6.4
+D,12.97,4,fast,100,249,133.0,10.7
+D,13.22,4,fast,100,255,136.2,12.8
+D,13.47,4,fast,100,261,139.4,12.8
+D,13.72,4,fast,100,267,142.6,12.8
+D,13.97,4,fast,100,273,145.8,12.8
+T,14.0,22.81,21.19,1.62,0
+D,14.22,4,fast,100,278,148.5,10.7
+D,14.47,4,fast,100,282,150.6,8.5
+D,14.72,4,fast,100,285,152.3,6.4
+D,14.97,4,fast,100,288,153.9,6.4
+D,15.22,4,fast,100,290,154.9,4.3
+D,15.47,4,fast,100,294,157.1,8.5
+D,15.72,4,fast,100,299,159.7,10.7
+D,15.97,4,fast,100,304,162.4,10.7
+T,16.0,22.81,21.19,1.62,0
+D,16.22,4,fast,100,311,166.1,15.0
+D,16.47,4,fast,100,317,169.3,12.8
+D,16.72,4,fast,100,323,172.6,12.8
+D,16.97,4,fast,100,327,174.7,8.5
+D,17.22,4,fast,100,332,177.4,10.7
+D,17.47,4,fast,100,335,179.0,6.4
+D,17.72,4,fast,100,340,181.6,10.7
+D,17.97,4,fast,100,345,184.3,10.7
+T,18.0,22.81,21.19,1.62,0
+D,18.22,4,fast,100,351,187.5,12.8
+D,18.47,4,fast,100,358,191.2,15.0
+all off
+? type help
+? type help
+? type help
+link OK (ok 449354, bad 0)  counts 3468 5637 762  start=up
+valves SV1=0 SV2=0 SV3=0 SV4=0 SV5=0  pumps P1=0% P2=0% P3=0% P4=0% 
+floats FSW1-4 1111 FSW5 1 FSW6 1
+TS1 (yellow, cooled) 21.75 C  TS2 (reference) 21.13 C  dT 0.62 C  loop P4 off  age 481 ms
+  raw 21.75 / 21.13 C, offsets +0.00 / +0.00 C, bad readings so far 4369
+sequence idle  dose idle
+
+#RUN,2
+>>> RUN 2 START. Step 1 flush 2000 mL water -> jug, Step 2 dT 10.0 C by cooling, Step 3 YELLOW 300 -> GREEN 900 -> RED 1800 mL
+S,0.0,STEP1_START
+T,0.0,21.75,21.13,0.62,0
+> dose WATER 2000.0 mL (into the JUG (jug must sit under the red outlet))
+D,0.22,4,fast,100,0,0.0,0.0
+D,0.47,4,fast,100,0,0.0,0.0
+D,0.72,4,fast,100,0,0.0,0.0
+D,0.97,4,fast,100,0,0.0,0.0
+D,1.22,4,fast,100,0,0.0,0.0
+D,1.47,4,fast,100,0,0.0,0.0
+D,1.72,4,fast,100,0,0.0,0.0
+D,1.97,4,fast,100,0,0.0,0.0
+T,2.0,21.75,21.13,0.62,0
+D,2.22,4,fast,100,0,0.0,0.0
+D,2.47,4,fast,100,0,0.0,0.0
+D,2.72,4,fast,100,0,0.0,0.0
+D,2.97,4,fast,100,0,0.0,0.0
+D,3.22,4,fast,100,0,0.0,0.0
+D,3.47,4,fast,100,0,0.0,0.0
+D,3.72,4,fast,100,0,0.0,0.0
+D,3.97,4,fast,100,0,0.0,0.0
+T,4.0,21.75,21.13,0.62,0
+D,4.22,4,fast,100,0,0.0,0.0
+!,TRIP,4.3,WATER: no flow after start (empty tank, air, valve shut?)
+! INTERLOCK TRIP: WATER: no flow after start (empty tank, air, valve shut?). All pumps off, all valves closed.
+S,4.3,FAULT,WATER: no flow after start (empty tank, air, valve shut?)
+#REPORT BEGIN,2
+P,dt_target,10.0
+P,mode,cooling
+P,target1,1800.0
+P,target2,300.0
+P,target3,900.0
+P,target4,2000.0
+K,line,name,k_pulses_per_mL,sensor
+K,1,RED,1.8719,FT1
+K,2,YELLOW,9.6364,FT2
+K,3,GREEN,1.9033,FT3
+K,4,WATER,1.8719,FT1
+O,TS1,+0.000
+O,TS2,+0.000
+X,trip,WATER: no flow after start (empty tank, air, valve shut?)
+T,0.0,21.75,21.13,0.62,0
+T,2.0,21.75,21.13,0.62,0
+T,4.0,21.75,21.13,0.62,0
+D,0.22,4,log,100,0,0.0,0.0
+D,0.72,4,log,100,0,0.0,0.0
+D,1.22,4,log,100,0,0.0,0.0
+D,1.72,4,log,100,0,0.0,0.0
+D,2.22,4,log,100,0,0.0,0.0
+D,2.72,4,log,100,0,0.0,0.0
+D,3.22,4,log,100,0,0.0,0.0
+D,3.72,4,log,100,0,0.0,0.0
+D,4.22,4,log,100,0,0.0,0.0
+#REPORT END
+
+#RUN,3
+>>> RUN 3 START. Step 1 flush 2000 mL water -> jug, Step 2 dT 10.0 C by cooling, Step 3 YELLOW 300 -> GREEN 900 -> RED 1800 mL
+S,0.0,STEP1_START
+T,0.0,21.75,21.13,0.62,0
+> dose WATER 2000.0 mL (into the JUG (jug must sit under the red outlet))
+D,0.22,4,fast,100,0,0.0,0.0
+D,0.47,4,fast,100,0,0.0,0.0
+D,0.72,4,fast,100,0,0.0,0.0
+D,0.97,4,fast,100,0,0.0,0.0
+D,1.22,4,fast,100,0,0.0,0.0
+D,1.47,4,fast,100,0,0.0,0.0
+D,1.72,4,fast,100,0,0.0,0.0
+D,1.97,4,fast,100,0,0.0,0.0
+T,2.0,21.69,21.13,0.56,0
+D,2.22,4,fast,100,0,0.0,0.0
+D,2.47,4,fast,100,0,0.0,0.0
+D,2.72,4,fast,100,0,0.0,0.0
+D,2.97,4,fast,100,0,0.0,0.0
+D,3.22,4,fast,100,0,0.0,0.0
+D,3.47,4,fast,100,0,0.0,0.0
+D,3.72,4,fast,100,0,0.0,0.0
+D,3.97,4,fast,100,1,0.5,2.1
+T,4.0,21.69,21.13,0.56,0
+D,4.22,4,fast,100,4,2.1,6.4
+D,4.47,4,fast,100,8,4.3,8.5
+D,4.72,4,fast,100,12,6.4,8.5
+D,4.97,4,fast,100,17,9.1,10.7
+D,5.22,4,fast,100,21,11.2,8.5
+D,5.47,4,fast,100,26,13.9,10.7
+D,5.72,4,fast,100,32,17.1,12.8
+D,5.97,4,fast,100,36,19.2,8.5
+T,6.0,21.69,21.13,0.56,0
+D,6.22,4,fast,100,41,21.9,10.7
+D,6.47,4,fast,100,46,24.6,10.7
+D,6.72,4,fast,100,51,27.2,10.7
+D,6.97,4,fast,100,56,29.9,10.7
+D,7.22,4,fast,100,61,32.6,10.7
+D,7.47,4,fast,100,66,35.3,10.7
+D,7.72,4,fast,100,71,37.9,10.7
+D,7.97,4,fast,100,75,40.1,8.5
+T,8.0,21.75,21.13,0.62,0
+D,8.22,4,fast,100,80,42.7,10.7
+D,8.47,4,fast,100,84,44.9,8.5
+D,8.72,4,fast,100,89,47.5,10.7
+D,8.97,4,fast,100,96,51.3,15.0
+D,9.22,4,fast,100,101,54.0,10.7
+D,9.47,4,fast,100,106,56.6,10.7
+D,9.72,4,fast,100,111,59.3,10.7
+D,9.97,4,fast,100,116,62.0,10.7
+T,10.0,21.69,21.13,0.56,0
+D,10.22,4,fast,100,121,64.6,10.7
+D,10.47,4,fast,100,125,66.8,8.5
+D,10.72,4,fast,100,130,69.4,10.7
+D,10.97,4,fast,100,135,72.1,10.7
+D,11.22,4,fast,100,140,74.8,10.7
+D,11.47,4,fast,100,145,77.5,10.7
+D,11.72,4,fast,100,149,79.6,8.5
+D,11.97,4,fast,100,156,83.3,15.0
+T,12.0,21.69,21.13,0.56,0
+D,12.22,4,fast,100,161,86.0,10.7
+D,12.47,4,fast,100,167,89.2,12.8
+D,12.72,4,fast,100,172,91.9,10.7
+D,12.97,4,fast,100,178,95.1,12.8
+D,13.22,4,fast,100,185,98.8,15.0
+D,13.47,4,fast,100,191,102.0,12.8
+D,13.72,4,fast,100,196,104.7,10.7
+D,13.97,4,fast,100,202,107.9,12.8
+T,14.0,21.75,21.13,0.62,0
+D,14.22,4,fast,100,208,111.1,12.8
+D,14.47,4,fast,100,213,113.8,10.7
+D,14.72,4,fast,100,218,116.5,10.7
+D,14.97,4,fast,100,225,120.2,15.0
+D,15.22,4,fast,100,231,123.4,12.8
+D,15.47,4,fast,100,237,126.6,12.8
+D,15.72,4,fast,100,242,129.3,10.7
+D,15.97,4,fast,100,248,132.5,12.8
+T,16.0,21.69,21.13,0.56,0
+D,16.22,4,fast,100,253,135.2,10.7
+D,16.47,4,fast,100,259,138.4,12.8
+D,16.72,4,fast,100,264,141.0,10.7
+D,16.97,4,fast,100,270,144.2,12.8
+D,17.22,4,fast,100,275,146.9,10.7
+D,17.47,4,fast,100,282,150.6,15.0
+D,17.72,4,fast,100,287,153.3,10.7
+D,17.97,4,fast,100,293,156.5,12.8
+T,18.0,21.75,21.13,0.62,0
+D,18.22,4,fast,100,298,159.2,10.7
+D,18.47,4,fast,100,303,161.9,10.7
+D,18.72,4,fast,100,309,165.1,12.8
+D,18.97,4,fast,100,314,167.7,10.7
+D,19.22,4,fast,100,320,170.9,12.8
+D,19.47,4,fast,100,325,173.6,10.7
+D,19.72,4,fast,100,331,176.8,12.8
+D,19.97,4,fast,100,336,179.5,10.7
+T,20.0,21.75,21.13,0.62,0
+D,20.22,4,fast,100,341,182.2,10.7
+D,20.47,4,fast,100,346,184.8,10.7
+D,20.72,4,fast,100,352,188.0,12.8
+D,20.97,4,fast,100,357,190.7,10.7
+D,21.22,4,fast,100,363,193.9,12.8
+D,21.47,4,fast,100,368,196.6,10.7
+D,21.72,4,fast,100,373,199.3,10.7
+D,21.97,4,fast,100,379,202.5,12.8
+T,22.0,21.69,21.13,0.56,0
+D,22.22,4,fast,100,385,205.7,12.8
+D,22.47,4,fast,100,390,208.3,10.7
+D,22.72,4,fast,100,396,211.5,12.8
+D,22.97,4,fast,100,401,214.2,10.7
+D,23.22,4,fast,100,407,217.4,12.8
+D,23.47,4,fast,100,412,220.1,10.7
+D,23.72,4,fast,100,418,223.3,12.8
+D,23.97,4,fast,100,423,226.0,10.7
+T,24.0,21.75,21.13,0.62,0
+D,24.22,4,fast,100,429,229.2,12.8
+D,24.47,4,fast,100,435,232.4,12.8
+D,24.72,4,fast,100,441,235.6,12.8
+D,24.97,4,fast,100,446,238.3,10.7
+D,25.22,4,fast,100,452,241.5,12.8
+D,25.47,4,fast,100,457,244.1,10.7
+D,25.72,4,fast,100,463,247.3,12.8
+D,25.97,4,fast,100,468,250.0,10.7
+T,26.0,21.75,21.13,0.62,0
+D,26.22,4,fast,100,474,253.2,12.8
+D,26.47,4,fast,100,479,255.9,10.7
+D,26.72,4,fast,100,485,259.1,12.8
+D,26.97,4,fast,100,490,261.8,10.7
+D,27.22,4,fast,100,496,265.0,12.8
+D,27.47,4,fast,100,501,267.6,10.7
+D,27.72,4,fast,100,507,270.8,12.8
+D,27.97,4,fast,100,512,273.5,10.7
+T,28.0,21.75,21.13,0.62,0
+D,28.22,4,fast,100,520,277.8,17.1
+D,28.47,4,fast,100,527,281.5,15.0
+D,28.72,4,fast,100,533,284.7,12.8
+D,28.97,4,fast,100,539,287.9,12.8
+D,29.22,4,fast,100,544,290.6,10.7
+D,29.47,4,fast,100,550,293.8,12.8
+D,29.72,4,fast,100,556,297.0,12.8
+D,29.97,4,fast,100,563,300.8,15.0
+T,30.0,21.75,21.06,0.69,0
+D,30.22,4,fast,100,570,304.5,15.0
+D,30.47,4,fast,100,578,308.8,17.1
+D,30.72,4,fast,100,584,312.0,12.8
+D,30.97,4,fast,100,590,315.2,12.8
+D,31.22,4,fast,100,595,317.9,10.7
+D,31.47,4,fast,100,601,321.1,12.8
+D,31.72,4,fast,100,606,323.7,10.7
+D,31.97,4,fast,100,612,326.9,12.8
+T,32.0,21.75,21.13,0.62,0
+D,32.22,4,fast,100,619,330.7,15.0
+D,32.47,4,fast,100,626,334.4,15.0
+D,32.72,4,fast,100,633,338.2,15.0
+D,32.97,4,fast,100,639,341.4,12.8
+D,33.22,4,fast,100,644,344.0,10.7
+D,33.47,4,fast,100,650,347.2,12.8
+D,33.72,4,fast,100,655,349.9,10.7
+D,33.97,4,fast,100,661,353.1,12.8
+T,34.0,21.75,21.06,0.69,0
+D,34.22,4,fast,100,667,356.3,12.8
+D,34.47,4,fast,100,673,359.5,12.8
+D,34.72,4,fast,100,679,362.7,12.8
+D,34.97,4,fast,100,685,365.9,12.8
+D,35.22,4,fast,100,692,369.7,15.0
+D,35.47,4,fast,100,698,372.9,12.8
+D,35.72,4,fast,100,703,375.6,10.7
+D,35.97,4,fast,100,709,378.8,12.8
+T,36.0,21.75,21.13,0.62,0
+D,36.22,4,fast,100,716,382.5,15.0
+D,36.47,4,fast,100,723,386.2,15.0
+D,36.72,4,fast,100,729,389.4,12.8
+D,36.97,4,fast,100,735,392.6,12.8
+D,37.22,4,fast,100,741,395.9,12.8
+D,37.47,4,fast,100,747,399.1,12.8
+D,37.72,4,fast,100,753,402.3,12.8
+D,37.97,4,fast,100,760,406.0,15.0
+T,38.0,21.75,21.13,0.62,0
+D,38.22,4,fast,100,765,408.7,10.7
+D,38.47,4,fast,100,773,412.9,17.1
+D,38.72,4,fast,100,779,416.2,12.8
+D,38.97,4,fast,100,785,419.4,12.8
+D,39.22,4,fast,100,791,422.6,12.8
+D,39.47,4,fast,100,797,425.8,12.8
+D,39.72,4,fast,100,803,429.0,12.8
+D,39.97,4,fast,100,808,431.6,10.7
+T,40.0,21.75,21.13,0.62,0
+D,40.22,4,fast,100,814,434.9,12.8
+D,40.47,4,fast,100,819,437.5,10.7
+D,40.72,4,fast,100,825,440.7,12.8
+D,40.97,4,fast,100,830,443.4,10.7
+D,41.22,4,fast,100,837,447.1,15.0
+D,41.47,4,fast,100,842,449.8,10.7
+D,41.72,4,fast,100,848,453.0,12.8
+D,41.97,4,fast,100,854,456.2,12.8
+T,42.0,21.69,21.13,0.56,0
+D,42.22,4,fast,100,859,458.9,10.7
+D,42.47,4,fast,100,865,462.1,12.8
+D,42.72,4,fast,100,871,465.3,12.8
+D,42.97,4,fast,100,877,468.5,12.8
+D,43.22,4,fast,100,882,471.2,10.7
+D,43.47,4,fast,100,888,474.4,12.8
+����������������������������������������������������������������43.72,4,fast,100,895,478.1,15.0
+D,43.97,4,fast,100,902,481.9,15.0
+T,44.0,21.75,21.13,0.62,0
+D,44.22,4,fast,100,907,484.5,10.7
+D,44.47,4,fast,100,913,487.7,12.8
+D,44.72,4,fast,100,918,490.4,10.7
+D,44.97,4,fast,100,925,494.2,15.0
+D,45.22,4,fast,100,931,497.4,12.8
+D,45.47,4,fast,100,937,500.6,12.8
+D,45.72,4,fast,100,942,503.2,10.7
+D,45.97,4,fast,100,948,506.4,12.8
+T,46.0,21.75,21.13,0.62,0
+D,46.22,4,fast,100,953,509.1,10.7
+D,46.47,4,fast,100,960,512.8,15.0
+D,46.72,4,fast,100,967,516.6,15.0
+D,46.97,4,fast,100,973,519.8,12.8
+D,47.22,4,fast,100,978,522.5,10.7
+D,47.47,4,fast,100,985,526.2,15.0
+D,47.72,4,fast,100,991,529.4,12.8
+D,47.97,4,fast,100,997,532.6,12.8
+T,48.0,21.75,21.13,0.62,0
+D,48.22,4,fast,100,1002,535.3,10.7
+D,48.47,4,fast,100,1008,538.5,12.8
+D,48.72,4,fast,100,1013,541.2,10.7
+D,48.97,4,fast,100,1020,544.9,15.0
+D,49.22,4,fast,100,1026,548.1,12.8
+D,49.47,4,fast,100,1032,551.3,12.8
+D,49.72,4,fast,100,1038,554.5,12.8
+D,49.97,4,fast,100,1044,557.7,12.8
+T,50.0,21.75,21.13,0.62,0
+D,50.22,4,fast,100,1051,561.5,15.0
+D,50.47,4,fast,100,1058,565.2,15.0
+D,50.72,4,fast,100,1065,568.9,15.0
+D,50.97,4,fast,100,1072,572.7,15.0
+D,51.22,4,fast,100,1078,575.9,12.8
+D,51.47,4,fast,100,1084,579.1,12.8
+D,51.72,4,fast,100,1089,581.8,10.7
+D,51.97,4,fast,100,1095,585.0,12.8
+T,52.0,21.75,21.06,0.69,0
+D,52.22,4,fast,100,1100,587.6,10.7
+D,52.47,4,fast,100,1106,590.8,12.8
+D,52.72,4,fast,100,1111,593.5,10.7
+D,52.97,4,fast,100,1117,596.7,12.8
+D,53.22,4,fast,100,1122,599.4,10.7
+D,53.47,4,fast,100,1128,602.6,12.8
+D,53.72,4,fast,100,1133,605.3,10.7
+D,53.97,4,fast,100,1139,608.5,12.8
+T,54.0,21.75,21.13,0.62,0
+D,54.22,4,fast,100,1145,611.7,12.8
+D,54.47,4,fast,100,1151,614.9,12.8
+D,54.72,4,fast,100,1156,617.6,10.7
+D,54.97,4,fast,100,1162,620.8,12.8
+D,55.22,4,fast,100,1169,624.5,15.0
+D,55.47,4,fast,100,1176,628.2,15.0
+D,55.72,4,fast,100,1183,632.0,15.0
+D,55.97,4,fast,100,1190,635.7,15.0
+T,56.0,21.75,21.13,0.62,0
+D,56.22,4,fast,100,1195,638.4,10.7
+D,56.47,4,fast,100,1201,641.6,12.8
+D,56.72,4,fast,100,1206,644.3,10.7
+D,56.97,4,fast,100,1212,647.5,12.8
+D,57.22,4,fast,100,1218,650.7,12.8
+D,57.47,4,fast,100,1224,653.9,12.8
+D,57.72,4,fast,100,1229,656.6,10.7
+D,57.97,4,fast,100,1237,660.8,17.1
+T,58.0,21.75,21.06,0.69,0
+D,58.22,4,fast,100,1243,664.0,12.8
+D,58.47,4,fast,100,1249,667.2,12.8
+D,58.72,4,fast,100,1255,670.4,12.8
+D,58.97,4,fast,100,1261,673.6,12.8
+D,59.22,4,fast,100,1267,676.9,12.8
+D,59.47,4,fast,100,1272,679.5,10.7
+D,59.72,4,fast,100,1278,682.7,12.8
+D,59.97,4,fast,100,1283,685.4,10.7
+T,60.0,21.75,21.13,0.62,0
+D,60.22,4,fast,100,1289,688.6,12.8
+D,60.47,4,fast,100,1294,691.3,10.7
+D,60.72,4,fast,100,1300,694.5,12.8
+D,60.97,4,fast,100,1305,697.2,10.7
+D,61.22,4,fast,100,1311,700.4,12.8
+D,61.47,4,fast,100,1316,703.0,10.7
+D,61.72,4,fast,100,1322,706.2,12.8
+D,61.97,4,fast,100,1329,710.0,15.0
+T,62.0,21.75,21.13,0.62,0
+D,62.22,4,fast,100,1336,713.7,15.0
+D,62.47,4,fast,100,1342,716.9,12.8
+D,62.72,4,fast,100,1348,720.1,12.8
+D,62.97,4,fast,100,1353,722.8,10.7
+D,63.22,4,fast,100,1359,726.0,12.8
+D,63.47,4,fast,100,1366,729.7,15.0
+D,63.72,4,fast,100,1372,732.9,12.8
+D,63.97,4,fast,100,1380,737.2,17.1
+T,64.0,21.75,21.13,0.62,0
+D,64.22,4,fast,100,1385,739.9,10.7
+D,64.47,4,fast,100,1391,743.1,12.8
+D,64.72,4,fast,100,1396,745.8,10.7
+D,64.97,4,fast,100,1402,749.0,12.8
+D,65.22,4,fast,100,1407,751.6,10.7
+D,65.47,4,fast,100,1413,754.8,12.8
+D,65.72,4,fast,100,1419,758.1,12.8
+D,65.97,4,fast,100,1425,761.3,12.8
+T,66.0,21.75,21.06,0.69,0
+D,66.22,4,fast,100,1431,764.5,12.8
+D,66.47,4,fast,100,1436,767.1,10.7
+D,66.72,4,fast,100,1441,769.8,10.7
+D,66.97,4,fast,100,1448,773.5,15.0
+D,67.22,4,fast,100,1453,776.2,10.7
+D,67.47,4,fast,100,1460,780.0,15.0
+D,67.72,4,fast,100,1465,782.6,10.7
+D,67.97,4,fast,100,1471,785.8,12.8
+T,68.0,21.75,21.13,0.62,0
+D,68.22,4,fast,100,1477,789.0,12.8
+D,68.47,4,fast,100,1483,792.2,12.8
+D,68.72,4,fast,100,1490,796.0,15.0
+D,68.97,4,fast,100,1496,799.2,12.8
+D,69.22,4,fast,100,1502,802.4,12.8
+D,69.47,4,fast,100,1509,806.1,15.0
+D,69.72,4,fast,100,1515,809.3,12.8
+D,69.97,4,fast,100,1520,812.0,10.7
+T,70.0,21.75,21.13,0.62,0
+D,70.22,4,fast,100,1526,815.2,12.8
+D,70.47,4,fast,100,1531,817.9,10.7
+D,70.72,4,fast,100,1537,821.1,12.8
+D,70.97,4,fast,100,1542,823.8,10.7
+D,71.22,4,fast,100,1548,827.0,12.8
+D,71.47,4,fast,100,1553,829.6,10.7
+D,71.72,4,fast,100,1559,832.8,12.8
+D,71.97,4,fast,100,1565,836.0,12.8
+T,72.0,21.69,21.13,0.56,0
+D,72.22,4,fast,100,1571,839.3,12.8
+D,72.47,4,fast,100,1577,842.5,12.8
+D,72.72,4,fast,100,1582,845.1,10.7
+D,72.97,4,fast,100,1588,848.3,12.8
+D,73.22,4,fast,100,1594,851.5,12.8
+D,73.47,4,fast,100,1601,855.3,15.0
+D,73.72,4,fast,100,1607,858.5,12.8
+D,73.97,4,fast,100,1613,861.7,12.8
+T,74.0,21.75,21.13,0.62,0
+D,74.22,4,fast,100,1620,865.4,15.0
+D,74.47,4,fast,100,1627,869.2,15.0
+D,74.72,4,fast,100,1633,872.4,12.8
+D,74.97,4,fast,100,1638,875.0,10.7
+D,75.22,4,fast,100,1645,878.8,15.0
+D,75.47,4,fast,100,1650,881.5,10.7
+D,75.72,4,fast,100,1656,884.7,12.8
+D,75.97,4,fast,100,1662,887.9,12.8
+T,76.0,21.75,21.13,0.62,0
+D,76.22,4,fast,100,1668,891.1,12.8
+D,76.47,4,fast,100,1673,893.7,10.7
+D,76.72,4,fast,100,1679,896.9,12.8
+D,76.97,4,fast,100,1684,899.6,10.7
+D,77.22,4,fast,100,1690,902.8,12.8
+D,77.47,4,fast,100,1695,905.5,10.7
+D,77.72,4,fast,100,1701,908.7,12.8
+D,77.97,4,fast,100,1706,911.4,10.7
+T,78.0,21.69,21.13,0.56,0
+D,78.22,4,fast,100,1712,914.6,12.8
+D,78.47,4,fast,100,1718,917.8,12.8
+D,78.72,4,fast,100,1725,921.5,15.0
+D,78.97,4,fast,100,1731,924.7,12.8
+D,79.22,4,fast,100,1736,927.4,10.7
+D,79.47,4,fast,100,1742,930.6,12.8
+D,79.72,4,fast,100,1747,933.3,10.7
+D,79.97,4,fast,100,1753,936.5,12.8
+T,80.0,21.75,21.13,0.62,0
+D,80.22,4,fast,100,1760,940.2,15.0
+D,80.47,4,fast,100,1767,944.0,15.0
+D,80.72,4,fast,100,1774,947.7,15.0
+D,80.97,4,fast,100,1780,950.9,12.8
+D,81.22,4,fast,100,1786,954.1,12.8
+D,81.47,4,fast,100,1792,957.3,12.8
+D,81.72,4,fast,100,1798,960.5,12.8
+D,81.97,4,fast,100,1804,963.7,12.8
+T,82.0,21.69,21.13,0.56,0
+D,82.22,4,fast,100,1811,967.5,15.0
+D,82.47,4,fast,100,1818,971.2,15.0
+D,82.72,4,fast,100,1824,974.4,12.8
+D,82.97,4,fast,100,1831,978.2,15.0
+D,83.22,4,fast,100,1837,981.4,12.8
+D,83.47,4,fast,100,1843,984.6,12.8
+D,83.72,4,fast,100,1849,987.8,12.8
+D,83.97,4,fast,100,1855,991.0,12.8
+T,84.0,21.75,21.13,0.62,0
+D,84.22,4,fast,100,1860,993.6,10.7
+D,84.47,4,fast,100,1866,996.8,12.8
+D,84.72,4,fast,100,1873,1000.6,15.0
+D,84.97,4,fast,100,1879,1003.8,12.8
+D,85.22,4,fast,100,1886,1007.5,15.0
+D,85.47,4,fast,100,1892,1010.7,12.8
+D,85.72,4,fast,100,1898,1013.9,12.8
+D,85.97,4,fast,100,1905,1017.7,15.0
+T,86.0,21.75,21.13,0.62,0
+D,86.22,4,fast,100,1912,1021.4,15.0
+D,86.47,4,fast,100,1920,1025.7,17.1
+D,86.72,4,fast,100,1926,1028.9,12.8
+D,86.97,4,fast,100,1933,1032.6,15.0
+D,87.22,4,fast,100,1939,1035.8,12.8
+D,87.47,4,fast,100,1945,1039.1,12.8
+D,87.72,4,fast,100,1952,1042.8,15.0
+D,87.97,4,fast,100,1957,1045.5,10.7
+T,88.0,21.75,21.13,0.62,0
+D,88.22,4,fast,100,1964,1049.2,15.0
+D,88.47,4,fast,100,1971,1052.9,15.0
+D,88.72,4,fast,100,1976,1055.6,10.7
+D,88.97,4,fast,100,1983,1059.4,15.0
+D,89.22,4,fast,100,1990,1063.1,15.0
+D,89.47,4,fast,100,1996,1066.3,12.8
+D,89.72,4,fast,100,2002,1069.5,12.8
+D,89.97,4,fast,100,2007,1072.2,10.7
+T,90.0,21.69,21.13,0.56,0
+D,90.22,4,fast,100,2013,1075.4,12.8
+D,90.47,4,fast,100,2018,1078.0,10.7
+D,90.72,4,fast,100,2024,1081.3,12.8
+D,90.97,4,fast,100,2029,1083.9,10.7
+D,91.22,4,fast,100,2035,1087.1,12.8
+D,91.47,4,fast,100,2041,1090.3,12.8
+D,91.72,4,fast,100,2047,1093.5,12.8
+D,91.97,4,fast,100,2054,1097.3,15.0
+T,92.0,21.69,21.13,0.56,0
+D,92.22,4,fast,100,2059,1100.0,10.7
+D,92.47,4,fast,100,2065,1103.2,12.8
+D,92.72,4,fast,100,2070,1105.8,10.7
+D,92.97,4,fast,100,2076,1109.0,12.8
+D,93.22,4,fast,100,2081,1111.7,10.7
+D,93.47,4,fast,100,2087,1114.9,12.8
+D,93.72,4,fast,100,2093,1118.1,12.8
+D,93.97,4,fast,100,2099,1121.3,12.8
+T,94.0,21.69,21.13,0.56,0
+D,94.22,4,fast,100,2104,1124.0,10.7
+D,94.47,4,fast,100,2112,1128.3,17.1
+D,94.72,4,fast,100,2117,1130.9,10.7
+D,94.97,4,fast,100,2123,1134.1,12.8
+D,95.22,4,fast,100,2129,1137.3,12.8
+D,95.47,4,fast,100,2134,1140.0,10.7
+D,95.72,4,fast,100,2140,1143.2,12.8
+D,95.97,4,fast,100,2146,1146.4,12.8
+T,96.0,21.69,21.13,0.56,0
+D,96.22,4,fast,100,2152,1149.6,12.8
+D,96.47,4,fast,100,2159,1153.4,15.0
+D,96.72,4,fast,100,2165,1156.6,12.8
+D,96.97,4,fast,100,2170,1159.2,10.7
+D,97.22,4,fast,100,2176,1162.5,12.8
+D,97.47,4,fast,100,2181,1165.1,10.7
+D,97.72,4,fast,100,2187,1168.3,12.8
+D,97.97,4,fast,100,2192,1171.0,10.7
+T,98.0,21.69,21.13,0.56,0
+D,98.22,4,fast,100,2198,1174.2,12.8
+D,98.47,4,fast,100,2203,1176.9,10.7
+D,98.72,4,fast,100,2210,1180.6,15.0
+D,98.97,4,fast,100,2215,1183.3,10.7
+D,99.22,4,fast,100,2220,1186.0,10.7
+D,99.47,4,fast,100,2226,1189.2,12.8
+D,99.72,4,fast,100,2231,1191.8,10.7
+D,99.97,4,fast,100,2237,1195.0,12.8
+T,100.0,21.69,21.13,0.56,0
+D,100.22,4,fast,100,2242,1197.7,10.7
+D,100.47,4,fast,100,2248,1200.9,12.8
+D,100.72,4,fast,100,2253,1203.6,10.7
+D,100.97,4,fast,100,2259,1206.8,12.8
+D,101.22,4,fast,100,2264,1209.5,10.7
+D,101.47,4,fast,100,2270,1212.7,12.8
+D,101.72,4,fast,100,2276,1215.9,12.8
+D,101.97,4,fast,100,2281,1218.5,10.7
+T,102.0,21.69,21.13,0.56,0
+D,102.22,4,fast,100,2287,1221.8,12.8
+D,102.47,4,fast,100,2292,1224.4,10.7
+D,102.72,4,fast,100,2299,1228.2,15.0
+D,102.97,4,fast,100,2304,1230.8,10.7
+D,103.22,4,fast,100,2310,1234.0,12.8
+D,103.47,4,fast,100,2315,1236.7,10.7
+D,103.72,4,fast,100,2321,1239.9,12.8
+D,103.97,4,fast,100,2326,1242.6,10.7
+T,104.0,21.69,21.13,0.56,0
+D,104.22,4,fast,100,2332,1245.8,12.8
+D,104.47,4,fast,100,2337,1248.5,10.7
+D,104.72,4,fast,100,2343,1251.7,12.8
+D,104.97,4,fast,100,2348,1254.3,10.7
+D,105.22,4,fast,100,2354,1257.5,12.8
+D,105.47,4,fast,100,2359,1260.2,10.7
+D,105.72,4,fast,100,2365,1263.4,12.8
+D,105.97,4,fast,100,2371,1266.6,12.8
+T,106.0,21.75,21.13,0.62,0
+D,106.22,4,fast,100,2377,1269.8,12.8
+D,106.47,4,fast,100,2383,1273.0,12.8
+D,106.72,4,fast,100,2388,1275.7,10.7
+D,106.97,4,fast,100,2394,1278.9,12.8
+D,107.22,4,fast,100,2399,1281.6,10.7
+D,107.47,4,fast,100,2405,1284.8,12.8
+D,107.72,4,fast,100,2412,1288.5,15.0
+D,107.97,4,fast,100,2418,1291.7,12.8
+T,108.0,21.69,21.13,0.56,0
+D,108.22,4,fast,100,2424,1294.9,12.8
+D,108.47,4,fast,100,2430,1298.1,12.8
+D,108.72,4,fast,100,2436,1301.4,12.8
+D,108.97,4,fast,100,2442,1304.6,12.8
+D,109.22,4,fast,100,2447,1307.2,10.7
+D,109.47,4,fast,100,2453,1310.4,12.8
+D,109.72,4,fast,100,2459,1313.6,12.8
+D,109.97,4,fast,100,2465,1316.8,12.8
+T,110.0,21.69,21.06,0.63,0
+D,110.22,4,fast,100,2471,1320.0,12.8
+D,110.47,4,fast,100,2476,1322.7,10.7
+D,110.72,4,fast,100,2482,1325.9,12.8
+D,110.97,4,fast,100,2487,1328.6,10.7
+D,111.22,4,fast,100,2493,1331.8,12.8
+D,111.47,4,fast,100,2498,1334.5,10.7
+D,111.72,4,fast,100,2504,1337.7,12.8
+D,111.97,4,fast,100,2509,1340.3,10.7
+T,112.0,21.69,21.13,0.56,0
+D,112.22,4,fast,100,2515,1343.6,12.8
+D,112.47,4,fast,100,2520,1346.2,10.7
+D,112.72,4,fast,100,2526,1349.4,12.8
+D,112.97,4,fast,100,2531,1352.1,10.7
+D,113.22,4,fast,100,2537,1355.3,12.8
+D,113.47,4,fast,100,2542,1358.0,10.7
+D,113.72,4,fast,100,2548,1361.2,12.8
+D,113.97,4,fast,100,2553,1363.9,10.7
+T,114.0,21.69,21.13,0.56,0
+D,114.22,4,fast,100,2559,1367.1,12.8
+D,114.47,4,fast,100,2565,1370.3,12.8
+D,114.72,4,fast,100,2570,1372.9,10.7
+D,114.97,4,fast,100,2576,1376.1,12.8
+D,115.22,4,fast,100,2582,1379.3,12.8
+D,115.47,4,fast,100,2588,1382.6,12.8
+D,115.72,4,fast,100,2594,1385.8,12.8
+D,115.97,4,fast,100,2600,1389.0,12.8
+T,116.0,21.69,21.13,0.56,0
+D,116.22,4,fast,100,2605,1391.6,10.7
+D,116.47,4,fast,100,2611,1394.8,12.8
+D,116.72,4,fast,100,2616,1397.5,10.7
+D,116.97,4,fast,100,2622,1400.7,12.8
+D,117.22,4,fast,100,2627,1403.4,10.7
+D,117.47,4,fast,100,2633,1406.6,12.8
+D,117.72,4,fast,100,2639,1409.8,12.8
+D,117.97,4,fast,100,2644,1412.5,10.7
+T,118.0,21.69,21.13,0.56,0
+D,118.22,4,fast,100,2650,1415.7,12.8
+D,118.47,4,fast,100,2655,1418.3,10.7
+D,118.72,4,fast,100,2661,1421.6,12.8
+D,118.97,4,fast,100,2666,1424.2,10.7
+D,119.22,4,fast,100,2672,1427.4,12.8
+D,119.47,4,fast,100,2677,1430.1,10.7
+D,119.72,4,fast,100,2682,1432.8,10.7
+D,119.97,4,fast,100,2687,1435.4,10.7
+T,120.0,21.69,21.13,0.56,0
+D,120.22,4,fast,100,2692,1438.1,10.7
+D,120.47,4,fast,100,2697,1440.8,10.7
+D,120.72,4,fast,100,2703,1444.0,12.8
+D,120.97,4,fast,100,2708,1446.7,10.7
+D,121.22,4,fast,100,2715,1450.4,15.0
+D,121.47,4,fast,100,2720,1453.1,10.7
+D,121.72,4,fast,100,2726,1456.3,12.8
+D,121.97,4,fast,100,2732,1459.5,12.8
+T,122.0,21.69,21.13,0.56,0
+D,122.22,4,fast,100,2739,1463.2,15.0
+D,122.47,4,fast,100,2744,1465.9,10.7
+D,122.72,4,fast,100,2750,1469.1,12.8
+D,122.97,4,fast,100,2755,1471.8,10.7
+D,123.22,4,fast,100,2761,1475.0,12.8
+D,123.47,4,fast,100,2766,1477.6,10.7
+D,123.72,4,fast,100,2772,1480.8,12.8
+D,123.97,4,fast,100,2777,1483.5,10.7
+T,124.0,21.75,21.13,0.62,0
+D,124.22,4,fast,100,2783,1486.7,12.8
+D,124.47,4,fast,100,2789,1489.9,12.8
+D,124.72,4,fast,100,2795,1493.1,12.8
+D,124.97,4,fast,100,2801,1496.3,12.8
+D,125.22,4,fast,100,2806,1499.0,10.7
+D,125.47,4,fast,100,2812,1502.2,12.8
+D,125.72,4,fast,100,2817,1504.9,10.7
+D,125.97,4,fast,100,2823,1508.1,12.8
+T,126.0,21.69,21.06,0.63,0
+D,126.22,4,fast,100,2828,1510.8,10.7
+D,126.47,4,fast,100,2834,1514.0,12.8
+D,126.72,4,fast,100,2839,1516.6,10.7
+D,126.97,4,fast,100,2845,1519.8,12.8
+D,127.22,4,fast,100,2851,1523.1,12.8
+D,127.47,4,fast,100,2857,1526.3,12.8
+D,127.72,4,fast,100,2863,1529.5,12.8
+D,127.97,4,fast,100,2868,1532.1,10.7
+T,128.0,21.69,21.13,0.56,0
+D,128.22,4,fast,100,2874,1535.3,12.8
+D,128.47,4,fast,100,2879,1538.0,10.7
+D,128.72,4,fast,100,2885,1541.2,12.8
+D,128.97,4,fast,100,2890,1543.9,10.7
+D,129.22,4,fast,100,2896,1547.1,12.8
+D,129.47,4,fast,100,2901,1549.8,10.7
+D,129.72,4,fast,100,2907,1553.0,12.8
+D,129.97,4,fast,100,2912,1555.6,10.7
+T,130.0,21.75,21.13,0.62,0
+D,130.22,4,fast,100,2917,1558.3,10.7
+D,130.47,4,fast,100,2923,1561.5,12.8
+D,130.72,4,fast,100,2930,1565.3,15.0
+D,130.97,4,fast,100,2937,1569.0,15.0
+D,131.22,4,fast,100,2942,1571.7,10.7
+D,131.47,4,fast,100,2948,1574.9,12.8
+D,131.72,4,fast,100,2953,1577.5,10.7
+D,131.97,4,fast,100,2960,1581.3,15.0
+T,132.0,21.69,21.13,0.56,0
+D,132.22,4,fast,100,2966,1584.5,12.8
+D,132.47,4,fast,100,2972,1587.7,12.8
+D,132.72,4,fast,100,2978,1590.9,12.8
+D,132.97,4,fast,100,2983,1593.6,10.7
+D,133.22,4,fast,100,2989,1596.8,12.8
+D,133.47,4,fast,100,2994,1599.4,10.7
+D,133.72,4,fast,100,3000,1602.6,12.8
+D,133.97,4,fast,100,3005,1605.3,10.7
+T,134.0,21.69,21.13,0.56,0
+D,134.22,4,fast,100,3011,1608.5,12.8
+D,134.47,4,fast,100,3016,1611.2,10.7
+D,134.72,4,fast,100,3022,1614.4,12.8
+D,134.97,4,fast,100,3027,1617.1,10.7
+D,135.22,4,fast,100,3033,1620.3,12.8
+D,135.47,4,fast,100,3038,1622.9,10.7
+D,135.72,4,fast,100,3044,1626.2,12.8
+D,135.97,4,fast,100,3050,1629.4,12.8
+T,136.0,21.69,21.13,0.56,0
+D,136.22,4,fast,100,3055,1632.0,10.7
+D,136.47,4,fast,100,3062,1635.8,15.0
+D,136.72,4,fast,100,3067,1638.4,10.7
+D,136.97,4,fast,100,3073,1641.6,12.8
+D,137.22,4,fast,100,3078,1644.3,10.7
+D,137.47,4,fast,100,3084,1647.5,12.8
+D,137.72,4,fast,100,3089,1650.2,10.7
+D,137.97,4,fast,100,3095,1653.4,12.8
+T,138.0,21.69,21.06,0.63,0
+D,138.22,4,fast,100,3100,1656.1,10.7
+D,138.47,4,fast,100,3106,1659.3,12.8
+D,138.72,4,fast,100,3111,1661.9,10.7
+D,138.97,4,fast,100,3117,1665.2,12.8
+D,139.22,4,fast,100,3123,1668.4,12.8
+D,139.47,4,fast,100,3128,1671.0,10.7
+D,139.72,4,fast,100,3135,1674.8,15.0
+D,139.97,4,fast,100,3140,1677.4,10.7
+T,140.0,21.69,21.13,0.56,0
+D,140.22,4,fast,100,3146,1680.6,12.8
+D,140.47,4,fast,100,3153,1684.4,15.0
+D,140.72,4,fast,100,3159,1687.6,12.8
+D,140.97,4,fast,100,3165,1690.8,12.8
+D,141.22,4,fast,100,3171,1694.0,12.8
+D,141.47,4,fast,100,3176,1696.7,10.7
+D,141.72,4,fast,100,3183,1700.4,15.0
+D,141.97,4,fast,100,3189,1703.6,12.8
+T,142.0,21.69,21.13,0.56,0
+D,142.22,4,fast,100,3195,1706.8,12.8
+D,142.47,4,fast,100,3202,1710.6,15.0
+D,142.72,4,fast,100,3207,1713.2,10.7
+D,142.97,4,fast,100,3213,1716.4,12.8
+D,143.22,4,fast,100,3218,1719.1,10.7
+D,143.47,4,fast,100,3225,1722.8,15.0
+D,143.72,4,fast,100,3230,1725.5,10.7
+D,143.97,4,fast,100,3236,1728.7,12.8
+T,144.0,21.69,21.13,0.56,0
+D,144.22,4,fast,100,3241,1731.4,10.7
+D,144.47,4,fast,100,3247,1734.6,12.8
+D,144.72,4,fast,100,3252,1737.3,10.7
+D,144.97,4,fast,100,3258,1740.5,12.8
+D,145.22,4,fast,100,3263,1743.1,10.7
+D,145.47,4,fast,100,3269,1746.4,12.8
+D,145.72,4,fast,100,3275,1749.6,12.8
+D,145.97,4,fast,100,3281,1752.8,12.8
+T,146.0,21.69,21.13,0.56,0
+D,146.22,4,fast,100,3288,1756.5,15.0
+D,146.47,4,fast,100,3293,1759.2,10.7
+D,146.72,4,fast,100,3299,1762.4,12.8
+D,146.97,4,fast,100,3304,1765.1,10.7
+D,147.22,4,fast,100,3310,1768.3,12.8
+D,147.47,4,fast,100,3315,1770.9,10.7
+D,147.72,4,fast,100,3321,1774.1,12.8
+D,147.97,4,fast,100,3327,1777.3,12.8
+T,148.0,21.69,21.13,0.56,0
+D,148.22,4,fast,100,3333,1780.5,12.8
+D,148.47,4,fast,100,3338,1783.2,10.7
+D,148.72,4,fast,100,3344,1786.4,12.8
+D,148.97,4,fast,100,3350,1789.6,12.8
+D,149.22,4,fast,100,3355,1792.3,10.7
+D,149.47,4,fast,100,3361,1795.5,12.8
+D,149.72,4,fast,100,3366,1798.2,10.7
+D,149.97,4,slow,60,3372,1801.4,12.8
+T,150.0,21.63,21.13,0.50,0
+D,150.22,4,slow,60,3376,1803.5,8.5
+D,150.47,4,slow,60,3380,1805.7,8.5
+D,150.72,4,slow,60,3383,1807.3,6.4
+D,150.97,4,slow,60,3387,1809.4,8.5
+D,151.22,4,slow,60,3390,1811.0,6.4
+D,151.47,4,slow,60,3394,1813.1,8.5
+D,151.72,4,slow,60,3397,1814.7,6.4
+D,151.97,4,slow,60,3400,1816.3,6.4
+T,152.0,21.69,21.06,0.63,0
+D,152.22,4,slow,60,3404,1818.5,8.5
+D,152.47,4,slow,60,3406,1819.5,4.3
+D,152.72,4,slow,60,3408,1820.6,4.3
+D,152.97,4,slow,60,3411,1822.2,6.4
+D,153.22,4,slow,60,3412,1822.7,2.1
+D,153.47,4,slow,60,3413,1823.3,2.1
+D,153.72,4,slow,60,3414,1823.8,2.1
+D,153.97,4,slow,60,3416,1824.9,4.3
+T,154.0,21.69,21.13,0.56,0
+D,154.22,4,slow,60,3417,1825.4,2.1
+D,154.47,4,slow,60,3419,1826.5,4.3
+D,154.72,4,slow,60,3420,1827.0,2.1
+D,154.97,4,slow,60,3422,1828.1,4.3
+D,155.22,4,slow,60,3425,1829.7,6.4
+D,155.47,4,slow,60,3426,1830.2,2.1
+D,155.72,4,slow,60,3428,1831.3,4.3
+D,155.97,4,slow,60,3430,1832.4,4.3
+T,156.0,21.63,21.13,0.50,0
+D,156.22,4,slow,60,3431,1832.9,2.1
+D,156.47,4,slow,60,3433,1834.0,4.3
+D,156.72,4,slow,60,3435,1835.0,4.3
+D,156.97,4,slow,60,3437,1836.1,4.3
+D,157.22,4,slow,60,3438,1836.6,2.1
+D,157.47,4,slow,60,3440,1837.7,4.3
+D,157.72,4,slow,60,3443,1839.3,6.4
+D,157.97,4,slow,60,3445,1840.4,4.3
+T,158.0,21.63,21.13,0.50,0
+D,158.22,4,slow,60,3446,1840.9,2.1
+D,158.47,4,slow,60,3448,1842.0,4.3
+D,158.72,4,slow,60,3451,1843.6,6.4
+D,158.97,4,slow,60,3452,1844.1,2.1
+D,159.22,4,slow,60,3454,1845.2,4.3
+D,159.47,4,slow,60,3456,1846.3,4.3
+D,159.72,4,slow,60,3457,1846.8,2.1
+D,159.97,4,slow,60,3459,1847.9,4.3
+T,160.0,21.63,21.06,0.57,0
+D,160.22,4,slow,60,3461,1848.9,4.3
+D,160.47,4,slow,60,3462,1849.5,2.1
+D,160.72,4,slow,60,3464,1850.5,4.3
+D,160.97,4,slow,60,3466,1851.6,4.3
+D,161.22,4,slow,60,3468,1852.7,4.3
+D,161.47,4,slow,60,3469,1853.2,2.1
+D,161.72,4,slow,60,3471,1854.3,4.3
+D,161.97,4,slow,60,3473,1855.3,4.3
+T,162.0,21.63,21.06,0.57,0
+D,162.22,4,slow,60,3475,1856.4,4.3
+D,162.47,4,slow,60,3477,1857.5,4.3
+D,162.72,4,slow,60,3480,1859.1,6.4
+D,162.97,4,slow,60,3482,1860.1,4.3
+D,163.22,4,slow,60,3484,1861.2,4.3
+D,163.47,4,slow,60,3486,1862.3,4.3
+D,163.72,4,slow,60,3487,1862.8,2.1
+D,163.97,4,slow,60,3489,1863.9,4.3
+T,164.0,21.63,21.13,0.50,0
+D,164.22,4,slow,60,3491,1865.0,4.3
+D,164.47,4,slow,60,3493,1866.0,4.3
+D,164.72,4,slow,60,3495,1867.1,4.3
+D,164.97,4,slow,60,3497,1868.2,4.3
+D,165.22,4,slow,60,3499,1869.2,4.3
+D,165.47,4,slow,60,3501,1870.3,4.3
+D,165.72,4,slow,60,3503,1871.4,4.3
+D,165.97,4,slow,60,3505,1872.4,4.3
+T,166.0,21.63,21.13,0.50,0
+D,166.22,4,slow,60,3507,1873.5,4.3
+D,166.47,4,slow,60,3509,1874.6,4.3
+D,166.72,4,slow,60,3511,1875.6,4.3
+D,166.97,4,slow,60,3513,1876.7,4.3
+D,167.22,4,slow,60,3515,1877.8,4.3
+D,167.47,4,slow,60,3517,1878.8,4.3
+D,167.72,4,slow,60,3519,1879.9,4.3
+D,167.97,4,slow,60,3521,1881.0,4.3
+T,168.0,21.63,21.06,0.57,0
+D,168.22,4,slow,60,3523,1882.0,4.3
+D,168.47,4,slow,60,3525,1883.1,4.3
+D,168.72,4,slow,60,3528,1884.7,6.4
+D,168.97,4,slow,60,3530,1885.8,4.3
+D,169.22,4,slow,60,3532,1886.9,4.3
+D,169.47,4,slow,60,3534,1887.9,4.3
+D,169.72,4,slow,60,3536,1889.0,4.3
+D,169.97,4,slow,60,3538,1890.1,4.3
+T,170.0,21.63,21.06,0.57,0
+D,170.22,4,slow,60,3541,1891.7,6.4
+D,170.47,4,slow,60,3543,1892.7,4.3
+D,170.72,4,slow,60,3546,1894.3,6.4
+D,170.97,4,slow,60,3548,1895.4,4.3
+D,171.22,4,slow,60,3550,1896.5,4.3
+D,171.47,4,slow,60,3552,1897.5,4.3
+D,171.72,4,slow,60,3555,1899.1,6.4
+D,171.97,4,slow,60,3557,1900.2,4.3
+T,172.0,21.63,21.06,0.57,0
+D,172.22,4,slow,60,3559,1901.3,4.3
+D,172.47,4,slow,60,3561,1902.3,4.3
+D,172.72,4,slow,60,3563,1903.4,4.3
+D,172.97,4,slow,60,3566,1905.0,6.4
+D,173.22,4,slow,60,3568,1906.1,4.3
+D,173.47,4,slow,60,3570,1907.2,4.3
+D,173.72,4,slow,60,3572,1908.2,4.3
+D,173.97,4,slow,60,3575,1909.8,6.4
+T,174.0,21.63,21.13,0.50,0
+D,174.22,4,slow,60,3577,1910.9,4.3
+D,174.47,4,slow,60,3579,1912.0,4.3
+D,174.72,4,slow,60,3581,1913.0,4.3
+D,174.97,4,slow,60,3583,1914.1,4.3
+D,175.22,4,slow,60,3585,1915.2,4.3
+D,175.47,4,slow,60,3587,1916.2,4.3
+D,175.72,4,slow,60,3591,1918.4,8.5
+D,175.97,4,slow,60,3593,1919.4,4.3
+T,176.0,21.63,21.13,0.50,0
+D,176.22,4,slow,60,3595,1920.5,4.3
+D,176.47,4,slow,60,3597,1921.6,4.3
+D,176.72,4,slow,60,3600,1923.2,6.4
+D,176.97,4,slow,60,3602,1924.2,4.3
+D,177.22,4,slow,60,3604,1925.3,4.3
+D,177.47,4,slow,60,3607,1926.9,6.4
+D,177.72,4,slow,60,3609,1928.0,4.3
+D,177.97,4,slow,60,3611,1929.1,4.3
+T,178.0,21.63,21.06,0.57,0
+D,178.22,4,slow,60,3613,1930.1,4.3
+D,178.47,4,slow,60,3616,1931.7,6.4
+D,178.72,4,slow,60,3618,1932.8,4.3
+D,178.97,4,slow,60,3620,1933.9,4.3
+D,179.22,4,slow,60,3623,1935.5,6.4
+D,179.47,4,slow,60,3625,1936.5,4.3
+D,179.72,4,slow,60,3627,1937.6,4.3
+D,179.97,4,slow,60,3630,1939.2,6.4
+T,180.0,21.63,21.13,0.50,0
+D,180.22,4,slow,60,3632,1940.3,4.3
+D,180.47,4,slow,60,3634,1941.3,4.3
+D,180.72,4,slow,60,3637,1942.9,6.4
+D,180.97,4,slow,60,3640,1944.5,6.4
+D,181.22,4,slow,60,3642,1945.6,4.3
+D,181.47,4,slow,60,3645,1947.2,6.4
+D,181.72,4,slow,60,3647,1948.3,4.3
+D,181.97,4,slow,60,3650,1949.9,6.4
+T,182.0,21.63,21.06,0.57,0
+D,182.22,4,slow,60,3652,1951.0,4.3
+D,182.47,4,slow,60,3654,1952.0,4.3
+D,182.72,4,slow,60,3657,1953.6,6.4
+D,182.97,4,slow,60,3659,1954.7,4.3
+D,183.22,4,slow,60,3661,1955.8,4.3
+D,183.47,4,slow,60,3665,1957.9,8.5
+D,183.72,4,slow,60,3667,1959.0,4.3
+D,183.97,4,slow,60,3669,1960.0,4.3
+T,184.0,21.63,21.13,0.50,0
+D,184.22,4,slow,60,3672,1961.6,6.4
+D,184.47,4,slow,60,3674,1962.7,4.3
+D,184.72,4,slow,60,3677,1964.3,6.4
+D,184.97,4,slow,60,3680,1965.9,6.4
+D,185.22,4,slow,60,3683,1967.5,6.4
+D,185.47,4,slow,60,3686,1969.1,6.4
+D,185.72,4,slow,60,3689,1970.7,6.4
+D,185.97,4,slow,60,3692,1972.3,6.4
+T,186.0,21.63,21.06,0.57,0
+D,186.22,4,slow,60,3695,1973.9,6.4
+D,186.47,4,slow,60,3699,1976.1,8.5
+D,186.72,4,slow,60,3701,1977.1,4.3
+D,186.97,4,slow,60,3704,1978.7,6.4
+D,187.22,4,slow,60,3708,1980.9,8.5
+D,187.47,4,slow,60,3712,1983.0,8.5
+D,187.72,4,slow,60,3715,1984.6,6.4
+D,187.97,4,slow,60,3718,1986.2,6.4
+T,188.0,21.63,21.06,0.57,0
+D,188.22,4,slow,60,3721,1987.8,6.4
+D,188.47,4,slow,60,3724,1989.4,6.4
+D,188.72,4,slow,60,3727,1991.0,6.4
+D,188.97,4,slow,60,3730,1992.6,6.4
+D,189.22,4,slow,60,3732,1993.7,4.3
+D,189.47,4,slow,60,3735,1995.3,6.4
+D,189.72,4,slow,60,3738,1996.9,6.4
+D,189.97,4,settle,0,3741,1998.5,6.4
+T,190.0,21.63,21.06,0.57,0
+D,190.22,4,settle,0,3743,1999.6,4.3
+D,190.47,4,settle,0,3744,2000.1,2.1
+= WATER target 2000.0 mL, metered 2000.1 mL (error +0.1 mL, +0.01 %), coast 2.7 mL, next overrun 2.8 mL, pulses 3744, 190.7 s
+R,4,WATER,2000.0,2000.1,+0.1,3744,190.7
+S,190.7,STEP1_DONE
+> STEP 1 DONE: 2000.1 mL flushed to the jug, P1 off, SV4 closed
+>>> LIFT THE JUG OUT OF THE MIXING TANK NOW <<<
+S,190.7,PAUSE_START
+> pause 10 s, Step 2 starts by itself
+T,192.0,21.63,21.06,0.57,0
+T,194.0,21.63,21.06,0.57,0
+T,196.0,21.63,21.06,0.57,0
+T,198.0,21.63,21.13,0.50,0
+T,200.0,21.63,21.13,0.50,0
+S,200.7,PAUSE_DONE
+S,200.7,STEP2_START
+> STEP 2: SV5 open, P4 100% circulating YELLOW through the ice-bath coil until |TS1 - TS2| >= 10.3 C
+T,202.0,21.63,21.13,0.50,1
+T,204.0,21.63,21.06,0.57,1
+T,206.0,21.56,21.06,0.50,1
+T,208.0,21.63,21.06,0.57,1
+T,210.0,21.63,21.06,0.57,1
+T,212.0,21.63,21.06,0.57,1
+! busy, type abort first
+T,214.0,21.63,21.06,0.57,1
+!,TRIP,215.4,abort command
+! INTERLOCK TRIP: abort command. All pumps off, all valves closed.
+S,215.4,FAULT,abort command
+#REPORT BEGIN,3
+P,dt_target,10.0
+P,mode,cooling
+P,target1,1800.0
+P,target2,300.0
+P,target3,900.0
+P,target4,2000.0
+K,line,name,k_pulses_per_mL,sensor
+K,1,RED,1.8719,FT1
+K,2,YELLOW,9.6364,FT2
+K,3,GREEN,1.9033,FT3
+K,4,WATER,1.8719,FT1
+O,TS1,+0.000
+O,TS2,+0.000
+R,4,WATER,2000.0,2000.1,+0.1,3744,190.7
+X,trip,abort command
+T,0.0,21.75,21.13,0.62,0
+T,2.0,21.69,21.13,0.56,0
+T,4.0,21.69,21.13,0.56,0
+T,6.0,21.69,21.13,0.56,0
+T,8.0,21.75,21.13,0.62,0
+T,10.0,21.69,21.13,0.56,0
+T,12.0,21.69,21.13,0.56,0
+T,14.0,21.75,21.13,0.62,0
+T,16.0,21.69,21.13,0.56,0
+T,18.0,21.75,21.13,0.62,0
+T,20.0,21.75,21.13,0.62,0
+T,22.0,21.69,21.13,0.56,0
+T,24.0,21.75,21.13,0.62,0
+T,26.0,21.75,21.13,0.62,0
+T,28.0,21.75,21.13,0.62,0
+T,30.0,21.75,21.06,0.69,0
+T,32.0,21.75,21.13,0.62,0
+T,34.0,21.75,21.06,0.69,0
+T,36.0,21.75,21.13,0.62,0
+T,38.0,21.75,21.13,0.62,0
+T,40.0,21.75,21.13,0.62,0
+T,42.0,21.69,21.13,0.56,0
+T,44.0,21.75,21.13,0.62,0
+T,46.0,21.75,21.13,0.62,0
+T,48.0,21.75,21.13,0.62,0
+T,50.0,21.75,21.13,0.62,0
+T,52.0,21.75,21.06,0.69,0
+T,54.0,21.75,21.13,0.62,0
+T,56.0,21.75,21.13,0.62,0
+T,58.0,21.75,21.06,0.69,0
+T,60.0,21.75,21.13,0.62,0
+T,62.0,21.75,21.13,0.62,0
+T,64.0,21.75,21.13,0.62,0
+T,66.0,21.75,21.06,0.69,0
+T,68.0,21.75,21.13,0.62,0
+T,70.0,21.75,21.13,0.62,0
+T,72.0,21.69,21.13,0.56,0
+T,74.0,21.75,21.13,0.62,0
+T,76.0,21.75,21.13,0.62,0
+T,78.0,21.69,21.13,0.56,0
+T,80.0,21.75,21.13,0.62,0
+T,82.0,21.69,21.13,0.56,0
+T,84.0,21.75,21.13,0.62,0
+T,86.0,21.75,21.13,0.62,0
+T,88.0,21.75,21.13,0.62,0
+T,90.0,21.69,21.13,0.56,0
+T,92.0,21.69,21.13,0.56,0
+T,94.0,21.69,21.13,0.56,0
+T,96.0,21.69,21.13,0.56,0
+T,98.0,21.69,21.13,0.56,0
+T,100.0,21.69,21.13,0.56,0
+T,102.0,21.69,21.13,0.56,0
+T,104.0,21.69,21.13,0.56,0
+T,106.0,21.75,21.13,0.62,0
+T,108.0,21.69,21.13,0.56,0
+T,110.0,21.69,21.06,0.63,0
+T,112.0,21.69,21.13,0.56,0
+T,114.0,21.69,21.13,0.56,0
+T,116.0,21.69,21.13,0.56,0
+T,118.0,21.69,21.13,0.56,0
+T,120.0,21.69,21.13,0.56,0
+T,122.0,21.69,21.13,0.56,0
+T,124.0,21.75,21.13,0.62,0
+T,126.0,21.69,21.06,0.63,0
+T,128.0,21.69,21.13,0.56,0
+T,130.0,21.75,21.13,0.62,0
+T,132.0,21.69,21.13,0.56,0
+T,134.0,21.69,21.13,0.56,0
+T,136.0,21.69,21.13,0.56,0
+T,138.0,21.69,21.06,0.63,0
+T,140.0,21.69,21.13,0.56,0
+T,142.0,21.69,21.13,0.56,0
+T,144.0,21.69,21.13,0.56,0
+T,146.0,21.69,21.13,0.56,0
+T,148.0,21.69,21.13,0.56,0
+T,150.0,21.63,21.13,0.50,0
+T,152.0,21.69,21.06,0.63,0
+T,154.0,21.69,21.13,0.56,0
+T,156.0,21.63,21.13,0.50,0
+T,158.0,21.63,21.13,0.50,0
+T,160.0,21.63,21.06,0.57,0
+T,162.0,21.63,21.06,0.57,0
+T,164.0,21.63,21.13,0.50,0
+T,166.0,21.63,21.13,0.50,0
+T,168.0,21.63,21.06,0.57,0
+T,170.0,21.63,21.06,0.57,0
+T,172.0,21.63,21.06,0.57,0
+T,174.0,21.63,21.13,0.50,0
+T,176.0,21.63,21.13,0.50,0
+T,178.0,21.63,21.06,0.57,0
+T,180.0,21.63,21.13,0.50,0
+T,182.0,21.63,21.06,0.57,0
+T,184.0,21.63,21.13,0.50,0
+T,186.0,21.63,21.06,0.57,0
+T,188.0,21.63,21.06,0.57,0
+T,190.0,21.63,21.06,0.57,0
+T,192.0,21.63,21.06,0.57,0
+T,194.0,21.63,21.06,0.57,0
+T,196.0,21.63,21.06,0.57,0
+T,198.0,21.63,21.13,0.50,0
+T,200.0,21.63,21.13,0.50,0
+T,202.0,21.63,21.13,0.50,1
+T,204.0,21.63,21.06,0.57,1
+T,206.0,21.56,21.06,0.50,1
+T,208.0,21.63,21.06,0.57,1
+T,210.0,21.63,21.06,0.57,1
+T,212.0,21.63,21.06,0.57,1
+T,214.0,21.63,21.06,0.57,1
+D,0.22,4,log,100,0,0.0,0.0
+D,0.72,4,log,100,0,0.0,0.0
+D,1.22,4,log,100,0,0.0,0.0
+D,1.72,4,log,100,0,0.0,0.0
+D,2.22,4,log,100,0,0.0,0.0
+D,2.72,4,log,100,0,0.0,0.0
+D,3.22,4,log,100,0,0.0,0.0
+D,3.72,4,log,100,0,0.0,0.0
+D,4.22,4,log,100,0,2.1,6.4
+D,4.72,4,log,100,0,6.4,8.5
+D,5.22,4,log,100,0,11.2,8.5
+D,5.72,4,log,100,0,17.1,12.8
+D,6.22,4,log,100,0,21.9,10.7
+D,6.72,4,log,100,0,27.2,10.7
+D,7.22,4,log,100,0,32.6,10.7
+D,7.72,4,log,100,0,37.9,10.7
+D,8.22,4,log,100,0,42.7,10.7
+D,8.72,4,log,100,0,47.5,10.7
+D,9.22,4,log,100,0,54.0,10.7
+D,9.72,4,log,100,0,59.3,10.7
+D,10.22,4,log,100,0,64.6,10.7
+D,10.72,4,log,100,0,69.4,10.7
+D,11.22,4,log,100,0,74.8,10.7
+D,11.72,4,log,100,0,79.6,8.5
+D,12.22,4,log,100,0,86.0,10.7
+D,12.72,4,log,100,0,91.9,10.7
+D,13.22,4,log,100,0,98.8,15.0
+D,13.72,4,log,100,0,104.7,10.7
+D,14.22,4,log,100,0,111.1,12.8
+D,14.72,4,log,100,0,116.5,10.7
+D,15.22,4,log,100,0,123.4,12.8
+D,15.72,4,log,100,0,129.3,10.7
+D,16.22,4,log,100,0,135.2,10.7
+D,16.72,4,log,100,0,141.0,10.7
+D,17.22,4,log,100,0,146.9,10.7
+D,17.72,4,log,100,0,153.3,10.7
+D,18.22,4,log,100,0,159.2,10.7
+D,18.72,4,log,100,0,165.1,12.8
+D,19.22,4,log,100,0,170.9,12.8
+D,19.72,4,log,100,0,176.8,12.8
+D,20.22,4,log,100,0,182.2,10.7
+D,20.72,4,log,100,0,188.0,12.8
+D,21.22,4,log,100,0,193.9,12.8
+D,21.72,4,log,100,0,199.3,10.7
+D,22.22,4,log,100,0,205.7,12.8
+D,22.72,4,log,100,0,211.5,12.8
+D,23.22,4,log,100,0,217.4,12.8
+D,23.72,4,log,100,0,223.3,12.8
+D,24.22,4,log,100,0,229.2,12.8
+D,24.72,4,log,100,0,235.6,12.8
+D,25.22,4,log,100,0,241.5,12.8
+D,25.72,4,log,100,0,247.3,12.8
+D,26.22,4,log,100,0,253.2,12.8
+D,26.72,4,log,100,0,259.1,12.8
+D,27.22,4,log,100,0,265.0,12.8
+D,27.72,4,log,100,0,270.8,12.8
+D,28.22,4,log,100,0,277.8,17.1
+D,28.72,4,log,100,0,284.7,12.8
+D,29.22,4,log,100,0,290.6,10.7
+D,29.72,4,log,100,0,297.0,12.8
+D,30.22,4,log,100,0,304.5,15.0
+D,30.72,4,log,100,0,312.0,12.8
+D,31.22,4,log,100,0,317.9,10.7
+D,31.72,4,log,100,0,323.7,10.7
+D,32.22,4,log,100,0,330.7,15.0
+D,32.72,4,log,100,0,338.2,15.0
+D,33.22,4,log,100,0,344.0,10.7
+D,33.72,4,log,100,0,349.9,10.7
+D,34.22,4,log,100,0,356.3,12.8
+D,34.72,4,log,100,0,362.7,12.8
+D,35.22,4,log,100,0,369.7,15.0
+D,35.72,4,log,100,0,375.6,10.7
+D,36.22,4,log,100,0,382.5,15.0
+D,36.72,4,log,100,0,389.4,12.8
+D,37.22,4,log,100,0,395.9,12.8
+D,37.72,4,log,100,0,402.3,12.8
+D,38.22,4,log,100,0,408.7,10.7
+D,38.72,4,log,100,0,416.2,12.8
+D,39.22,4,log,100,0,422.6,12.8
+D,39.72,4,log,100,0,429.0,12.8
+D,40.22,4,log,100,0,434.9,12.8
+D,40.72,4,log,100,0,440.7,12.8
+D,41.22,4,log,100,0,447.1,15.0
+D,41.72,4,log,100,0,453.0,12.8
+D,42.22,4,log,100,0,458.9,10.7
+D,42.72,4,log,100,0,465.3,12.8
+D,43.22,4,log,100,0,471.2,10.7
+D,43.72,4,log,100,0,478.1,15.0
+D,44.22,4,log,100,0,484.5,10.7
+D,44.72,4,log,100,0,490.4,10.7
+D,45.22,4,log,100,0,497.4,12.8
+D,45.72,4,log,100,0,503.2,10.7
+D,46.22,4,log,100,0,509.1,10.7
+D,46.72,4,log,100,0,516.6,15.0
+D,47.22,4,log,100,0,522.5,10.7
+D,47.72,4,log,100,0,529.4,12.8
+D,48.22,4,log,100,0,535.3,10.7
+D,48.72,4,log,100,0,541.2,10.7
+D,49.22,4,log,100,0,548.1,12.8
+D,49.72,4,log,100,0,554.5,12.8
+D,50.22,4,log,100,0,561.5,15.0
+D,50.72,4,log,100,0,568.9,15.0
+D,51.22,4,log,100,0,575.9,12.8
+D,51.72,4,log,100,0,581.8,10.7
+D,52.22,4,log,100,0,587.6,10.7
+D,52.72,4,log,100,0,593.5,10.7
+D,53.22,4,log,100,0,599.4,10.7
+D,53.72,4,log,100,0,605.3,10.7
+D,54.22,4,log,100,0,611.7,12.8
+D,54.72,4,log,100,0,617.6,10.7
+D,55.22,4,log,100,0,624.5,15.0
+D,55.72,4,log,100,0,632.0,15.0
+D,56.22,4,log,100,0,638.4,10.7
+D,56.72,4,log,100,0,644.3,10.7
+D,57.22,4,log,100,0,650.7,12.8
+D,57.72,4,log,100,0,656.6,10.7
+D,58.22,4,log,100,0,664.0,12.8
+D,58.72,4,log,100,0,670.4,12.8
+D,59.22,4,log,100,0,676.9,12.8
+D,59.72,4,log,100,0,682.7,12.8
+D,60.22,4,log,100,0,688.6,12.8
+D,60.72,4,log,100,0,694.5,12.8
+D,61.22,4,log,100,0,700.4,12.8
+D,61.72,4,log,100,0,706.2,12.8
+D,62.22,4,log,100,0,713.7,15.0
+D,62.72,4,log,100,0,720.1,12.8
+D,63.22,4,log,100,0,726.0,12.8
+D,63.72,4,log,100,0,732.9,12.8
+D,64.22,4,log,100,0,739.9,10.7
+D,64.72,4,log,100,0,745.8,10.7
+D,65.22,4,log,100,0,751.6,10.7
+D,65.72,4,log,100,0,758.1,12.8
+D,66.22,4,log,100,0,764.5,12.8
+D,66.72,4,log,100,0,769.8,10.7
+D,67.22,4,log,100,0,776.2,10.7
+D,67.72,4,log,100,0,782.6,10.7
+D,68.22,4,log,100,0,789.0,12.8
+D,68.72,4,log,100,0,796.0,15.0
+D,69.22,4,log,100,0,802.4,12.8
+D,69.72,4,log,100,0,809.3,12.8
+D,70.22,4,log,100,0,815.2,12.8
+D,70.72,4,log,100,0,821.1,12.8
+D,71.22,4,log,100,0,827.0,12.8
+D,71.72,4,log,100,0,832.8,12.8
+D,72.22,4,log,100,0,839.3,12.8
+D,72.72,4,log,100,0,845.1,10.7
+D,73.22,4,log,100,0,851.5,12.8
+D,73.72,4,log,100,0,858.5,12.8
+D,74.22,4,log,100,0,865.4,15.0
+D,74.72,4,log,100,0,872.4,12.8
+D,75.22,4,log,100,0,878.8,15.0
+D,75.72,4,log,100,0,884.7,12.8
+D,76.22,4,log,100,0,891.1,12.8
+D,76.72,4,log,100,0,896.9,12.8
+D,77.22,4,log,100,0,902.8,12.8
+D,77.72,4,log,100,0,908.7,12.8
+D,78.22,4,log,100,0,914.6,12.8
+D,78.72,4,log,100,0,921.5,15.0
+D,79.22,4,log,100,0,927.4,10.7
+D,79.72,4,log,100,0,933.3,10.7
+D,80.22,4,log,100,0,940.2,15.0
+D,80.72,4,log,100,0,947.7,15.0
+D,81.22,4,log,100,0,954.1,12.8
+D,81.72,4,log,100,0,960.5,12.8
+D,82.22,4,log,100,0,967.5,15.0
+D,82.72,4,log,100,0,974.4,12.8
+D,83.22,4,log,100,0,981.4,12.8
+D,83.72,4,log,100,0,987.8,12.8
+D,84.22,4,log,100,0,993.6,10.7
+D,84.72,4,log,100,0,1000.6,15.0
+D,85.22,4,log,100,0,1007.5,15.0
+D,85.72,4,log,100,0,1013.9,12.8
+D,86.22,4,log,100,0,1021.4,15.0
+D,86.72,4,log,100,0,1028.9,12.8
+D,87.22,4,log,100,0,1035.8,12.8
+D,87.72,4,log,100,0,1042.8,15.0
+D,88.22,4,log,100,0,1049.2,15.0
+D,88.72,4,log,100,0,1055.6,10.7
+D,89.22,4,log,100,0,1063.1,15.0
+D,89.72,4,log,100,0,1069.5,12.8
+D,90.22,4,log,100,0,1075.4,12.8
+D,90.72,4,log,100,0,1081.3,12.8
+D,91.22,4,log,100,0,1087.1,12.8
+D,91.72,4,log,100,0,1093.5,12.8
+D,92.22,4,log,100,0,1100.0,10.7
+D,92.72,4,log,100,0,1105.8,10.7
+D,93.22,4,log,100,0,1111.7,10.7
+D,93.72,4,log,100,0,1118.1,12.8
+D,94.22,4,log,100,0,1124.0,10.7
+D,94.72,4,log,100,0,1130.9,10.7
+D,95.22,4,log,100,0,1137.3,12.8
+D,95.72,4,log,100,0,1143.2,12.8
+D,96.22,4,log,100,0,1149.6,12.8
+D,96.72,4,log,100,0,1156.6,12.8
+D,97.22,4,log,100,0,1162.5,12.8
+D,97.72,4,log,100,0,1168.3,12.8
+D,98.22,4,log,100,0,1174.2,12.8
+D,98.72,4,log,100,0,1180.6,15.0
+D,99.22,4,log,100,0,1186.0,10.7
+D,99.72,4,log,100,0,1191.8,10.7
+D,100.22,4,log,100,0,1197.7,10.7
+D,100.72,4,log,100,0,1203.6,10.7
+D,101.22,4,log,100,0,1209.5,10.7
+D,101.72,4,log,100,0,1215.9,12.8
+D,102.22,4,log,100,0,1221.8,12.8
+D,102.72,4,log,100,0,1228.2,15.0
+D,103.22,4,log,100,0,1234.0,12.8
+D,103.72,4,log,100,0,1239.9,12.8
+D,104.22,4,log,100,0,1245.8,12.8
+D,104.72,4,log,100,0,1251.7,12.8
+D,105.22,4,log,100,0,1257.5,12.8
+D,105.72,4,log,100,0,1263.4,12.8
+D,106.22,4,log,100,0,1269.8,12.8
+D,106.72,4,log,100,0,1275.7,10.7
+D,107.22,4,log,100,0,1281.6,10.7
+D,107.72,4,log,100,0,1288.5,15.0
+D,108.22,4,log,100,0,1294.9,12.8
+D,108.72,4,log,100,0,1301.4,12.8
+D,109.22,4,log,100,0,1307.2,10.7
+D,109.72,4,log,100,0,1313.6,12.8
+D,110.22,4,log,100,0,1320.0,12.8
+D,110.72,4,log,100,0,1325.9,12.8
+D,111.22,4,log,100,0,1331.8,12.8
+D,111.72,4,log,100,0,1337.7,12.8
+D,112.22,4,log,100,0,1343.6,12.8
+D,112.72,4,log,100,0,1349.4,12.8
+D,113.22,4,log,100,0,1355.3,12.8
+D,113.72,4,log,100,0,1361.2,12.8
+D,114.22,4,log,100,0,1367.1,12.8
+D,114.72,4,log,100,0,1372.9,10.7
+D,115.22,4,log,100,0,1379.3,12.8
+D,115.72,4,log,100,0,1385.8,12.8
+D,116.22,4,log,100,0,1391.6,10.7
+D,116.72,4,log,100,0,1397.5,10.7
+D,117.22,4,log,100,0,1403.4,10.7
+D,117.72,4,log,100,0,1409.8,12.8
+D,118.22,4,log,100,0,1415.7,12.8
+D,118.72,4,log,100,0,1421.6,12.8
+D,119.22,4,log,100,0,1427.4,12.8
+D,119.72,4,log,100,0,1432.8,10.7
+D,120.22,4,log,100,0,1438.1,10.7
+D,120.72,4,log,100,0,1444.0,12.8
+D,121.22,4,log,100,0,1450.4,15.0
+D,121.72,4,log,100,0,1456.3,12.8
+D,122.22,4,log,100,0,1463.2,15.0
+D,122.72,4,log,100,0,1469.1,12.8
+D,123.22,4,log,100,0,1475.0,12.8
+D,123.72,4,log,100,0,1480.8,12.8
+D,124.22,4,log,100,0,1486.7,12.8
+D,124.72,4,log,100,0,1493.1,12.8
+D,125.22,4,log,100,0,1499.0,10.7
+D,125.72,4,log,100,0,1504.9,10.7
+D,126.22,4,log,100,0,1510.8,10.7
+D,126.72,4,log,100,0,1516.6,10.7
+D,127.22,4,log,100,0,1523.1,12.8
+D,127.72,4,log,100,0,1529.5,12.8
+D,128.22,4,log,100,0,1535.3,12.8
+D,128.72,4,log,100,0,1541.2,12.8
+D,129.22,4,log,100,0,1547.1,12.8
+D,129.72,4,log,100,0,1553.0,12.8
+D,130.22,4,log,100,0,1558.3,10.7
+D,130.72,4,log,100,0,1565.3,15.0
+D,131.22,4,log,100,0,1571.7,10.7
+D,131.72,4,log,100,0,1577.5,10.7
+D,132.22,4,log,100,0,1584.5,12.8
+D,132.72,4,log,100,0,1590.9,12.8
+D,133.22,4,log,100,0,1596.8,12.8
+D,133.72,4,log,100,0,1602.6,12.8
+D,134.22,4,log,100,0,1608.5,12.8
+D,134.72,4,log,100,0,1614.4,12.8
+D,135.22,4,log,100,0,1620.3,12.8
+D,135.72,4,log,100,0,1626.2,12.8
+D,136.22,4,log,100,0,1632.0,10.7
+D,136.72,4,log,100,0,1638.4,10.7
+D,137.22,4,log,100,0,1644.3,10.7
+D,137.72,4,log,100,0,1650.2,10.7
+D,138.22,4,log,100,0,1656.1,10.7
+D,138.72,4,log,100,0,1661.9,10.7
+D,139.22,4,log,100,0,1668.4,12.8
+D,139.72,4,log,100,0,1674.8,15.0
+D,140.22,4,log,100,0,1680.6,12.8
+D,140.72,4,log,100,0,1687.6,12.8
+D,141.22,4,log,100,0,1694.0,12.8
+D,141.72,4,log,100,0,1700.4,15.0
+D,142.22,4,log,100,0,1706.8,12.8
+D,142.72,4,log,100,0,1713.2,10.7
+D,143.22,4,log,100,0,1719.1,10.7
+D,143.72,4,log,100,0,1725.5,10.7
+D,144.22,4,log,100,0,1731.4,10.7
+D,144.72,4,log,100,0,1737.3,10.7
+D,145.22,4,log,100,0,1743.1,10.7
+D,145.72,4,log,100,0,1749.6,12.8
+D,146.22,4,log,100,0,1756.5,15.0
+D,146.72,4,log,100,0,1762.4,12.8
+D,147.22,4,log,100,0,1768.3,12.8
+D,147.72,4,log,100,0,1774.1,12.8
+D,148.22,4,log,100,0,1780.5,12.8
+D,148.72,4,log,100,0,1786.4,12.8
+D,149.22,4,log,100,0,1792.3,10.7
+D,149.72,4,log,100,0,1798.2,10.7
+D,150.22,4,log,60,0,1803.5,8.5
+D,150.72,4,log,60,0,1807.3,6.4
+D,151.22,4,log,60,0,1811.0,6.4
+D,151.72,4,log,60,0,1814.7,6.4
+D,152.22,4,log,60,0,1818.5,8.5
+D,152.72,4,log,60,0,1820.6,4.3
+D,153.22,4,log,60,0,1822.7,2.1
+D,153.72,4,log,60,0,1823.8,2.1
+D,154.22,4,log,60,0,1825.4,2.1
+D,154.72,4,log,60,0,1827.0,2.1
+D,155.22,4,log,60,0,1829.7,6.4
+D,155.72,4,log,60,0,1831.3,4.3
+D,156.22,4,log,60,0,1832.9,2.1
+D,156.72,4,log,60,0,1835.0,4.3
+D,157.22,4,log,60,0,1836.6,2.1
+D,157.72,4,log,60,0,1839.3,6.4
+D,158.22,4,log,60,0,1840.9,2.1
+D,158.72,4,log,60,0,1843.6,6.4
+D,159.22,4,log,60,0,1845.2,4.3
+D,159.72,4,log,60,0,1846.8,2.1
+D,160.22,4,log,60,0,1848.9,4.3
+D,160.72,4,log,60,0,1850.5,4.3
+D,161.22,4,log,60,0,1852.7,4.3
+D,161.72,4,log,60,0,1854.3,4.3
+D,162.22,4,log,60,0,1856.4,4.3
+D,162.72,4,log,60,0,1859.1,6.4
+D,163.22,4,log,60,0,1861.2,4.3
+D,163.72,4,log,60,0,1862.8,2.1
+D,164.22,4,log,60,0,1865.0,4.3
+D,164.72,4,log,60,0,1867.1,4.3
+D,165.22,4,log,60,0,1869.2,4.3
+D,165.72,4,log,60,0,1871.4,4.3
+D,166.22,4,log,60,0,1873.5,4.3
+D,166.72,4,log,60,0,1875.6,4.3
+D,167.22,4,log,60,0,1877.8,4.3
+D,167.72,4,log,60,0,1879.9,4.3
+D,168.22,4,log,60,0,1882.0,4.3
+D,168.72,4,log,60,0,1884.7,6.4
+D,169.22,4,log,60,0,1886.9,4.3
+D,169.72,4,log,60,0,1889.0,4.3
+D,170.22,4,log,60,0,1891.7,6.4
+D,170.72,4,log,60,0,1894.3,6.4
+D,171.22,4,log,60,0,1896.5,4.3
+D,171.72,4,log,60,0,1899.1,6.4
+D,172.22,4,log,60,0,1901.3,4.3
+D,172.72,4,log,60,0,1903.4,4.3
+D,173.22,4,log,60,0,1906.1,4.3
+D,173.72,4,log,60,0,1908.2,4.3
+D,174.22,4,log,60,0,1910.9,4.3
+D,174.72,4,log,60,0,1913.0,4.3
+D,175.22,4,log,60,0,1915.2,4.3
+D,175.72,4,log,60,0,1918.4,8.5
+D,176.22,4,log,60,0,1920.5,4.3
+D,176.72,4,log,60,0,1923.2,6.4
+D,177.22,4,log,60,0,1925.3,4.3
+D,177.72,4,log,60,0,1928.0,4.3
+D,178.22,4,log,60,0,1930.1,4.3
+D,178.72,4,log,60,0,1932.8,4.3
+D,179.22,4,log,60,0,1935.5,6.4
+D,179.72,4,log,60,0,1937.6,4.3
+D,180.22,4,log,60,0,1940.3,4.3
+D,180.72,4,log,60,0,1942.9,6.4
+D,181.22,4,log,60,0,1945.6,4.3
+D,181.72,4,log,60,0,1948.3,4.3
+D,182.22,4,log,60,0,1951.0,4.3
+D,182.72,4,log,60,0,1953.6,6.4
+D,183.22,4,log,60,0,1955.8,4.3
+D,183.72,4,log,60,0,1959.0,4.3
+D,184.22,4,log,60,0,1961.6,6.4
+D,184.72,4,log,60,0,1964.3,6.4
+D,185.22,4,log,60,0,1967.5,6.4
+D,185.72,4,log,60,0,1970.7,6.4
+D,186.22,4,log,60,0,1973.9,6.4
+D,186.72,4,log,60,0,1977.1,4.3
+D,187.22,4,log,60,0,1980.9,8.5
+D,187.72,4,log,60,0,1984.6,6.4
+D,188.22,4,log,60,0,1987.8,6.4
+D,188.72,4,log,60,0,1991.0,6.4
+D,189.22,4,log,60,0,1993.7,4.3
+D,189.72,4,log,60,0,1996.9,6.4
+D,190.22,4,log,0,0,1999.6,4.3
+#REPORT END

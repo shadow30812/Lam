@@ -4,10 +4,10 @@
 
 static const bool SETTINGS_FROM_CODE = true;
 
-static const float TUNE_K[4] = {1.8719f, 9.6364f, 1.9033f, 1.8719f};
+static const float TUNE_K[4] = {1.8719f, 9.6364f, 1.9033f, 2.4310f};
 static const float TUNE_TARGET[4] = {1800.0f, 300.0f, 900.0f, 2000.0f};
 static const uint8_t TUNE_FAST[4] = {100, 100, 100, 100};
-static const uint8_t TUNE_SLOW[4] = {60, 60, 60, 60};
+static const uint8_t TUNE_SLOW[4] = {70, 70, 70, 70};
 static const float TUNE_OVERRUN[4] = {3.0f, 3.0f, 3.0f, 3.0f};
 static const uint8_t TUNE_ORDER[3] = {2, 3, 1};
 static const float TUNE_BAND_PCT = 10.0f;
@@ -57,9 +57,30 @@ static const uint8_t START_PIN = 14;
 static const uint32_t PWM_FREQ = 20000;
 static const uint8_t PWM_BITS = 10;
 
-enum { SV_RED_SRC = 0, SV_YEL = 1, SV_GRN = 2, SV_WATER_SRC = 3, SV_LOOP = 4, NSV = 5 };
-enum { L_RED = 0, L_YELLOW = 1, L_GREEN = 2, L_WATER = 3, NLINES = 4 };
-enum { P_RED = 0, P_YEL = 1, P_GRN = 2, P_LOOP = 3 };
+enum
+{
+  SV_RED_SRC = 0,
+  SV_YEL = 1,
+  SV_GRN = 2,
+  SV_WATER_SRC = 3,
+  SV_LOOP = 4,
+  NSV = 5
+};
+enum
+{
+  L_RED = 0,
+  L_YELLOW = 1,
+  L_GREEN = 2,
+  L_WATER = 3,
+  NLINES = 4
+};
+enum
+{
+  P_RED = 0,
+  P_YEL = 1,
+  P_GRN = 2,
+  P_LOOP = 3
+};
 
 struct LineDef
 {
@@ -75,7 +96,6 @@ static const LineDef LD[NLINES] = {
     {"GREEN", P_GRN, 2, SV_GRN, -1},
     {"WATER", P_RED, 0, SV_WATER_SRC, -1},
 };
-
 
 struct LineCfg
 {
@@ -438,7 +458,6 @@ enum Phase
   D_FAULT
 };
 static const char *PHASE_NAME[] = {"idle", "open", "fast", "slow", "stop", "settle", "done", "FAULT"};
-
 
 struct Dose
 {

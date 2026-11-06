@@ -1,0 +1,7 @@
+TS1 bus: 1 sensor(s), TS2 bus: 1 sensor(s)
+TS1: 2864C12100000011  family 0x28 = DS18B20  CRC ok  bus G32  parasite no
+TS2: 288CB2D5000000C5  family 0x28 = DS18B20  CRC ok  bus G13  parasite no
+TS1 bus: 1 sensor(s), TS2 bus: 1 sensor(s)
+TS1: 2864C12100000011  family 0x28 = DS18B20  CRC ok  bus G32  parasite no
+TS2: 288CB2D5000000C5  family 0x28 = DS18B20  CRC ok  bus G13  parasite no
+commands: show, watch, temps, scan
